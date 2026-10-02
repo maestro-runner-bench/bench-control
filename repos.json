@@ -1,0 +1,36 @@
+[
+  {
+    "name": "react-native",
+    "fork": "maestro-runner-bench/react-native",
+    "upstream": "facebook/react-native",
+    "upstreamBranch": "main",
+    "branch": "maestro-runner-e2e-batch",
+    "workflows": [
+      "test-all.yml"
+    ],
+    "hourUTC": 1
+  },
+  {
+    "name": "react-navigation",
+    "fork": "maestro-runner-bench/react-navigation",
+    "upstream": "react-navigation/react-navigation",
+    "upstreamBranch": "main",
+    "branch": "maestro-runner-e2e",
+    "workflows": [
+      "e2e-ios.yml",
+      "e2e-android.yml"
+    ],
+    "hourUTC": 4
+  },
+  {
+    "name": "expo",
+    "fork": "maestro-runner-bench/expo",
+    "upstream": "expo/expo",
+    "upstreamBranch": "main",
+    "branch": "maestro-runner-e2e",
+    "workflows": [
+      "test-suite.yml"
+    ],
+    "hourUTC": 5
+  }
+]

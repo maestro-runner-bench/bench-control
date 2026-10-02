@@ -1,0 +1,52 @@
+name: Sync and run benches
+
+# Rebases each bench fork's maestro-runner branch onto the latest upstream
+# code and starts its test workflows (see repos.json and
+# scripts/sync-and-run.sh).
+
+on:
+  # Each repo at its own hour (repos.json hourUTC), so their macOS jobs do not
+  # queue behind each other: the org gets 5 concurrent macOS jobs.
+  schedule:
+    - cron: '0 1 * * *'
+    - cron: '0 4 * * *'
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+    inputs:
+      only:
+        description: One repo from repos.json (empty = all)
+        default: ''
+      dry_run:
+        description: Rebase only; do not push or start anything
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: bench-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+      - name: Check the token
+        env:
+          GH_TOKEN: ${{ secrets.BENCH_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Add the BENCH_TOKEN secret: a fine-grained token for the maestro-runner-bench org with Contents, Workflows and Actions read/write."
+            exit 1
+          fi
+      - name: Sync and run
+        env:
+          GH_TOKEN: ${{ secrets.BENCH_TOKEN }}
+          ONLY: ${{ inputs.only }}
+          SCHEDULED_HOUR: ${{ github.event_name == 'schedule' && github.event.schedule || '' }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: ./scripts/sync-and-run.sh
