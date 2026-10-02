@@ -8,7 +8,13 @@
     "workflows": [
       "test-all.yml"
     ],
-    "hourUTC": 1
+    "slotsUTC": [
+      "00:00",
+      "04:30",
+      "09:00",
+      "13:30",
+      "18:00"
+    ]
   },
   {
     "name": "react-navigation",
@@ -20,7 +26,13 @@
       "e2e-ios.yml",
       "e2e-android.yml"
     ],
-    "hourUTC": 4
+    "slotsUTC": [
+      "02:00",
+      "06:30",
+      "11:00",
+      "15:30",
+      "20:00"
+    ]
   },
   {
     "name": "expo",
@@ -31,6 +43,46 @@
     "workflows": [
       "test-suite.yml"
     ],
-    "hourUTC": 5
+    "slotsUTC": [
+      "02:00",
+      "06:30",
+      "11:00",
+      "15:30",
+      "20:00"
+    ]
+  },
+  {
+    "name": "enriched-html",
+    "fork": "maestro-runner-bench/react-native-enriched-html",
+    "upstream": "software-mansion/react-native-enriched-html",
+    "upstreamBranch": "main",
+    "branch": "maestro-runner-e2e",
+    "workflows": [
+      "maestro-runner-e2e.yml"
+    ],
+    "slotsUTC": [
+      "02:00",
+      "06:30",
+      "11:00",
+      "15:30",
+      "20:00"
+    ]
+  },
+  {
+    "name": "pager-view",
+    "fork": "maestro-runner-bench/react-native-pager-view",
+    "upstream": "callstack/react-native-pager-view",
+    "upstreamBranch": "master",
+    "branch": "maestro-runner-e2e",
+    "workflows": [
+      "maestro-runner-e2e.yml"
+    ],
+    "slotsUTC": [
+      "02:30",
+      "07:00",
+      "11:30",
+      "16:00",
+      "20:30"
+    ]
   }
 ]

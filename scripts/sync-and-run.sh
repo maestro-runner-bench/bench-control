@@ -62,10 +62,10 @@ count=$(jq length repos.json)
 for i in $(seq 0 $((count - 1))); do
   name=$(jq -r ".[$i].name" repos.json)
   if [ -n "$ONLY" ] && [ "$ONLY" != "$name" ]; then continue; fi
-  # A scheduled run ("0 <hour> * * *") takes only the repos set to that hour.
+  # A scheduled run ("<min> <hour> * * *") takes only the repos with that slot.
   if [ -n "${SCHEDULED_HOUR:-}" ]; then
-    hour=$(echo "$SCHEDULED_HOUR" | awk '{print $2}')
-    [ "$(jq -r ".[$i].hourUTC" repos.json)" = "$hour" ] || continue
+    slot=$(echo "$SCHEDULED_HOUR" | awk '{printf "%02d:%02d", $2, $1}')
+    jq -e --arg s "$slot" ".[$i].slotsUTC | index(\$s)" repos.json > /dev/null || continue
   fi
   ( sync_repo "$name" \
       "$(jq -r ".[$i].fork" repos.json)" \

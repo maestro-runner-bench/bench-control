@@ -5,7 +5,7 @@ them on a schedule.
 
 `repos.json` lists each fork, its upstream branch, our bench branch (which
 holds only CI changes: Maestro swapped for maestro-runner) and the workflows
-to start. `.github/workflows/sync-and-run.yml` runs nightly, each repo at its own UTC hour (`hourUTC`; add a matching cron line for a new hour), and on demand:
+to start. `.github/workflows/sync-and-run.yml` runs five 4.5-hour cycles a day, each repo in its slots (`slotsUTC`; add a matching cron line for a new slot), and on demand:
 for each repo it rebases the bench branch onto upstream, force-pushes it and
 starts the workflows. A rebase that conflicts skips that repo and opens an
 issue here.
