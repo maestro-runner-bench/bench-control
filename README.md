@@ -16,3 +16,13 @@ Setup: add a `BENCH_TOKEN` secret, a fine-grained token for the
 
 Run by hand: Actions → Sync and run benches → Run workflow (`only` picks one
 repo, `dry_run` rebases without pushing or starting anything).
+
+## Results
+
+`.github/workflows/collect.yml` runs daily (23:30 UTC, or by hand) and reads
+the e2e jobs of the bench forks and of upstream (Maestro, or agent-device for
+React Navigation): `scripts/collect.py` appends one record per job to
+`results/jobs.jsonl` (e2e step time, conclusion, flows, first-attempt
+failures, final failures, retry round, runner) and rewrites
+`results/SUMMARY.md`, the side-by-side comparison per project, platform and
+flavour.
