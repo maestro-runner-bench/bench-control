@@ -179,6 +179,19 @@ def parse_expo(repo, job_id, lines):
     return dict(flows=None, first_attempt_failures=len(first), final_failures=len(final), tool=tool)
 
 
+def runner_commit(lines):
+    """The maestro-runner build: `--version` prints its version, then
+    "Commit:  <sha>". Other steps (checkout) print a Commit line too, so only
+    the one right after the version line counts."""
+    for i, l in enumerate(lines):
+        if re.match(r"^\s*maestro-runner \d+\.\d+\.\d+", l):
+            for nxt in lines[i + 1:i + 3]:
+                m = re.search(r"^\s*Commit:\s+([0-9a-f]{7,40})\s*$", nxt)
+                if m:
+                    return m.group(1)[:7]
+    return None
+
+
 def job_record(src, run, job):
     step = next((s for s in job.get("steps", []) if E2E_STEP.search(s["name"])), None)
     if step is None or step.get("conclusion") in (None, "skipped"):
@@ -203,6 +216,8 @@ def job_record(src, run, job):
         print(f"  logs unavailable for {job['id']}: {e}", file=sys.stderr)
         lines = []
     h = src["harness"]
+    if src["side"] == "ours":
+        rec["runner_commit"] = runner_commit(lines)
     if h == "maestro-runner":
         rec.update(parse_maestro_runner(lines))
     elif h == "rn-maestro":
@@ -286,7 +301,9 @@ def summary(records):
             f"{statistics.mean(ff):.2f}" if ff else "-",
             f"{statistics.mean(fin):.2f}" if fin else "-",
             len(retried_runs), len(run_ids),
-            ", ".join(sorted({r["runner"] for r in first_round})) or "-"))
+            ", ".join(sorted({r["runner"] for r in first_round})) or "-")
+            + (" (builds: " + ", ".join(sorted({r.get("runner_commit") or "?" for r in first_round})) + ")"
+               if side == "ours" else ""))
     out += ["", "Upstream React Native runs its e2e jobs on larger runners (macos-*-large, 8-core-ubuntu); "
             "the bench fork uses the standard ones (macos-*-intel, ubuntu-latest).", ""]
     return "\n".join(out) + "\n"
