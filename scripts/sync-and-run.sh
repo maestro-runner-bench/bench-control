@@ -37,8 +37,11 @@ sync_repo() {
       files=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       git rebase --abort
       note "❌ $name: rebase onto $upstream@$(git rev-parse --short upstream/"$upstream_branch") conflicts in: $files"
+      local title="$name: bench branch no longer rebases onto upstream"
+      # Ticks retry every 15 minutes; one open issue is enough.
+      gh issue list -R "$CONTROL_REPO" --state open --search "in:title \"$title\"" --json title -q '.[].title' | grep -qxF "$title" ||
       gh issue create -R "$CONTROL_REPO" \
-        --title "$name: bench branch no longer rebases onto upstream" \
+        --title "$title" \
         --body "Rebasing \`$branch\` of $fork onto $upstream \`$upstream_branch\` conflicts in: $files. The run was skipped; resolve by hand." >/dev/null || true
       return 1
     fi
@@ -58,15 +61,18 @@ sync_repo() {
 }
 
 mkdir -p "$WORK"
+SCHEDULED="${SCHEDULED:-false}"
+plan=""
+if [ "$SCHEDULED" = "true" ]; then
+  plan=$(python3 scripts/plan.py) || { note "❌ could not plan this tick"; exit 1; }
+  [ -n "$plan" ] || { note "Nothing to start on this tick."; exit 0; }
+fi
 count=$(jq length repos.json)
 for i in $(seq 0 $((count - 1))); do
   name=$(jq -r ".[$i].name" repos.json)
   if [ -n "$ONLY" ] && [ "$ONLY" != "$name" ]; then continue; fi
-  # A scheduled run ("<min> <hour> * * *") takes only the repos with that slot.
-  if [ -n "${SCHEDULED_HOUR:-}" ]; then
-    slot=$(echo "$SCHEDULED_HOUR" | awk '{printf "%02d:%02d", $2, $1}')
-    jq -e --arg s "$slot" ".[$i].slotsUTC | index(\$s)" repos.json > /dev/null || continue
-  fi
+  # A scheduled tick takes only the repos scripts/plan.py says are due now.
+  if [ "$SCHEDULED" = "true" ] && ! grep -qx "$name" <<< "$plan"; then continue; fi
   ( sync_repo "$name" \
       "$(jq -r ".[$i].fork" repos.json)" \
       "$(jq -r ".[$i].upstream" repos.json)" \

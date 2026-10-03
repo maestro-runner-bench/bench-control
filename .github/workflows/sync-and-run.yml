@@ -6,24 +6,12 @@ name: Sync and run benches
 
 on:
   # Five 4.5-hour cycles a day (UTC; repos.json slotsUTC): React Native at
-  # +0:00 (its builds take all 5 macOS runners for ~2h), then Expo, React
-  # Navigation and enriched-html at +2:00, pager-view at +2:30.
+  # +0:00 (all 5 macOS runners for ~2.5h), then Expo, React Navigation and
+  # enriched-html at +2:00, pager-view at +2:30. GitHub starts scheduled runs
+  # hours late, so a tick every 15 minutes starts whatever is due once its
+  # macOS runners are free (scripts/plan.py).
   schedule:
-    - cron: '0 0 * * *' # 00:00
-    - cron: '0 2 * * *' # 02:00
-    - cron: '30 2 * * *' # 02:30
-    - cron: '30 4 * * *' # 04:30
-    - cron: '30 6 * * *' # 06:30
-    - cron: '0 7 * * *' # 07:00
-    - cron: '0 9 * * *' # 09:00
-    - cron: '0 11 * * *' # 11:00
-    - cron: '30 11 * * *' # 11:30
-    - cron: '30 13 * * *' # 13:30
-    - cron: '30 15 * * *' # 15:30
-    - cron: '0 16 * * *' # 16:00
-    - cron: '0 18 * * *' # 18:00
-    - cron: '0 20 * * *' # 20:00
-    - cron: '30 20 * * *' # 20:30
+    - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
     inputs:
       only:
@@ -60,6 +48,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.BENCH_TOKEN }}
           ONLY: ${{ inputs.only }}
-          SCHEDULED_HOUR: ${{ github.event_name == 'schedule' && github.event.schedule || '' }}
+          SCHEDULED: ${{ github.event_name == 'schedule' }}
           DRY_RUN: ${{ inputs.dry_run }}
         run: ./scripts/sync-and-run.sh
