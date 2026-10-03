@@ -14,6 +14,7 @@ import os
 import re
 import statistics
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -66,6 +67,20 @@ _opener = urllib.request.build_opener(_NoRedirect)
 
 
 def api(path, raw=False):
+    """GET an API path, trying again on GitHub's passing 5xx errors."""
+    for attempt in range(4):
+        try:
+            return _api(path, raw)
+        except urllib.error.HTTPError as e:
+            if e.code < 500 or attempt == 3:
+                raise
+        except urllib.error.URLError:
+            if attempt == 3:
+                raise
+        time.sleep(5 * (attempt + 1))
+
+
+def _api(path, raw=False):
     """GET an API path; for log downloads, follow the redirect without auth."""
     req = urllib.request.Request(path if path.startswith("http") else API + path)
     req.add_header("Accept", "application/vnd.github+json")
@@ -80,7 +95,7 @@ def api(path, raw=False):
             raise
         if loc.startswith(API):
             # A renamed repository: the API answers at its new address.
-            return api(loc, raw=raw)
+            return _api(loc, raw=raw)
         # A log download: a pre-signed URL that takes no auth.
         with urllib.request.urlopen(loc, timeout=120) as resp:
             data = resp.read()
