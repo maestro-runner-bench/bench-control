@@ -303,17 +303,25 @@ def summary(records):
     out = ["# Bench results", "",
            f"Generated {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')} from {len(records)} e2e jobs.",
            "", "Per project, platform and flavour: ours (maestro-runner) against upstream (Maestro, or "
-           "agent-device for React Navigation). Times are the e2e test step only (no builds, no queue). "
+           "agent-device for React Navigation); ours one line per maestro-runner build, newest first "
+           "(\"older\" = before builds were recorded). Times are the e2e test step only (no builds, no queue). "
            "First-attempt failures count flows that failed at least once before passing or failing for good; "
            "job retry rounds are React Native's retry_1/retry_2 jobs.", ""]
-    hdr = ("| Project | Platform | Flavour | Side | Runs | Median e2e (min) | Green runs | "
+    hdr = ("| Project | Platform | Flavour | Side | Build | Runs | Median e2e (min) | Green runs | "
            "Runs with no first-attempt failure | First-attempt failures / run | Final failures / run | "
            "Runs needing a retry job | Runner |")
-    out += [hdr, "|" + "---|" * 12]
+    out += [hdr, "|" + "---|" * 13]
+    # Ours is split by maestro-runner build, newest first, so a fix does not
+    # carry the failures of the builds before it.
     groups = {}
     for r in records:
-        groups.setdefault((r["project"], r["platform"], r["flavor"], r["side"]), []).append(r)
-    for (proj, plat, flav, side), rs in sorted(groups.items()):
+        build = (r.get("runner_commit") or "older") if r["side"] == "ours" else ""
+        flav = r["flavor"] + (" (template app)" if "templateapp" in r["job"] else "")
+        groups.setdefault((r["project"], r["platform"], flav, r["side"], build), []).append(r)
+    def order(item):
+        (proj, plat, flav, side, build), rs = item
+        return (proj, plat, flav, side, -max(datetime.strptime(r["created_at"], "%Y-%m-%dT%H:%M:%SZ").timestamp() for r in rs))
+    for (proj, plat, flav, side, build), rs in sorted(groups.items(), key=order):
         if not any(r.get("stage", "tests") == "tests" for r in rs):
             continue
         first_round = [r for r in rs if r["retry_round"] == 0 and r.get("stage", "tests") == "tests"]
@@ -324,17 +332,15 @@ def summary(records):
         fin = [r.get("final_failures") for r in first_round if r.get("final_failures") is not None]
         clean_runs = sum(1 for x in ff if x == 0)
         med = median([r["e2e_seconds"] for r in first_round if r["conclusion"] != "cancelled"])
-        out.append("| {} | {} | {} | {} | {} | {} | {}/{} | {} | {} | {} | {}/{} | {} |".format(
-            proj, plat, flav or "-", side, len(run_ids),
+        out.append("| {} | {} | {} | {} | {} | {} | {} | {}/{} | {} | {} | {} | {}/{} | {} |".format(
+            proj, plat, flav or "-", side, build or "-", len(run_ids),
             f"{med / 60:.1f}" if med else "-",
             len(green), len(first_round),
             f"{clean_runs}/{len(ff)}" if ff else "-",
             f"{statistics.mean(ff):.2f}" if ff else "-",
             f"{statistics.mean(fin):.2f}" if fin else "-",
             len(retried_runs), len(run_ids),
-            ", ".join(sorted({r["runner"] for r in first_round})) or "-")
-            + (" (builds: " + ", ".join(sorted({r.get("runner_commit") or "?" for r in first_round})) + ")"
-               if side == "ours" else ""))
+            ", ".join(sorted({r["runner"] for r in first_round})) or "-"))
     out += ["", "Upstream React Native runs its e2e jobs on larger runners (macos-*-large, 8-core-ubuntu); "
             "the bench fork uses the standard ones (macos-*-intel, ubuntu-latest).", ""]
     return "\n".join(out) + "\n"
