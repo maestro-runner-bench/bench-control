@@ -28,15 +28,29 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 | 2026-10-02 14:45 | [37022061725](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37022061725) | - | 21.5 | e2e-android | 21.5 | 20.1 | 0.0 | 12/21 |
 |  | | |  | e2e-ios | 15.0 | - | 0.0 | cancelled before tests |
 
+## Trend
+
+![pager-view-android](charts/pager-view-android.svg)
+
+![pager-view-ios](charts/pager-view-ios.svg)
+
+
 ## Retried test cases
 
 Per run, from each job's log: a flow *failed at least once* if any of its attempts failed, inside its job (maestro-runner `--retries`, React Native's iOS per-flow attempts, agent-device, Expo's rounds) or in a retry job (React Native's retry_1/retry_2); it *passed on retry* if it then passed. *Extra flow runs* counts every run of a flow beyond its first, including whole-suite reruns of flows that had passed. Runs whose logs had expired are left out.
 
-| Platform | Side | Build | Runs | Runs where every flow passed first time | Flows that failed at least once / run (avg, max) | Flows passed only on retry / run | Runs ending with a failed flow | Extra flow runs / run | Runs needing a retry job | Flows / run | Most often failing flows |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| android | ours | 49360bb | 1 | 0/1 | 8.00, 8 | 0.00 | 1/1 | 16.00 | 0/1 | 16 | nested_pagerView_example ×1, ensure-ltr ×1, ensure-rtl ×1 |
-| android | ours | 6904d0f | 3 | 0/3 | 8.33, 9 | 0.33 | 3/3 | 16.33 | 0/3 | 16 | nested_pagerView_example ×3, ensure-ltr ×3, ensure-rtl ×3 |
-| ios | ours | 6904d0f | 4 | 0/4 | 3.00, 3 | 0.00 | 4/4 | 6.00 | 0/4 | 16 | ensure-ltr ×4, ensure-rtl ×4, verify-horizontal-rtl-swipe ×4 |
+Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maestro-runner build.
+
+| Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
+|---|---|---|---|---|---|---|---|---|---|
+| android | 6904d0f | 3 | 20.0 | 0% | 8.33 | 0% | 16.3 | 100% | nested_pagerView_example ×3, ensure-ltr ×3, ensure-rtl ×3 / - |
+| ios | 6904d0f | 4 | 8.2 | 0% | 3.00 | 0% | 6.0 | 100% | ensure-ltr ×4, ensure-rtl ×4, verify-horizontal-rtl-swipe ×4 / - |
+
+Ours on earlier maestro-runner builds:
+
+| Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing |
+|---|---|---|---|---|---|---|---|---|---|
+| android | 49360bb | 1 | 20.1 | 0% | 8.00 | 0% | 16.0 | 100% | nested_pagerView_example ×1, ensure-ltr ×1, ensure-rtl ×1 |
 
 ### Per run
 

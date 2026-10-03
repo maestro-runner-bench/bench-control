@@ -887,50 +887,60 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 |  | | |  | ios_templateapp (Debug) | 19.1 | 9.5 | 0.1 | success |
 |  | | |  | ios_templateapp (Release) | 23.6 | 11.8 | 0.1 | success |
 
+## Trend
+
+![react-native-android-debug](charts/react-native-android-debug.svg)
+
+![react-native-android-release](charts/react-native-android-release.svg)
+
+![react-native-ios-debug](charts/react-native-ios-debug.svg)
+
+![react-native-ios-release](charts/react-native-ios-release.svg)
+
+
 ## Retried test cases
 
 Per run, from each job's log: a flow *failed at least once* if any of its attempts failed, inside its job (maestro-runner `--retries`, React Native's iOS per-flow attempts, agent-device, Expo's rounds) or in a retry job (React Native's retry_1/retry_2); it *passed on retry* if it then passed. *Extra flow runs* counts every run of a flow beyond its first, including whole-suite reruns of flows that had passed. Runs whose logs had expired are left out.
 
-| Platform | Side | Build | Runs | Runs where every flow passed first time | Flows that failed at least once / run (avg, max) | Flows passed only on retry / run | Runs ending with a failed flow | Extra flow runs / run | Runs needing a retry job | Flows / run | Most often failing flows |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| android debug rntester | ours | - | 1 | 1/1 | 0.00, 0 | 0.00 | 0/1 | 0.00 | 0/1 | 27 | - |
-| android debug rntester | ours | 6904d0f | 2 | 2/2 | 0.00, 0 | 0.00 | 0/2 | 0.00 | 0/2 | 27 | - |
-| android debug rntester | ours | 86ed2d7 | 1 | 1/1 | 0.00, 0 | 0.00 | 0/1 | 0.00 | 0/1 | 27 | - |
-| android debug rntester | ours | d51beed | 1 | 0/1 | 1.00, 1 | 0.00 | 1/1 | 2.00 | 1/1 | 27 | flatlist-viewability ×1 |
-| android debug rntester | upstream | - | 59 | 55/59 | 1.69, 25 | 0.85 | 2/59 | 2.54 | 5/59 | 27 | alert ×4, animated-fade-in-view ×4, appearance ×4 |
-| android debug templateapp | ours | - | 1 | 1/1 | 0.00, 0 | 0.00 | 0/1 | 0.00 | 0/1 | 1 | - |
-| android debug templateapp | ours | 6904d0f | 2 | 2/2 | 0.00, 0 | 0.00 | 0/2 | 0.00 | 0/2 | 1 | - |
-| android debug templateapp | ours | 86ed2d7 | 1 | 1/1 | 0.00, 0 | 0.00 | 0/1 | 0.00 | 0/1 | 1 | - |
-| android debug templateapp | ours | d51beed | 1 | 1/1 | 0.00, 0 | 0.00 | 0/1 | 0.00 | 0/1 | 1 | - |
-| android debug templateapp | upstream | - | 59 | 53/59 | 0.10, 1 | 0.07 | 2/59 | 0.14 | 6/59 | 1 | start ×6 |
-| android release rntester | ours | - | 1 | 1/1 | 0.00, 0 | 0.00 | 0/1 | 0.00 | 0/1 | 51 | - |
-| android release rntester | ours | 6904d0f | 2 | 2/2 | 0.00, 0 | 0.00 | 0/2 | 0.00 | 0/2 | 51 | - |
-| android release rntester | ours | 86ed2d7 | 1 | 1/1 | 0.00, 0 | 0.00 | 0/1 | 0.00 | 0/1 | 51 | - |
-| android release rntester | ours | d51beed | 1 | 0/1 | 22.00, 22 | 4.00 | 1/1 | 42.00 | 1/1 | 51 | flatlist-complex-mutations-maintainvisible ×1, flatlist-delete-middle-maintainvisible ×1, flatlist-empty-list-maintainvisible ×1 |
-| android release rntester | upstream | - | 59 | 55/59 | 3.32, 49 | 1.66 | 2/59 | 4.98 | 4/59 | 51 | alert ×4, animated-fade-in-view ×4, appearance ×4 |
-| android release templateapp | ours | - | 1 | 0/1 | 1.00, 1 | 1.00 | 0/1 | 5.00 | 1/1 | 1 | start ×1 |
-| android release templateapp | ours | 6904d0f | 2 | 2/2 | 0.00, 0 | 0.00 | 0/2 | 0.00 | 0/2 | 1 | - |
-| android release templateapp | ours | 86ed2d7 | 1 | 1/1 | 0.00, 0 | 0.00 | 0/1 | 0.00 | 0/1 | 1 | - |
-| android release templateapp | ours | d51beed | 1 | 1/1 | 0.00, 0 | 0.00 | 0/1 | 0.00 | 0/1 | 1 | - |
-| android release templateapp | upstream | - | 59 | 54/59 | 0.08, 1 | 0.05 | 2/59 | 0.14 | 6/59 | 1 | start ×5 |
-| ios debug rntester | ours | - | 1 | 0/1 | 1.00, 1 | 1.00 | 0/1 | 1.00 | 0/1 | 48 | button ×1 |
-| ios debug rntester | ours | 6904d0f | 2 | 2/2 | 0.00, 0 | 0.00 | 0/2 | 0.00 | 0/2 | 48 | - |
-| ios debug rntester | ours | 86ed2d7 | 1 | 0/1 | 33.00, 33 | 0.00 | 1/1 | 51.00 | 0/1 | 39 | appearance ×1, button ×1, fabric-interop-add-children ×1 |
-| ios debug rntester | ours | d51beed | 1 | 0/1 | 1.00, 1 | 0.00 | 1/1 | 0.00 | 0/1 | 2 | animated-fade-in-view ×1 |
-| ios debug rntester | upstream | - | 59 | 9/59 | 1.47, 5 | 1.42 | 2/59 | 23.27 | 20/59 | 48 | sectionlist-viewability ×29, scrollview-minindex-maintainvisible ×6, flatlist-viewability ×4 |
-| ios debug templateapp | ours | 6904d0f | 2 | 2/2 | 0.00, 0 | 0.00 | 0/2 | 0.00 | 0/2 | 1 | - |
-| ios debug templateapp | ours | 86ed2d7 | 1 | 1/1 | 0.00, 0 | 0.00 | 0/1 | 0.00 | 0/1 | 1 | - |
-| ios debug templateapp | ours | d51beed | 1 | 1/1 | 0.00, 0 | 0.00 | 0/1 | 0.00 | 1/1 | 1 | - |
-| ios debug templateapp | upstream | - | 56 | 49/56 | 0.12, 1 | 0.12 | 0/56 | 0.12 | 0/56 | 1 | start ×7 |
-| ios release rntester | ours | - | 1 | 0/1 | 1.00, 1 | 1.00 | 0/1 | 1.00 | 0/1 | 48 | animated-fade-in-view ×1 |
-| ios release rntester | ours | 6904d0f | 2 | 2/2 | 0.00, 0 | 0.00 | 0/2 | 0.00 | 0/2 | 48 | - |
-| ios release rntester | ours | 86ed2d7 | 1 | 0/1 | 32.00, 32 | 0.00 | 1/1 | 21.00 | 0/1 | 37 | animated-fade-in-view ×1, appearance ×1, button ×1 |
-| ios release rntester | ours | d51beed | 1 | 0/1 | 1.00, 1 | 0.00 | 1/1 | 0.00 | 0/1 | 2 | animated-fade-in-view ×1 |
-| ios release rntester | upstream | - | 59 | 28/59 | 0.63, 3 | 0.63 | 0/59 | 24.00 | 21/59 | 48 | sectionlist-viewability ×30, scrollview-minindex-maintainvisible ×2, modal ×1 |
-| ios release templateapp | ours | 6904d0f | 2 | 2/2 | 0.00, 0 | 0.00 | 0/2 | 0.00 | 0/2 | 1 | - |
-| ios release templateapp | ours | 86ed2d7 | 1 | 1/1 | 0.00, 0 | 0.00 | 0/1 | 0.00 | 0/1 | 1 | - |
-| ios release templateapp | ours | d51beed | 1 | 1/1 | 0.00, 0 | 0.00 | 0/1 | 1.00 | 1/1 | 1 | - |
-| ios release templateapp | upstream | - | 56 | 56/56 | 0.00, 0 | 0.00 | 0/56 | 0.00 | 0/56 | 1 | - |
+Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maestro-runner build.
+
+| Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
+|---|---|---|---|---|---|---|---|---|---|
+| android debug rntester | 6904d0f | 2 vs 59 | **12.0** vs 18.9 | **100%** vs 93% | **0.00** vs 1.69 | **0%** vs 8% | **0.0** vs 2.5 | **0%** vs 3% | - / alert ×4, animated-fade-in-view ×4, appearance ×4 |
+| android debug templateapp | 6904d0f | 2 vs 59 | **2.8** vs 3.3 | **100%** vs 90% | **0.00** vs 0.10 | **0%** vs 10% | **0.0** vs 0.1 | **0%** vs 3% | - / start ×6 |
+| android release rntester | 6904d0f | 2 vs 59 | **15.5** vs 28.1 | **100%** vs 93% | **0.00** vs 3.32 | **0%** vs 7% | **0.0** vs 5.0 | **0%** vs 3% | - / alert ×4, animated-fade-in-view ×4, appearance ×4 |
+| android release templateapp | 6904d0f | 2 vs 59 | **2.2** vs 2.5 | **100%** vs 92% | **0.00** vs 0.08 | **0%** vs 10% | **0.0** vs 0.1 | **0%** vs 3% | - / start ×5 |
+| ios debug rntester | 6904d0f | 2 vs 59 | **21.0** vs 85.0 | **100%** vs 15% | **0.00** vs 1.47 | **0%** vs 34% | **0.0** vs 23.3 | **0%** vs 3% | - / sectionlist-viewability ×29, scrollview-minindex-maintainvisible ×6, flatlist-viewability ×4 |
+| ios debug templateapp | 6904d0f | 2 vs 56 | 14.7 vs **10.4** | **100%** vs 88% | **0.00** vs 0.12 | 0% vs 0% | **0.0** vs 0.1 | 0% vs 0% | - / start ×7 |
+| ios release rntester | 6904d0f | 2 vs 59 | **21.9** vs 84.6 | **100%** vs 47% | **0.00** vs 0.63 | **0%** vs 36% | **0.0** vs 24.0 | 0% vs 0% | - / sectionlist-viewability ×30, scrollview-minindex-maintainvisible ×2, modal ×1 |
+| ios release templateapp | 6904d0f | 2 vs 56 | 10.8 vs **9.4** | 100% vs 100% | 0.00 vs 0.00 | 0% vs 0% | 0.0 vs 0.0 | 0% vs 0% | - / - |
+
+Ours on earlier maestro-runner builds:
+
+| Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing |
+|---|---|---|---|---|---|---|---|---|---|
+| android debug rntester | older | 1 | 9.7 | 100% | 0.00 | 0% | 0.0 | 0% | - |
+| android debug rntester | 86ed2d7 | 1 | 11.7 | 100% | 0.00 | 0% | 0.0 | 0% | - |
+| android debug rntester | d51beed | 1 | 20.9 | 0% | 1.00 | 100% | 2.0 | 100% | flatlist-viewability ×1 |
+| android debug templateapp | older | 1 | 2.8 | 100% | 0.00 | 0% | 0.0 | 0% | - |
+| android debug templateapp | 86ed2d7 | 1 | 2.5 | 100% | 0.00 | 0% | 0.0 | 0% | - |
+| android debug templateapp | d51beed | 1 | 3.1 | 100% | 0.00 | 0% | 0.0 | 0% | - |
+| android release rntester | older | 1 | 16.1 | 100% | 0.00 | 0% | 0.0 | 0% | - |
+| android release rntester | 86ed2d7 | 1 | 15.9 | 100% | 0.00 | 0% | 0.0 | 0% | - |
+| android release rntester | d51beed | 1 | 29.5 | 0% | 22.00 | 100% | 42.0 | 100% | flatlist-complex-mutations-maintainvisible ×1, flatlist-delete-middle-maintainvisible ×1, flatlist-empty-list-maintainvisible ×1 |
+| android release templateapp | older | 1 | 9.6 | 0% | 1.00 | 100% | 5.0 | 0% | start ×1 |
+| android release templateapp | 86ed2d7 | 1 | 2.2 | 100% | 0.00 | 0% | 0.0 | 0% | - |
+| android release templateapp | d51beed | 1 | 2.3 | 100% | 0.00 | 0% | 0.0 | 0% | - |
+| ios debug rntester | older | 1 | 83.6 | 0% | 1.00 | 0% | 1.0 | 0% | button ×1 |
+| ios debug rntester | 86ed2d7 | 1 | 314.4 | 0% | 33.00 | 0% | 51.0 | 100% | appearance ×1, button ×1, fabric-interop-add-children ×1 |
+| ios debug rntester | d51beed | 1 | 26.4 | 0% | 1.00 | 0% | 0.0 | 100% | animated-fade-in-view ×1 |
+| ios debug templateapp | 86ed2d7 | 1 | 13.2 | 100% | 0.00 | 0% | 0.0 | 0% | - |
+| ios debug templateapp | d51beed | 1 | 16.0 | 100% | 0.00 | 100% | 0.0 | 0% | - |
+| ios release rntester | older | 1 | 69.5 | 0% | 1.00 | 0% | 1.0 | 0% | animated-fade-in-view ×1 |
+| ios release rntester | 86ed2d7 | 1 | 318.0 | 0% | 32.00 | 0% | 21.0 | 100% | animated-fade-in-view ×1, appearance ×1, button ×1 |
+| ios release rntester | d51beed | 1 | 25.7 | 0% | 1.00 | 0% | 0.0 | 100% | animated-fade-in-view ×1 |
+| ios release templateapp | 86ed2d7 | 1 | 8.4 | 100% | 0.00 | 0% | 0.0 | 0% | - |
+| ios release templateapp | d51beed | 1 | 20.5 | 100% | 0.00 | 100% | 1.0 | 0% | - |
 
 ### Per run
 

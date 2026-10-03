@@ -131,18 +131,30 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 | 2026-06-12 07:38 | [27401850070](https://github.com/expo/expo/actions/runs/27401850070) | maestro | 59.0 | android | 16.8 | 13.8 | 0.1 | all passed |
 |  | | |  | ios | 45.4 | 39.3 | 0.1 | all passed |
 
+## Trend
+
+![expo-android](charts/expo-android.svg)
+
+![expo-ios](charts/expo-ios.svg)
+
+
 ## Retried test cases
 
 Per run, from each job's log: a flow *failed at least once* if any of its attempts failed, inside its job (maestro-runner `--retries`, React Native's iOS per-flow attempts, agent-device, Expo's rounds) or in a retry job (React Native's retry_1/retry_2); it *passed on retry* if it then passed. *Extra flow runs* counts every run of a flow beyond its first, including whole-suite reruns of flows that had passed. Runs whose logs had expired are left out.
 
-| Platform | Side | Build | Runs | Runs where every flow passed first time | Flows that failed at least once / run (avg, max) | Flows passed only on retry / run | Runs ending with a failed flow | Extra flow runs / run | Runs needing a retry job | Flows / run | Most often failing flows |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| android | ours | - | 4 | 0/4 | 4.75, 6 | 1.00 | 3/4 | 34.25 | 0/4 | 6 | fullscreen-test ×4, test ×3, picture-in-picture-test.android ×3 |
-| android | ours | 6904d0f | 3 | 0/3 | 1.33, 2 | 1.33 | 0/3 | 4.00 | 0/3 | 7 | fullscreen-test ×2, picture-in-picture-test.android ×1, player-output-test ×1 |
-| android | upstream | - | 44 | 14/44 | 1.61, 5 | 1.32 | 6/44 | 6.75 | 0/44 | 7 | fullscreen-test ×21, maestro-generated ×17, picture-in-picture-test.android ×17 |
-| ios | ours | - | 4 | 1/4 | 1.75, 3 | 0.25 | 3/4 | 3.25 | 0/4 | 4 | test ×4, playback-test ×3, player-output-test ×3 |
-| ios | ours | 6904d0f | 2 | 0/2 | 1.00, 1 | 1.00 | 0/2 | 1.00 | 0/2 | 5 | test ×1, playback-test ×1 |
-| ios | upstream | - | 40 | 20/40 | 0.85, 4 | 0.70 | 9/40 | 1.35 | 0/40 | 5 | fullscreen-test ×17, test ×9, playback-test ×8 |
+Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maestro-runner build.
+
+| Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
+|---|---|---|---|---|---|---|---|---|---|
+| android | 6904d0f | 3 vs 44 | **13.8** vs 14.9 | 0% vs **32%** | **1.33** vs 1.61 | 0% vs 0% | **4.0** vs 6.8 | **0%** vs 14% | fullscreen-test ×2, picture-in-picture-test.android ×1, player-output-test ×1 / fullscreen-test ×21, maestro-generated ×17, picture-in-picture-test.android ×17 |
+| ios | 6904d0f | 2 vs 40 | **9.9** vs 15.5 | 0% vs **50%** | 1.00 vs **0.85** | 0% vs 0% | **1.0** vs 1.4 | **0%** vs 22% | test ×1, playback-test ×1 / fullscreen-test ×17, test ×9, playback-test ×8 |
+
+Ours on earlier maestro-runner builds:
+
+| Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing |
+|---|---|---|---|---|---|---|---|---|---|
+| android | older | 4 | 27.9 | 0% | 4.75 | 0% | 34.2 | 75% | fullscreen-test ×4, test ×3, picture-in-picture-test.android ×3 |
+| ios | older | 4 | 11.4 | 25% | 1.75 | 0% | 3.2 | 75% | test ×4, playback-test ×3, player-output-test ×3 |
 
 ### Per run
 

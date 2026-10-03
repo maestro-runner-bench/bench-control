@@ -118,19 +118,31 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 | 2026-07-31 21:37 | [30667229447](https://github.com/react-navigation/react-navigation/actions/runs/30667229447) | agent-device | - | e2e-android | - | 24.9 | 0.1 | 39/39, 1 passed on retry |
 | 2026-07-31 05:09 | [30606027234](https://github.com/react-navigation/react-navigation/actions/runs/30606027234) | agent-device | - | e2e-android | - | 26.6 | 0.1 | 39/39, 1 passed on retry |
 
+## Trend
+
+![react-navigation-android](charts/react-navigation-android.svg)
+
+![react-navigation-ios](charts/react-navigation-ios.svg)
+
+
 ## Retried test cases
 
 Per run, from each job's log: a flow *failed at least once* if any of its attempts failed, inside its job (maestro-runner `--retries`, React Native's iOS per-flow attempts, agent-device, Expo's rounds) or in a retry job (React Native's retry_1/retry_2); it *passed on retry* if it then passed. *Extra flow runs* counts every run of a flow beyond its first, including whole-suite reruns of flows that had passed. Runs whose logs had expired are left out.
 
-| Platform | Side | Build | Runs | Runs where every flow passed first time | Flows that failed at least once / run (avg, max) | Flows passed only on retry / run | Runs ending with a failed flow | Extra flow runs / run | Runs needing a retry job | Flows / run | Most often failing flows |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| android | ours | - | 2 | 2/2 | 0.00, 0 | 0.00 | 0/2 | 0.00 | 0/2 | 39 | - |
-| android | ours | 6904d0f | 3 | 3/3 | 0.00, 0 | 0.00 | 0/3 | 0.00 | 0/3 | 39 | - |
-| android | ours | d51beed | 2 | 2/2 | 0.00, 0 | 0.00 | 0/2 | 0.00 | 0/2 | 10 | - |
-| android | upstream | - | 47 | 31/47 | 0.38, 2 | 0.38 | 0/47 | 0.45 | 0/47 | 39 | Tab View - Scrollable Tab Bar ×7, Bottom Tabs - Preload Flow ×5, Screen Layout ×2 |
-| ios | ours | - | 3 | 2/3 | 0.33, 1 | 0.33 | 0/3 | 0.33 | 0/3 | 39 | Screen Layout ×1 |
-| ios | ours | 6904d0f | 3 | 2/3 | 0.33, 1 | 0.33 | 0/3 | 0.33 | 0/3 | 39 | Material Top Tabs - Basic ×1 |
-| ios | upstream | - | 31 | 19/31 | 0.42, 2 | 0.42 | 0/31 | 0.48 | 0/31 | 39 | Screen Layout ×3, Tab View - Scrollable Tab Bar ×3, Stack - Prevent Remove ×2 |
+Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maestro-runner build.
+
+| Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
+|---|---|---|---|---|---|---|---|---|---|
+| android | 6904d0f | 3 vs 47 | 25.8 vs **23.9** | **100%** vs 66% | **0.00** vs 0.38 | 0% vs 0% | **0.0** vs 0.4 | 0% vs 0% | - / Tab View - Scrollable Tab Bar ×7, Bottom Tabs - Preload Flow ×5, Screen Layout ×2 |
+| ios | 6904d0f | 3 vs 31 | **19.1** vs 24.8 | **67%** vs 61% | **0.33** vs 0.42 | 0% vs 0% | **0.3** vs 0.5 | 0% vs 0% | Material Top Tabs - Basic ×1 / Screen Layout ×3, Tab View - Scrollable Tab Bar ×3, Stack - Prevent Remove ×2 |
+
+Ours on earlier maestro-runner builds:
+
+| Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing |
+|---|---|---|---|---|---|---|---|---|---|
+| android | older | 2 | 26.6 | 100% | 0.00 | 0% | 0.0 | 0% | - |
+| android | d51beed | 2 | 10.4 | 100% | 0.00 | 0% | 0.0 | 0% | - |
+| ios | older | 3 | 21.2 | 67% | 0.33 | 0% | 0.3 | 0% | Screen Layout ×1 |
 
 ### Per run
 

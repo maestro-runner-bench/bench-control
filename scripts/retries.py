@@ -8,6 +8,7 @@ did not fail (a retry job rerunning a whole suite) only add extra runs.
 """
 import collections
 import re
+import statistics
 
 
 def _app(job):
@@ -53,25 +54,74 @@ def _label(r):
     return " ".join(x for x in (r["platform"], r["flavor"], r["app"]) if x)
 
 
+def _stats(rs):
+    n = len(rs)
+    times = [r["test_min"] for r in rs if r.get("test_min")]
+    return dict(
+        runs=n,
+        test_min=statistics.median(times) if times else None,
+        first_time=sum(1 for r in rs if r["failed_once"] == 0) / n,
+        failed_once=sum(r["failed_once"] for r in rs) / n,
+        retry_job=sum(1 for r in rs if r["retry_jobs"]) / n,
+        extra=sum(r["extra_attempts"] for r in rs) / n,
+        failed_end=sum(1 for r in rs if r["failed"]) / n,
+        top=collections.Counter(name for r in rs for name in list(r["retried"]) + r["failed"]).most_common(3))
+
+
+# (key, header, format, True when higher is better)
+COLUMNS = [
+    ("test_min", "Test time / run (min)", lambda v: f"{v:.1f}" if v is not None else "-", False),
+    ("first_time", "Every flow passed first time", lambda v: f"{v:.0%}", True),
+    ("failed_once", "Flows that failed at least once / run", lambda v: f"{v:.2f}", False),
+    ("retry_job", "Runs needing a retry job", lambda v: f"{v:.0%}", False),
+    ("extra", "Extra flow runs / run", lambda v: f"{v:.1f}", False),
+    ("failed_end", "Runs ending with a failed flow", lambda v: f"{v:.0%}", False),
+]
+
+
+def _vs(ours, up, fmt, higher_better):
+    if ours is None or up is None:
+        return f"{fmt(ours)} vs {fmt(up)}"
+    a, b = fmt(ours), fmt(up)
+    if a != b and (ours > up) == higher_better:
+        a = f"**{a}**"
+    elif a != b:
+        b = f"**{b}**"
+    return f"{a} vs {b}"
+
+
 def _aggregate(rows):
-    out = ["| Platform | Side | Build | Runs | Runs where every flow passed first time | "
-           "Flows that failed at least once / run (avg, max) | Flows passed only on retry / run | "
-           "Runs ending with a failed flow | Extra flow runs / run | Runs needing a retry job | Flows / run | "
-           "Most often failing flows |", "|" + "---|" * 12]
+    """One row per job: ours (the newest maestro-runner build) against
+    upstream in the same cell; older builds of ours in a second table."""
     groups = collections.defaultdict(list)
     for r in rows:
         if r["complete"]:
             groups[(_label(r), r["side"], r["build"] if r["side"] == "ours" else "")].append(r)
-    for (label, side, build), rs in sorted(groups.items()):
-        n = len(rs)
-        once = [r["failed_once"] for r in rs]
-        top = collections.Counter(name for r in rs for name in list(r["retried"]) + r["failed"]).most_common(3)
-        out.append("| {} | {} | {} | {} | {}/{} | {:.2f}, {} | {:.2f} | {}/{} | {:.2f} | {}/{} | {} | {} |".format(
-            label, side, build or "-", n, sum(1 for c in once if c == 0), n,
-            sum(once) / n, max(once), sum(len(r["retried"]) for r in rs) / n,
-            sum(1 for r in rs if r["failed"]), n, sum(r["extra_attempts"] for r in rs) / n,
-            sum(1 for r in rs if r["retry_jobs"]), n, round(sum(r["flows"] for r in rs) / n),
-            ", ".join(f"{name} ×{c}" for name, c in top) or "-"))
+    labels = sorted({k[0] for k in groups})
+    out = ["Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maestro-runner build.", "",
+           "| Job | Build | Runs | " + " | ".join(c[1] for c in COLUMNS) + " | Most often failing (ours / upstream) |",
+           "|" + "---|" * (len(COLUMNS) + 4)]
+    older = []
+    for label in labels:
+        builds = sorted(((k[2], rs) for k, rs in groups.items() if k[0] == label and k[1] == "ours"),
+                        key=lambda b: max(r["created_at"] for r in b[1]), reverse=True)
+        up_rs = groups.get((label, "upstream", ""))
+        ours = _stats(builds[0][1]) if builds else None
+        up = _stats(up_rs) if up_rs else None
+        cells = [_vs(ours and ours[k], up and up[k], fmt, hb) if up else (fmt(ours[k]) if ours else "-")
+                 for k, _, fmt, hb in COLUMNS]
+        top = lambda st: ", ".join(f"{n} ×{c}" for n, c in st["top"]) if st and st["top"] else "-"
+        runs = f"{ours['runs'] if ours else 0} vs {up['runs']}" if up else str(ours["runs"])
+        out.append(f"| {label} | {builds[0][0] or '-' if builds else '-'} | {runs} | " + " | ".join(cells)
+                   + f" | {top(ours)} / {top(up)} |")
+        for build, rs in builds[1:]:
+            st = _stats(rs)
+            older.append(f"| {label} | {build or 'older'} | {st['runs']} | "
+                         + " | ".join(fmt(st[k]) for k, _, fmt, _ in COLUMNS) + f" | {top(st)} |")
+    if older:
+        out += ["", "Ours on earlier maestro-runner builds:", "",
+                "| Job | Build | Runs | " + " | ".join(c[1] for c in COLUMNS) + " | Most often failing |",
+                "|" + "---|" * (len(COLUMNS) + 4)] + older
     return out
 
 
@@ -89,11 +139,35 @@ def _runs(rows):
     return out
 
 
+def add_times(rows, records):
+    """Each run's test time: its jobs' test steps added up, retry jobs
+    included (the time the run took to go green or give up)."""
+    minutes = collections.defaultdict(float)
+    for r in records:
+        if r.get("e2e_seconds") and r.get("stage", "tests") == "tests":
+            minutes[(r["run_id"], r["project"], r["platform"], r["flavor"], _app(r["job"]))] += r["e2e_seconds"] / 60
+    for row in rows:
+        row["test_min"] = minutes.get((row["run_id"], row["project"], row["platform"], row["flavor"], row["app"]))
+
+
 INTRO = ("Per run, from each job's log: a flow *failed at least once* if any of its attempts failed, inside "
          "its job (maestro-runner `--retries`, React Native's iOS per-flow attempts, agent-device, Expo's "
          "rounds) or in a retry job (React Native's retry_1/retry_2); it *passed on retry* if it then passed. "
          "*Extra flow runs* counts every run of a flow beyond its first, including whole-suite reruns of "
          "flows that had passed. Runs whose logs had expired are left out.")
+
+
+def render_summary(rows, generated, charts):
+    out = ["# Bench results: maestro-runner against upstream", "", f"Generated {generated}.", "",
+           "*Test time* is a run's test steps added up, retry jobs included (no builds, no queue). "
+           "The other columns are read per flow from the job logs; see [RETRIES.md](RETRIES.md). "
+           "Upstream React Navigation runs agent-device; React Native and Expo run Maestro. Upstream "
+           "React Native uses larger runners (macos-*-large, 8-core-ubuntu) than the bench fork. "
+           "enriched-html and pager-view run no e2e upstream, so they show ours only."]
+    for project in sorted({r["project"] for r in rows}):
+        out += ["", f"## [{project}]({project}.md)", ""] + _aggregate([r for r in rows if r["project"] == project])
+        out += [""] + [f"![{n[:-4]}](charts/{n})" for n in charts.get(project, [])]
+    return "\n".join(out) + "\n"
 
 
 def render_all(rows):

@@ -38,18 +38,32 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 | 2026-10-02 11:03 | [36998917386](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/36998917386) | - | 4.0 | e2e-android | 1.5 | 0.7 | 0.0 | failure |
 |  | | |  | e2e-ios | 3.9 | - | 0.1 | cancelled before tests |
 
+## Trend
+
+![enriched-html-android](charts/enriched-html-android.svg)
+
+![enriched-html-ios](charts/enriched-html-ios.svg)
+
+
 ## Retried test cases
 
 Per run, from each job's log: a flow *failed at least once* if any of its attempts failed, inside its job (maestro-runner `--retries`, React Native's iOS per-flow attempts, agent-device, Expo's rounds) or in a retry job (React Native's retry_1/retry_2); it *passed on retry* if it then passed. *Extra flow runs* counts every run of a flow beyond its first, including whole-suite reruns of flows that had passed. Runs whose logs had expired are left out.
 
-| Platform | Side | Build | Runs | Runs where every flow passed first time | Flows that failed at least once / run (avg, max) | Flows passed only on retry / run | Runs ending with a failed flow | Extra flow runs / run | Runs needing a retry job | Flows / run | Most often failing flows |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| android | ours | - | 3 | 0/3 | 29.67, 50 | 0.00 | 3/3 | 0.00 | 0/3 | 50 | checkbox_toggle ×3, extending_paragraph_style_on_paste_after_cut ×3, line_overlapping ×3 |
-| android | ours | 49360bb | 1 | 0/1 | 43.00, 43 | 0.00 | 1/1 | 0.00 | 0/1 | 50 | checkbox_toggle ×1, extending_paragraph_style_on_paste_after_copy ×1, extending_paragraph_style_on_paste_after_cut ×1 |
-| android | ours | 6904d0f | 4 | 0/4 | 8.50, 10 | 0.00 | 4/4 | 0.00 | 0/4 | 50 | checkbox_toggle ×4, line_overlapping ×4, mention_popup_closing_on_cursor_travel ×4 |
-| ios | ours | - | 3 | 0/3 | 19.00, 49 | 0.00 | 3/3 | 0.00 | 0/3 | 49 | image_position_stability ×3, inline_code_paste_into_codeblock ×3, links_visual ×3 |
-| ios | ours | 49360bb | 1 | 0/1 | 5.00, 5 | 0.00 | 1/1 | 0.00 | 0/1 | 49 | checkbox_toggle ×1, image_position_stability ×1, inline_code_paste_into_codeblock ×1 |
-| ios | ours | 6904d0f | 4 | 0/4 | 4.50, 5 | 0.00 | 4/4 | 0.00 | 0/4 | 49 | image_position_stability ×4, inline_code_paste_into_codeblock ×4, links_visual ×4 |
+Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maestro-runner build.
+
+| Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
+|---|---|---|---|---|---|---|---|---|---|
+| android | 6904d0f | 4 | 59.4 | 0% | 8.50 | 0% | 0.0 | 100% | checkbox_toggle ×4, line_overlapping ×4, mention_popup_closing_on_cursor_travel ×4 / - |
+| ios | 6904d0f | 4 | 34.1 | 0% | 4.50 | 0% | 0.0 | 100% | image_position_stability ×4, inline_code_paste_into_codeblock ×4, links_visual ×4 / - |
+
+Ours on earlier maestro-runner builds:
+
+| Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing |
+|---|---|---|---|---|---|---|---|---|---|
+| android | 49360bb | 1 | 26.4 | 0% | 43.00 | 0% | 0.0 | 100% | checkbox_toggle ×1, extending_paragraph_style_on_paste_after_copy ×1, extending_paragraph_style_on_paste_after_cut ×1 |
+| android | older | 3 | 27.1 | 0% | 29.67 | 0% | 0.0 | 100% | checkbox_toggle ×3, extending_paragraph_style_on_paste_after_cut ×3, line_overlapping ×3 |
+| ios | 49360bb | 1 | 31.0 | 0% | 5.00 | 0% | 0.0 | 100% | checkbox_toggle ×1, image_position_stability ×1, inline_code_paste_into_codeblock ×1 |
+| ios | older | 3 | 33.5 | 0% | 19.00 | 0% | 0.0 | 100% | image_position_stability ×3, inline_code_paste_into_codeblock ×3, links_visual ×3 |
 
 ### Per run
 

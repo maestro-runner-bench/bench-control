@@ -16,6 +16,7 @@ import statistics
 import sys
 import time
 
+import charts
 import flows as flowlog
 import retries
 import urllib.error
@@ -482,25 +483,27 @@ def main():
     with open(flows_path, "w") as f:
         for e in sorted(entries.values(), key=lambda e: (e["created_at"], e["job_id"])):
             f.write(json.dumps(e, sort_keys=True) + "\n")
+    rows = sorted(records.values(), key=lambda r: (r["created_at"], r["job_id"]))
     run_rows = retries.rollup(entries.values())
+    retries.add_times(run_rows, rows)
     with open(os.path.join(RESULTS, "RETRIES.md"), "w") as f:
         f.write(retries.render_all(run_rows))
-    rows = sorted(records.values(), key=lambda r: (r["created_at"], r["job_id"]))
+    made = charts.write(RESULTS, rows, run_rows)
     with open(path, "w") as f:
         for r in rows:
             f.write(json.dumps(r, sort_keys=True) + "\n")
+    generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    with open(os.path.join(RESULTS, "SUMMARY.md"), "w") as f:
+        f.write(retries.render_summary(run_rows, generated, made))
     text = summary(rows)
     projects = sorted({r["project"] for r in rows})
-    text += "\n## Per repo\n\n" + "".join(f"- [{p}]({p}.md)\n" for p in projects)
-    text += "\nRetried test cases per run, all repos: [RETRIES.md](RETRIES.md)\n"
-    with open(os.path.join(RESULTS, "SUMMARY.md"), "w") as f:
-        f.write(text)
     lines = text.splitlines()
     head = [l for l in lines if l.startswith("| Project") or l.startswith("|---")]
     for p in projects:
         mine = [l for l in lines if l.startswith(f"| {p} |")]
         with open(os.path.join(RESULTS, f"{p}.md"), "w") as f:
             f.write(project_report(p, [r for r in rows if r["project"] == p], head + mine))
+            f.write("\n## Trend\n\n" + charts.markdown(p, made.get(p, [])))
             f.write(retries.render_project(p, run_rows))
     print(f"{len(new)} new e2e jobs, {len(rows)} in total; flows read for {filled} more jobs")
 
