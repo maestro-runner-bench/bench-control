@@ -192,9 +192,20 @@ def runner_commit(lines):
     return None
 
 
+def timing(run, job):
+    """Wall-clock times kept on every record: the whole run and the job."""
+    return dict(run_started_at=run.get("run_started_at"),
+                run_seconds=seconds(run.get("run_started_at"), run.get("updated_at")),
+                job_seconds=seconds(job.get("started_at"), job.get("completed_at")))
+
+
 def job_record(src, run, job):
     step = next((s for s in job.get("steps", []) if E2E_STEP.search(s["name"])), None)
-    if step is None or step.get("conclusion") in (None, "skipped"):
+    reached_tests = step is not None and step.get("conclusion") not in (None, "skipped")
+    # Our job that stopped before its tests (a build or emulator failure, or
+    # cut off at the time limit) is kept, so the per-repo report shows every
+    # run; upstream's are left out.
+    if not reached_tests and src["side"] != "ours":
         return None
     name = job["name"]
     m = re.search(r"_retry_(\d)", name)
@@ -205,8 +216,10 @@ def job_record(src, run, job):
         platform="ios" if re.search(r"(?i)ios", name + src["workflow"]) else "android",
         flavor=(re.search(r"\((\w+)", name).group(1).lower() if re.search(r"\((\w+)", name) else ""),
         runner=",".join(job.get("labels", [])), conclusion=job.get("conclusion"),
-        e2e_seconds=seconds(step.get("started_at"), step.get("completed_at")),
+        e2e_seconds=seconds(step.get("started_at"), step.get("completed_at")) if reached_tests else None,
         queue_seconds=seconds(job.get("created_at"), job.get("started_at")),
+        stage="tests" if reached_tests else "setup",
+        **timing(run, job),
     )
     if rec["flavor"].isdigit():  # "android-test-e2e (36)" is an API level
         rec["flavor"] = ""
@@ -218,6 +231,8 @@ def job_record(src, run, job):
     h = src["harness"]
     if src["side"] == "ours":
         rec["runner_commit"] = runner_commit(lines)
+    if not reached_tests:
+        return rec
     if h == "maestro-runner":
         rec.update(parse_maestro_runner(lines))
     elif h == "rn-maestro":
@@ -229,14 +244,20 @@ def job_record(src, run, job):
     return rec
 
 
-def collect(known):
+def collect(records):
+    """Add new e2e jobs to records (by job id); fill in the timing of known ones."""
     new = []
     for src in SOURCES:
         try:
-            # Up to 100 recent runs, of which the newest RUNS that ran e2e
+            # Up to 300 recent runs, of which the newest RUNS that ran e2e
             # jobs are used: many upstream runs skip e2e (change detection).
-            runs = api(f"/repos/{src['repo']}/actions/workflows/{src['workflow']}/runs"
-                       f"?branch={src['branch']}&status=completed&per_page=100")["workflow_runs"]
+            runs = []
+            for page in (1, 2, 3):
+                batch = api(f"/repos/{src['repo']}/actions/workflows/{src['workflow']}/runs"
+                            f"?branch={src['branch']}&status=completed&per_page=100&page={page}")["workflow_runs"]
+                runs += batch
+                if len(batch) < 100:
+                    break
         except urllib.error.HTTPError as e:
             print(f"{src['repo']} {src['workflow']}: {e}", file=sys.stderr)
             continue
@@ -244,22 +265,30 @@ def collect(known):
         for run in runs:
             if used >= RUNS:
                 break
-            if run.get("conclusion") in ("cancelled", "skipped"):
+            ours = src["side"] == "ours"
+            # Upstream cancels superseded runs; ours are cancelled only by
+            # the time limit, which is a result.
+            if run.get("conclusion") == "skipped" or (run.get("conclusion") == "cancelled" and not ours):
                 continue
             jobs = api(f"/repos/{src['repo']}/actions/runs/{run['id']}/jobs?per_page=100")["jobs"]
-            ran_e2e = any(E2E_JOB.search(j["name"]) and j.get("conclusion") not in (None, "skipped", "cancelled")
-                          and not re.search(r"/ (report|build)\b", j["name"]) for j in jobs)
+            skip = (None, "skipped") if ours else (None, "skipped", "cancelled")
+            ran_e2e = any(E2E_JOB.search(j["name"]) and j.get("conclusion") not in skip
+                          and j.get("started_at") and not re.search(r"/ (report|build)\b", j["name"]) for j in jobs)
             if not ran_e2e:
                 continue
             used += 1
             for job in jobs:
-                if job["id"] in known or not E2E_JOB.search(job["name"]) or job.get("conclusion") in (None, "skipped", "cancelled"):
+                if not E2E_JOB.search(job["name"]) or job.get("conclusion") in skip or not job.get("started_at"):
                     continue
                 if re.search(r"/ (report|build)\b", job["name"]):
                     continue
+                if job["id"] in records:
+                    if records[job["id"]].get("job_seconds") is None:
+                        records[job["id"]].update(timing(run, job))
+                    continue
                 rec = job_record(src, run, job)
                 if rec:
-                    known.add(job["id"])
+                    records[job["id"]] = rec
                     new.append(rec)
         print(f"{src['side']:8} {src['repo']} {src['workflow']}: {used} runs with e2e")
     return new
@@ -285,14 +314,16 @@ def summary(records):
     for r in records:
         groups.setdefault((r["project"], r["platform"], r["flavor"], r["side"]), []).append(r)
     for (proj, plat, flav, side), rs in sorted(groups.items()):
-        first_round = [r for r in rs if r["retry_round"] == 0]
+        if not any(r.get("stage", "tests") == "tests" for r in rs):
+            continue
+        first_round = [r for r in rs if r["retry_round"] == 0 and r.get("stage", "tests") == "tests"]
         run_ids = {r["run_id"] for r in rs}
         retried_runs = {r["run_id"] for r in rs if r["retry_round"] > 0}
         green = [r for r in first_round if r["conclusion"] == "success" and r["run_id"] not in retried_runs]
         ff = [r.get("first_attempt_failures") for r in first_round if r.get("first_attempt_failures") is not None]
         fin = [r.get("final_failures") for r in first_round if r.get("final_failures") is not None]
         clean_runs = sum(1 for x in ff if x == 0)
-        med = median([r["e2e_seconds"] for r in first_round])
+        med = median([r["e2e_seconds"] for r in first_round if r["conclusion"] != "cancelled"])
         out.append("| {} | {} | {} | {} | {} | {} | {}/{} | {} | {} | {} | {}/{} | {} |".format(
             proj, plat, flav or "-", side, len(run_ids),
             f"{med / 60:.1f}" if med else "-",
@@ -309,22 +340,95 @@ def summary(records):
     return "\n".join(out) + "\n"
 
 
+PROJECT_NOTES = {
+    "react-native": "Upstream runs Maestro on larger runners (macos-*-large, 8-core-ubuntu); "
+                    "the bench fork uses the standard ones.",
+    "react-navigation": "Upstream runs agent-device.",
+    "expo": "Both sides use Expo's own harness; upstream with Maestro.",
+    "enriched-html": "Upstream has no e2e CI to compare against.",
+    "pager-view": "Upstream has no e2e CI to compare against.",
+}
+
+
+def minutes(sec):
+    return f"{sec / 60:.1f}" if sec is not None else "-"
+
+
+def job_label(r):
+    name = re.sub(r"^test_e2e_", "", r["job"])
+    return name.replace(" / test ", " ").replace("android-test-e2e (36)", "android").replace("-test-e2e", "")
+
+
+def job_result(r):
+    if r.get("stage") == "setup":
+        return "cancelled before tests" if r["conclusion"] == "cancelled" else "failed before tests"
+    if r["conclusion"] == "cancelled":
+        return "cancelled during tests (time limit or by hand)"
+    flows, final = r.get("flows"), r.get("final_failures")
+    if flows:
+        res = f"{flows - (final or 0)}/{flows}"
+    elif final is not None:
+        res = "all passed" if final == 0 else f"{final} failed"
+    else:
+        res = r["conclusion"]
+    retried = (r.get("first_attempt_failures") or 0) - (final or 0)
+    return res + (f", {retried} passed on retry" if retried > 0 else "")
+
+
+def project_report(project, rs, summary_rows):
+    out = [f"# {project}", "", PROJECT_NOTES.get(project, ""), "",
+           "Times in minutes. *Run* is the whole workflow run (builds included); *job* is one job; "
+           "*tests* is its test step only; *queue* is the wait for a runner.", "",
+           "## Summary", ""] + summary_rows
+    for side, title in (("ours", "maestro-runner (bench fork)"), ("upstream", "upstream")):
+        mine = [r for r in rs if r["side"] == side]
+        if not mine:
+            continue
+        out += ["", f"## Runs: {title}", "",
+                "| Started (UTC) | Run | Build | Run time | Job | Job time | Tests | Queue | Result |",
+                "|---|---|---|---|---|---|---|---|---|"]
+        by_run = {}
+        for r in mine:
+            by_run.setdefault(r["run_id"], []).append(r)
+        for run_id, jobs in sorted(by_run.items(), key=lambda kv: kv[1][0]["created_at"], reverse=True):
+            first = jobs[0]
+            started = (first.get("run_started_at") or first["created_at"])[:16].replace("T", " ")
+            build = first.get("runner_commit") or (first.get("tool") or "-")
+            for i, r in enumerate(sorted(jobs, key=lambda j: (j["platform"], j["job"]))):
+                head = (f"{started} | [{run_id}]({first['run_url']}) | {build} | {minutes(first.get('run_seconds'))}"
+                        if i == 0 else " | | | ")
+                out.append(f"| {head} | {job_label(r)} | {minutes(r.get('job_seconds'))} | "
+                           f"{minutes(r.get('e2e_seconds'))} | {minutes(r.get('queue_seconds'))} | {job_result(r)} |")
+    return "\n".join(out) + "\n"
+
+
 def main():
     os.makedirs(RESULTS, exist_ok=True)
     path = os.path.join(RESULTS, "jobs.jsonl")
-    records = []
+    records = {}
     if os.path.exists(path):
         with open(path) as f:
-            records = [json.loads(l) for l in f if l.strip()]
-    known = {r["job_id"] for r in records}
-    new = collect(known)
-    with open(path, "a") as f:
-        for r in new:
+            for l in f:
+                if l.strip():
+                    r = json.loads(l)
+                    records[r["job_id"]] = r
+    new = collect(records)
+    rows = sorted(records.values(), key=lambda r: (r["created_at"], r["job_id"]))
+    with open(path, "w") as f:
+        for r in rows:
             f.write(json.dumps(r, sort_keys=True) + "\n")
-    records += new
+    text = summary(rows)
+    projects = sorted({r["project"] for r in rows})
+    text += "\n## Per repo\n\n" + "".join(f"- [{p}]({p}.md)\n" for p in projects)
     with open(os.path.join(RESULTS, "SUMMARY.md"), "w") as f:
-        f.write(summary(records))
-    print(f"{len(new)} new e2e jobs, {len(records)} in total")
+        f.write(text)
+    lines = text.splitlines()
+    head = [l for l in lines if l.startswith("| Project") or l.startswith("|---")]
+    for p in projects:
+        mine = [l for l in lines if l.startswith(f"| {p} |")]
+        with open(os.path.join(RESULTS, f"{p}.md"), "w") as f:
+            f.write(project_report(p, [r for r in rows if r["project"] == p], head + mine))
+    print(f"{len(new)} new e2e jobs, {len(rows)} in total")
 
 
 if __name__ == "__main__":
