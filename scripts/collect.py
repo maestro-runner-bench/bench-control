@@ -15,6 +15,9 @@ import re
 import statistics
 import sys
 import time
+
+import flows as flowlog
+import retries
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -238,16 +241,13 @@ def job_record(src, run, job):
     )
     if rec["flavor"].isdigit():  # "android-test-e2e (36)" is an API level
         rec["flavor"] = ""
-    try:
-        lines = clean(api(f"/repos/{src['repo']}/actions/jobs/{job['id']}/logs", raw=True))
-    except Exception as e:  # logs expire or are not ready yet
-        print(f"  logs unavailable for {job['id']}: {e}", file=sys.stderr)
-        lines = []
+    lines = job_log(src["repo"], job["id"])
     h = src["harness"]
     if src["side"] == "ours":
         rec["runner_commit"] = runner_commit(lines)
     if not reached_tests:
         return rec
+    rec["_flows"] = flowlog.parse(h, src["side"], lines) if lines else None
     if h == "maestro-runner":
         rec.update(parse_maestro_runner(lines))
     elif h == "rn-maestro":
@@ -257,6 +257,39 @@ def job_record(src, run, job):
     elif h == "expo":
         rec.update(parse_expo(src["repo"], job["id"], lines))
     return rec
+
+
+def job_log(repo, job_id):
+    try:
+        return clean(api(f"/repos/{repo}/actions/jobs/{job_id}/logs", raw=True))
+    except Exception as e:  # logs expire or are not ready yet
+        print(f"  logs unavailable for {job_id}: {e}", file=sys.stderr)
+        return []
+
+
+def flow_entry(rec, flows):
+    """One line of results/flows.jsonl: a job's flows and their attempts."""
+    return dict(job_id=rec["job_id"], run_id=rec["run_id"], created_at=rec["created_at"],
+                project=rec["project"], side=rec["side"], repo=rec["repo"], workflow=rec["workflow"],
+                platform=rec["platform"], flavor=rec["flavor"], job=rec["job"], retry_round=rec["retry_round"],
+                runner_commit=rec.get("runner_commit"), status="ok" if flows is not None else "no-log",
+                v=flowlog.VERSION,
+                flows=flows or [])
+
+
+def backfill_flows(records, entries, limit):
+    """Read the flows of jobs collected before flows were recorded (or whose
+    log was not ready), newest first, up to limit logs per run."""
+    harness = {(s["repo"], s["workflow"]): s["harness"] for s in SOURCES}
+    todo = [r for r in records.values() if r.get("stage", "tests") == "tests"
+            and (r["job_id"] not in entries or entries[r["job_id"]].get("v") != flowlog.VERSION)
+            and (r["repo"], r["workflow"]) in harness]
+    todo.sort(key=lambda r: r["created_at"], reverse=True)
+    for r in todo[:limit]:
+        lines = job_log(r["repo"], r["job_id"])
+        flows = flowlog.parse(harness[(r["repo"], r["workflow"])], r["side"], lines) if lines else None
+        entries[r["job_id"]] = flow_entry(r, flows)
+    return min(len(todo), limit)
 
 
 def collect(records):
@@ -434,6 +467,24 @@ def main():
                     r = json.loads(l)
                     records[r["job_id"]] = r
     new = collect(records)
+    flows_path = os.path.join(RESULTS, "flows.jsonl")
+    entries = {}
+    if os.path.exists(flows_path):
+        with open(flows_path) as f:
+            for l in f:
+                if l.strip():
+                    e = json.loads(l)
+                    entries[e["job_id"]] = e
+    for r in records.values():
+        if "_flows" in r:
+            entries[r["job_id"]] = flow_entry(r, r.pop("_flows"))
+    filled = backfill_flows(records, entries, int(os.environ.get("FLOW_BACKFILL", "400")))
+    with open(flows_path, "w") as f:
+        for e in sorted(entries.values(), key=lambda e: (e["created_at"], e["job_id"])):
+            f.write(json.dumps(e, sort_keys=True) + "\n")
+    run_rows = retries.rollup(entries.values())
+    with open(os.path.join(RESULTS, "RETRIES.md"), "w") as f:
+        f.write(retries.render_all(run_rows))
     rows = sorted(records.values(), key=lambda r: (r["created_at"], r["job_id"]))
     with open(path, "w") as f:
         for r in rows:
@@ -441,6 +492,7 @@ def main():
     text = summary(rows)
     projects = sorted({r["project"] for r in rows})
     text += "\n## Per repo\n\n" + "".join(f"- [{p}]({p}.md)\n" for p in projects)
+    text += "\nRetried test cases per run, all repos: [RETRIES.md](RETRIES.md)\n"
     with open(os.path.join(RESULTS, "SUMMARY.md"), "w") as f:
         f.write(text)
     lines = text.splitlines()
@@ -449,7 +501,8 @@ def main():
         mine = [l for l in lines if l.startswith(f"| {p} |")]
         with open(os.path.join(RESULTS, f"{p}.md"), "w") as f:
             f.write(project_report(p, [r for r in rows if r["project"] == p], head + mine))
-    print(f"{len(new)} new e2e jobs, {len(rows)} in total")
+            f.write(retries.render_project(p, run_rows))
+    print(f"{len(new)} new e2e jobs, {len(rows)} in total; flows read for {filled} more jobs")
 
 
 if __name__ == "__main__":
