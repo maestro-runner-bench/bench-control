@@ -12,9 +12,10 @@ runs every 15 minutes and starts a repo when:
   - the macOS runners it needs (macRunners) are free: the repos with a run
     going hold theirs until it ends.
 
-Repos go in slot order; one that has to wait for Macs holds back the repos
-due after it, so the order stays React Native, then Expo, React Navigation
-and enriched-html, then pager-view, however late a tick fires.
+Repos go least recently run first, and one that has to wait for Macs holds
+back the rest: with ticks hours apart every repo is due on every tick, and
+going by slot let the four one-Mac repos take the Macs each time while React
+Native (all five) never got its turn.
 
 Needs GH_TOKEN (Actions read). NOW=2026-10-03T05:00 overrides the clock.
 """
@@ -79,21 +80,20 @@ def main():
         slot = latest_slot(repo["slotsUTC"], now)
         runs = runs_of(repo)
         going = [r for r in runs if r["status"] != "completed"]
-        started = any(
-            r["event"] == "workflow_dispatch" and parse(r["created_at"]) >= slot
-            for r in runs
-        )
+        dispatched = [parse(r["created_at"]) for r in runs if r["event"] == "workflow_dispatch"]
+        last = max(dispatched) if dispatched else dt.datetime.min.replace(tzinfo=UTC)
+        started = last >= slot
         macs = repo.get("macRunners", 1)
         if going:
             busy += macs
         state = "running" if going else "done" if started else "due"
         print(f"{repo['name']}: slot {slot:%H:%M}, {state}, needs {macs} Mac(s)", file=sys.stderr)
         if state == "due":
-            waiting.append((slot, repo["name"], macs))
+            waiting.append((last, repo["name"], macs))
 
     free = MAC_RUNNERS - busy
     print(f"Macs: {busy} held, {free} free", file=sys.stderr)
-    for slot, name, macs in sorted(waiting, key=lambda w: w[0]):
+    for last, name, macs in sorted(waiting, key=lambda w: w[0]):
         if macs > free:
             print(f"{name}: waits for {macs} Mac(s); later repos wait behind it", file=sys.stderr)
             break
