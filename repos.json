@@ -8,7 +8,8 @@
     "workflows": [
       "test-all.yml"
     ],
-    "macRunners": 5
+    "macRunners": 5,
+    "lastPhaseJob": "^test_e2e_ios_rntester / test"
   },
   {
     "name": "react-navigation",
