@@ -1,0 +1,57 @@
+name: Bench loop
+
+# Runs the benches in back-to-back cycles (scripts/plan.py): React Native
+# first, the others beside it as macOS runners come free, and the next cycle
+# when all have run. Every 5 minutes it starts whatever plan.py says, for
+# about 5h40m (jobs stop at 6h), then starts a new copy of itself. GitHub
+# fires scheduled workflows hours late, so the hourly cron is only a backup
+# that restarts the loop if the chain ever breaks; the concurrency group
+# keeps a single loop running.
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  actions: write
+
+concurrency:
+  group: bench-loop
+  cancel-in-progress: false
+
+jobs:
+  loop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v5
+      - name: Check the token
+        env:
+          GH_TOKEN: ${{ secrets.BENCH_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Add the BENCH_TOKEN secret: a fine-grained token for the maestro-runner-bench org with Contents, Workflows and Actions read/write."
+            exit 1
+          fi
+      - name: Start benches as runners come free
+        env:
+          GH_TOKEN: ${{ secrets.BENCH_TOKEN }}
+          SCHEDULED: 'true'
+        run: |
+          end=$((SECONDS + 340 * 60))
+          while [ "$SECONDS" -lt "$end" ]; do
+            # Pick up changes to repos.json and the scripts between checks.
+            git pull -q --ff-only origin "$GITHUB_REF_NAME" || true
+            echo "::group::$(date -u +%H:%M) check"
+            ./scripts/sync-and-run.sh || echo "::warning::sync-and-run failed; trying again in 5 minutes"
+            echo "::endgroup::"
+            sleep 300
+          done
+      - name: Start the next loop
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run bench-loop.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"

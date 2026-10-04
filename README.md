@@ -1,14 +1,23 @@
 # bench-control
 
 Keeps the maestro-runner bench forks on the latest upstream code and runs
-them on a schedule.
+them back to back.
 
 `repos.json` lists each fork, its upstream branch, our bench branch (which
-holds only CI changes: Maestro swapped for maestro-runner) and the workflows
-to start. `.github/workflows/sync-and-run.yml` runs five 4.5-hour cycles a day, each repo in its slots (`slotsUTC`; add a matching cron line for a new slot), and on demand:
-for each repo it rebases the bench branch onto upstream, force-pushes it and
-starts the workflows. A rebase that conflicts skips that repo and opens an
-issue here.
+holds only CI changes: Maestro swapped for maestro-runner), the workflows to
+start and how many macOS runners it needs at once (`macRunners`). Starting a
+repo rebases its bench branch onto upstream, force-pushes it and starts the
+workflows (`scripts/sync-and-run.sh`); a rebase that conflicts skips that
+repo and opens an issue here.
+
+`.github/workflows/bench-loop.yml` runs the benches in cycles. A cycle starts
+with React Native (first in `repos.json`); the others start beside it as
+macOS runners come free, counted live from the running and queued macOS jobs
+(the free org runs 5 at once); when all have run, the next cycle starts.
+Nothing starts while a macOS job is queued, so no bench waits for a Mac
+because of another. The loop checks every 5 minutes (`scripts/plan.py`
+decides), runs for about 5h40m and then starts a new copy of itself; an
+hourly cron only restarts it if that chain breaks.
 
 Setup: add a `BENCH_TOKEN` secret, a fine-grained token for the
 `maestro-runner-bench` org with Contents, Workflows and Actions read/write

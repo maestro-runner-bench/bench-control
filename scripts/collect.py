@@ -27,6 +27,14 @@ API = "https://api.github.com"
 TOKEN = os.environ.get("GH_TOKEN", "")
 RUNS = int(os.environ.get("RUNS_PER_SOURCE", "15"))
 RESULTS = os.environ.get("RESULTS_DIR", "results")
+# The bench started with the scheduled runs on the night of 2026-10-02; our
+# runs before that were setup and development builds and are not counted.
+# Upstream's history is kept as the baseline.
+OURS_SINCE = os.environ.get("OURS_SINCE", "2026-10-02T20:00:00Z")
+
+
+def counted(rec):
+    return rec["side"] != "ours" or rec["created_at"] >= OURS_SINCE
 
 # Each source: repo, workflow file, branch, side ("ours"/"upstream"), the
 # harness that ran the flows, and which jobs are e2e test jobs.
@@ -315,6 +323,8 @@ def collect(records):
             if used >= RUNS:
                 break
             ours = src["side"] == "ours"
+            if ours and run["created_at"] < OURS_SINCE:
+                continue
             # Upstream cancels superseded runs; ours are cancelled only by
             # the time limit, which is a result.
             if run.get("conclusion") == "skipped" or (run.get("conclusion") == "cancelled" and not ours):
@@ -468,6 +478,7 @@ def main():
                     r = json.loads(l)
                     records[r["job_id"]] = r
     new = collect(records)
+    records = {k: r for k, r in records.items() if counted(r)}
     flows_path = os.path.join(RESULTS, "flows.jsonl")
     entries = {}
     if os.path.exists(flows_path):
@@ -476,6 +487,7 @@ def main():
                 if l.strip():
                     e = json.loads(l)
                     entries[e["job_id"]] = e
+    entries = {k: e for k, e in entries.items() if counted(e)}
     for r in records.values():
         if "_flows" in r:
             entries[r["job_id"]] = flow_entry(r, r.pop("_flows"))

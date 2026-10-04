@@ -8,13 +8,6 @@
     "workflows": [
       "test-all.yml"
     ],
-    "slotsUTC": [
-      "00:00",
-      "04:30",
-      "09:00",
-      "13:30",
-      "18:00"
-    ],
     "macRunners": 5
   },
   {
@@ -27,13 +20,6 @@
       "e2e-ios.yml",
       "e2e-android.yml"
     ],
-    "slotsUTC": [
-      "02:00",
-      "06:30",
-      "11:00",
-      "15:30",
-      "20:00"
-    ],
     "macRunners": 1
   },
   {
@@ -44,13 +30,6 @@
     "branch": "maestro-runner-e2e",
     "workflows": [
       "test-suite.yml"
-    ],
-    "slotsUTC": [
-      "02:00",
-      "06:30",
-      "11:00",
-      "15:30",
-      "20:00"
     ],
     "macRunners": 1
   },
@@ -63,13 +42,6 @@
     "workflows": [
       "maestro-runner-e2e.yml"
     ],
-    "slotsUTC": [
-      "02:00",
-      "06:30",
-      "11:00",
-      "15:30",
-      "20:00"
-    ],
     "macRunners": 1
   },
   {
@@ -80,13 +52,6 @@
     "branch": "maestro-runner-e2e",
     "workflows": [
       "maestro-runner-e2e.yml"
-    ],
-    "slotsUTC": [
-      "02:30",
-      "07:00",
-      "11:30",
-      "16:00",
-      "20:30"
     ],
     "macRunners": 1
   }
