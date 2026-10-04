@@ -71,7 +71,9 @@ def main():
     now = parse(os.environ["NOW"]) if os.environ.get("NOW") else dt.datetime.now(UTC)
     if now.tzinfo is None:
         now = now.replace(tzinfo=UTC)
-    repos = json.load(open("repos.json"))
+    # A repo with "paused" set stays out of the cycles (it can still be
+    # started by hand from sync-and-run.yml).
+    repos = [r for r in json.load(open("repos.json")) if not r.get("paused")]
 
     state = {}
     running = queued = 0

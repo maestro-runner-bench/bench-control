@@ -31,7 +31,8 @@
     "workflows": [
       "test-suite.yml"
     ],
-    "macRunners": 1
+    "macRunners": 1,
+    "paused": "Out of the loop while we look at why its runs fail (2026-10-04)."
   },
   {
     "name": "enriched-html",
