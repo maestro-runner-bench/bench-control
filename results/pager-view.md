@@ -8,15 +8,19 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Project | Platform | Flavour | Side | Build | Runs | Median e2e (min) | Green runs | Runs with no first-attempt failure | First-attempt failures / run | Final failures / run | Runs needing a retry job | Runner |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| pager-view | android | - | ours | 6904d0f | 3 | 20.0 | 0/3 | 0/3 | 9.33 | 9.00 | 0/3 | ubuntu-latest |
+| pager-view | android | - | ours | 6904d0f | 5 | 19.9 | 0/5 | 0/5 | 9.20 | 9.00 | 0/5 | ubuntu-latest |
 | pager-view | android | - | ours | older | 1 | 0.3 | 0/1 | - | - | - | 0/1 | ubuntu-latest |
 | pager-view | android | - | ours | 49360bb | 1 | 20.1 | 0/1 | 0/1 | 9.00 | 9.00 | 0/1 | ubuntu-latest |
-| pager-view | ios | - | ours | 6904d0f | 4 | 8.2 | 0/4 | 0/4 | 4.00 | 4.00 | 0/4 | macos-26 |
+| pager-view | ios | - | ours | 6904d0f | 6 | 8.5 | 0/6 | 0/6 | 4.00 | 4.00 | 0/6 | macos-26 |
 
 ## Runs: maestro-runner (bench fork)
 
 | Started (UTC) | Run | Build | Run time | Job | Job time | Tests | Queue | Result |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-03 18:40 | [37145063215](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37145063215) | 6904d0f | 35.6 | e2e-android | 21.2 | 19.9 | 0.0 | 12/21 |
+|  | | |  | e2e-ios | 35.5 | 10.2 | 0.1 | 17/21 |
+| 2026-10-03 14:53 | [37131281459](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37131281459) | 6904d0f | 29.0 | e2e-android | 18.4 | 17.3 | 0.0 | 12/21 |
+|  | | |  | e2e-ios | 28.9 | 8.8 | 0.1 | 17/21 |
 | 2026-10-03 10:23 | [37116242900](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37116242900) | 6904d0f | 37.4 | e2e-android | 21.3 | 20.0 | 0.0 | 12/21 |
 |  | | |  | e2e-ios | 37.2 | 8.2 | 0.1 | 17/21 |
 | 2026-10-02 23:53 | [37079664391](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37079664391) | 6904d0f | 51.1 | e2e-android | 21.9 | 20.6 | 0.0 | 12/21, 1 passed on retry |
@@ -43,8 +47,8 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android | 6904d0f | 3 | 20.0 | 0% | 8.33 | 0% | 16.3 | 100% | nested_pagerView_example ×3, ensure-ltr ×3, ensure-rtl ×3 / - |
-| ios | 6904d0f | 4 | 8.2 | 0% | 3.00 | 0% | 6.0 | 100% | ensure-ltr ×4, ensure-rtl ×4, verify-horizontal-rtl-swipe ×4 / - |
+| android | 6904d0f | 5 | 19.9 | 0% | 8.20 | 0% | 16.2 | 100% | nested_pagerView_example ×5, ensure-ltr ×5, ensure-rtl ×5 / - |
+| ios | 6904d0f | 6 | 8.5 | 0% | 3.00 | 0% | 6.0 | 100% | ensure-ltr ×6, ensure-rtl ×6, verify-horizontal-rtl-swipe ×6 / - |
 
 Ours on earlier maestro-runner builds:
 
@@ -56,6 +60,10 @@ Ours on earlier maestro-runner builds:
 
 | Started (UTC) | Run | Platform | Side | Build | Flows | Failed at least once | Passed on retry (failed attempts) | Failed at the end | Extra flow runs | Retry jobs |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 2026-10-03 18:40 | [37145063215](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37145063215) | android | ours | 6904d0f | 16 | 8 | - | nested_pagerView_example, ensure-ltr, ensure-rtl, verify-horizontal-rtl-swipe, tab_view_inside_scroll_view_example, issue_1096_keyboard_shrink_repro, issue_1098_nested_pager_repro, issue_1142_search_bar_inset_repro | 16 | 0 |
+| 2026-10-03 18:40 | [37145063215](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37145063215) | ios | ours | 6904d0f | 16 | 3 | - | ensure-ltr, ensure-rtl, verify-horizontal-rtl-swipe | 6 | 0 |
+| 2026-10-03 14:53 | [37131281459](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37131281459) | android | ours | 6904d0f | 16 | 8 | - | nested_pagerView_example, ensure-ltr, ensure-rtl, verify-horizontal-rtl-swipe, tab_view_inside_scroll_view_example, issue_1096_keyboard_shrink_repro, issue_1098_nested_pager_repro, issue_1142_search_bar_inset_repro | 16 | 0 |
+| 2026-10-03 14:53 | [37131281459](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37131281459) | ios | ours | 6904d0f | 16 | 3 | - | ensure-ltr, ensure-rtl, verify-horizontal-rtl-swipe | 6 | 0 |
 | 2026-10-03 10:23 | [37116242900](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37116242900) | ios | ours | 6904d0f | 16 | 3 | - | ensure-ltr, ensure-rtl, verify-horizontal-rtl-swipe | 6 | 0 |
 | 2026-10-03 10:23 | [37116242900](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37116242900) | android | ours | 6904d0f | 16 | 8 | - | nested_pagerView_example, ensure-ltr, ensure-rtl, verify-horizontal-rtl-swipe, tab_view_inside_scroll_view_example, issue_1096_keyboard_shrink_repro, issue_1098_nested_pager_repro, issue_1142_search_bar_inset_repro | 16 | 0 |
 | 2026-10-02 23:53 | [37079664391](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37079664391) | ios | ours | 6904d0f | 16 | 3 | - | ensure-ltr, ensure-rtl, verify-horizontal-rtl-swipe | 6 | 0 |

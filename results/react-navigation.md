@@ -8,11 +8,11 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Project | Platform | Flavour | Side | Build | Runs | Median e2e (min) | Green runs | Runs with no first-attempt failure | First-attempt failures / run | Final failures / run | Runs needing a retry job | Runner |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| react-navigation | android | - | ours | 6904d0f | 3 | 25.8 | 3/3 | 3/3 | 0.00 | 0.00 | 0/3 | ubuntu-latest |
+| react-navigation | android | - | ours | 6904d0f | 5 | 25.8 | 5/5 | 5/5 | 0.00 | 0.00 | 0/5 | ubuntu-latest |
 | react-navigation | android | - | ours | older | 3 | 26.6 | 2/2 | 2/2 | 0.00 | 0.00 | 0/3 | ubuntu-latest |
 | react-navigation | android | - | ours | d51beed | 2 | - | 0/2 | 1/1 | 0.00 | 0.00 | 0/2 | ubuntu-latest |
 | react-navigation | android | - | upstream | - | 47 | 23.9 | 38/47 | 27/47 | 0.60 | 0.21 | 0/47 | ubuntu-latest |
-| react-navigation | ios | - | ours | 6904d0f | 3 | 19.1 | 3/3 | 2/3 | 0.33 | 0.00 | 0/3 | macos-latest |
+| react-navigation | ios | - | ours | 6904d0f | 5 | 18.4 | 5/5 | 4/5 | 0.20 | 0.00 | 0/5 | macos-latest |
 | react-navigation | ios | - | ours | older | 3 | 21.2 | 3/3 | 2/3 | 0.33 | 0.00 | 0/3 | macos-latest |
 | react-navigation | ios | - | upstream | - | 31 | 24.8 | 23/31 | 14/31 | 0.68 | 0.26 | 0/31 | macos-latest |
 
@@ -20,6 +20,10 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Started (UTC) | Run | Build | Run time | Job | Job time | Tests | Queue | Result |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-03 18:39 | [37145037017](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37145037017) | 6904d0f | 30.1 | e2e-android | 29.4 | 26.6 | 0.0 | 39/39 |
+| 2026-10-03 18:39 | [37145035430](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37145035430) | 6904d0f | 24.2 | e2e-ios | 22.6 | 18.4 | 0.1 | 39/39 |
+| 2026-10-03 14:53 | [37131251179](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37131251179) | 6904d0f | 26.9 | e2e-android | 26.1 | 23.0 | 0.0 | 39/39 |
+| 2026-10-03 14:53 | [37131249734](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37131249734) | 6904d0f | 13.0 | e2e-ios | 11.7 | 10.3 | 0.1 | 39/39 |
 | 2026-10-03 10:22 | [37116220893](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37116220893) | 6904d0f | 30.0 | e2e-android | 29.4 | 26.6 | 0.0 | 39/39 |
 | 2026-10-03 10:22 | [37116219437](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37116219437) | 6904d0f | 17.2 | e2e-ios | 15.8 | 12.2 | 0.1 | 39/39 |
 | 2026-10-02 23:31 | [37078011839](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37078011839) | 6904d0f | 29.4 | e2e-android | 28.7 | 25.8 | 0.0 | 39/39 |
@@ -133,8 +137,8 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android | 6904d0f | 3 vs 47 | 25.8 vs **23.9** | **100%** vs 66% | **0.00** vs 0.38 | 0% vs 0% | **0.0** vs 0.4 | 0% vs 0% | - / Tab View - Scrollable Tab Bar ×7, Bottom Tabs - Preload Flow ×5, Screen Layout ×2 |
-| ios | 6904d0f | 3 vs 31 | **19.1** vs 24.8 | **67%** vs 61% | **0.33** vs 0.42 | 0% vs 0% | **0.3** vs 0.5 | 0% vs 0% | Material Top Tabs - Basic ×1 / Screen Layout ×3, Tab View - Scrollable Tab Bar ×3, Stack - Prevent Remove ×2 |
+| android | 6904d0f | 5 vs 47 | 25.8 vs **23.9** | **100%** vs 66% | **0.00** vs 0.38 | 0% vs 0% | **0.0** vs 0.4 | 0% vs 0% | - / Tab View - Scrollable Tab Bar ×7, Bottom Tabs - Preload Flow ×5, Screen Layout ×2 |
+| ios | 6904d0f | 5 vs 31 | **18.4** vs 24.8 | **80%** vs 61% | **0.20** vs 0.42 | 0% vs 0% | **0.2** vs 0.5 | 0% vs 0% | Material Top Tabs - Basic ×1 / Screen Layout ×3, Tab View - Scrollable Tab Bar ×3, Stack - Prevent Remove ×2 |
 
 Ours on earlier maestro-runner builds:
 
@@ -148,6 +152,10 @@ Ours on earlier maestro-runner builds:
 
 | Started (UTC) | Run | Platform | Side | Build | Flows | Failed at least once | Passed on retry (failed attempts) | Failed at the end | Extra flow runs | Retry jobs |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 2026-10-03 18:39 | [37145037017](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37145037017) | android | ours | 6904d0f | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-03 18:39 | [37145035430](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37145035430) | ios | ours | 6904d0f | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-03 14:53 | [37131251179](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37131251179) | android | ours | 6904d0f | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-03 14:53 | [37131249734](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37131249734) | ios | ours | 6904d0f | 39 | 0 | - | - | 0 | 0 |
 | 2026-10-03 10:22 | [37116220893](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37116220893) | android | ours | 6904d0f | 39 | 0 | - | - | 0 | 0 |
 | 2026-10-03 10:22 | [37116219437](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37116219437) | ios | ours | 6904d0f | 39 | 0 | - | - | 0 | 0 |
 | 2026-10-03 04:12 | [37095785622](https://github.com/react-navigation/react-navigation/actions/runs/37095785622) | android | upstream | - | 39 | 0 | - | - | 0 | 0 |

@@ -8,41 +8,41 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Project | Platform | Flavour | Side | Build | Runs | Median e2e (min) | Green runs | Runs with no first-attempt failure | First-attempt failures / run | Final failures / run | Runs needing a retry job | Runner |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| react-native | android | debug | ours | 6904d0f | 2 | 12.0 | 2/2 | 2/2 | 0.00 | 0.00 | 0/2 | ubuntu-latest |
+| react-native | android | debug | ours | 6904d0f | 3 | 11.8 | 3/3 | 3/3 | 0.00 | 0.00 | 0/3 | ubuntu-latest |
 | react-native | android | debug | ours | older | 1 | 9.7 | 1/1 | 1/1 | 0.00 | 0.00 | 0/1 | ubuntu-latest |
 | react-native | android | debug | ours | 86ed2d7 | 1 | 11.7 | 1/1 | 1/1 | 0.00 | 0.00 | 0/1 | ubuntu-latest |
 | react-native | android | debug | ours | d51beed | 1 | 13.4 | 0/1 | 0/1 | 1.00 | 1.00 | 1/1 | ubuntu-latest |
 | react-native | android | debug | upstream | - | 86 | 18.4 | 75/86 | 54/58 | 1.72 | 1.72 | 11/86 | 4-core-ubuntu |
-| react-native | android | debug (template app) | ours | 6904d0f | 2 | 2.8 | 2/2 | 2/2 | 0.00 | 0.00 | 0/2 | ubuntu-latest |
+| react-native | android | debug (template app) | ours | 6904d0f | 3 | 3.0 | 3/3 | 3/3 | 0.00 | 0.00 | 0/3 | ubuntu-latest |
 | react-native | android | debug (template app) | ours | older | 1 | 2.8 | 0/1 | 1/1 | 0.00 | 0.00 | 1/1 | ubuntu-latest |
 | react-native | android | debug (template app) | ours | 86ed2d7 | 1 | 2.5 | 1/1 | 1/1 | 0.00 | 0.00 | 0/1 | ubuntu-latest |
 | react-native | android | debug (template app) | ours | d51beed | 1 | 3.1 | 1/1 | 1/1 | 0.00 | 0.00 | 0/1 | ubuntu-latest |
 | react-native | android | debug (template app) | upstream | - | 85 | 3.2 | 78/85 | 53/59 | 0.10 | 0.10 | 7/85 | 4-core-ubuntu |
-| react-native | android | release | ours | 6904d0f | 2 | 15.5 | 2/2 | 2/2 | 0.00 | 0.00 | 0/2 | ubuntu-latest |
+| react-native | android | release | ours | 6904d0f | 3 | 15.4 | 3/3 | 3/3 | 0.00 | 0.00 | 0/3 | ubuntu-latest |
 | react-native | android | release | ours | older | 1 | 16.1 | 1/1 | 1/1 | 0.00 | 0.00 | 0/1 | ubuntu-latest |
 | react-native | android | release | ours | 86ed2d7 | 1 | 15.9 | 1/1 | 1/1 | 0.00 | 0.00 | 0/1 | ubuntu-latest |
 | react-native | android | release | ours | d51beed | 1 | 14.4 | 0/1 | 0/1 | 22.00 | 22.00 | 1/1 | ubuntu-latest |
 | react-native | android | release | upstream | - | 86 | 27.5 | 76/86 | 55/59 | 3.32 | 3.32 | 10/86 | 4-core-ubuntu |
-| react-native | android | release (template app) | ours | 6904d0f | 2 | 2.2 | 2/2 | 2/2 | 0.00 | 0.00 | 0/2 | ubuntu-latest |
+| react-native | android | release (template app) | ours | 6904d0f | 3 | 2.2 | 3/3 | 3/3 | 0.00 | 0.00 | 0/3 | ubuntu-latest |
 | react-native | android | release (template app) | ours | older | 1 | 7.3 | 0/1 | 0/1 | 1.00 | 1.00 | 1/1 | ubuntu-latest |
 | react-native | android | release (template app) | ours | 86ed2d7 | 1 | 2.2 | 1/1 | 1/1 | 0.00 | 0.00 | 0/1 | ubuntu-latest |
 | react-native | android | release (template app) | ours | d51beed | 1 | 2.3 | 1/1 | 1/1 | 0.00 | 0.00 | 0/1 | ubuntu-latest |
 | react-native | android | release (template app) | upstream | - | 85 | 2.5 | 78/85 | 53/58 | 0.09 | 0.09 | 7/85 | 4-core-ubuntu |
-| react-native | ios | debug | ours | 6904d0f | 2 | 21.0 | 2/2 | 2/2 | 0.00 | 0.00 | 0/2 | macos-26 |
+| react-native | ios | debug | ours | 6904d0f | 3 | 19.8 | 3/3 | 3/3 | 0.00 | 0.00 | 0/3 | macos-26 |
 | react-native | ios | debug | ours | older | 1 | 83.6 | 1/1 | 0/1 | 1.00 | 0.00 | 0/1 | macos-26-intel |
 | react-native | ios | debug | ours | 86ed2d7 | 1 | - | 0/1 | 0/1 | 33.00 | 33.00 | 0/1 | macos-26-intel |
 | react-native | ios | debug | ours | d51beed | 1 | - | 0/1 | 0/1 | 1.00 | 1.00 | 0/1 | macos-26-intel |
 | react-native | ios | debug | upstream | - | 88 | 75.1 | 67/87 | 10/59 | 1.15 | 0.14 | 21/88 | macos-15-large, macos-26-large |
-| react-native | ios | debug (template app) | ours | 6904d0f | 2 | 14.7 | 2/2 | 2/2 | 0.00 | 0.00 | 0/2 | macos-26-intel |
+| react-native | ios | debug (template app) | ours | 6904d0f | 3 | 19.3 | 3/3 | 2/3 | 0.33 | 0.00 | 0/3 | macos-26-intel |
 | react-native | ios | debug (template app) | ours | 86ed2d7 | 1 | 13.2 | 1/1 | 1/1 | 0.00 | 0.00 | 0/1 | macos-26-intel |
 | react-native | ios | debug (template app) | ours | d51beed | 1 | 1.9 | 0/1 | - | - | - | 1/1 | macos-26-intel |
 | react-native | ios | debug (template app) | upstream | - | 81 | 10.1 | 80/81 | 49/56 | 0.12 | 0.00 | 1/81 | macos-15-large, macos-26-large |
-| react-native | ios | release | ours | 6904d0f | 2 | 21.9 | 2/2 | 2/2 | 0.00 | 0.00 | 0/2 | macos-26 |
+| react-native | ios | release | ours | 6904d0f | 3 | 21.5 | 3/3 | 3/3 | 0.00 | 0.00 | 0/3 | macos-26 |
 | react-native | ios | release | ours | older | 1 | 69.5 | 1/1 | 0/1 | 1.00 | 0.00 | 0/1 | macos-26-intel |
 | react-native | ios | release | ours | 86ed2d7 | 1 | - | 0/1 | 0/1 | 32.00 | 32.00 | 0/1 | macos-26-intel |
 | react-native | ios | release | ours | d51beed | 1 | - | 0/1 | 0/1 | 1.00 | 1.00 | 0/1 | macos-26-intel |
 | react-native | ios | release | upstream | - | 88 | 72.6 | 67/88 | 32/59 | 0.53 | 0.24 | 21/88 | macos-15-large, macos-26-large |
-| react-native | ios | release (template app) | ours | 6904d0f | 2 | 10.8 | 2/2 | 2/2 | 0.00 | 0.00 | 0/2 | macos-26-intel |
+| react-native | ios | release (template app) | ours | 6904d0f | 3 | 12.9 | 3/3 | 3/3 | 0.00 | 0.00 | 0/3 | macos-26-intel |
 | react-native | ios | release (template app) | ours | 86ed2d7 | 1 | 8.4 | 1/1 | 1/1 | 0.00 | 0.00 | 0/1 | macos-26-intel |
 | react-native | ios | release (template app) | ours | d51beed | 1 | 10.5 | 0/1 | 1/1 | 0.00 | 0.00 | 1/1 | macos-26-intel |
 | react-native | ios | release (template app) | upstream | - | 80 | 9.2 | 79/80 | 56/56 | 0.00 | 0.00 | 1/80 | macos-15-large, macos-26-large |
@@ -51,6 +51,14 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Started (UTC) | Run | Build | Run time | Job | Job time | Tests | Queue | Result |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-04 00:14 | [37164340779](https://github.com/maestro-runner-bench/react-native/actions/runs/37164340779) | 6904d0f | 125.9 | android_rntester (debug) | 12.6 | 11.8 | 0.0 | 27/27 |
+|  | | |  | android_rntester (release) | 16.4 | 15.4 | 0.1 | 51/51 |
+|  | | |  | android_templateapp (debug) | 5.6 | 3.1 | 0.0 | 1/1 |
+|  | | |  | android_templateapp (release) | 2.8 | 2.1 | 0.0 | 1/1 |
+|  | | |  | ios_rntester (Debug) | 20.8 | 19.8 | 7.5 | 48/48 |
+|  | | |  | ios_rntester (Release) | 22.7 | 21.5 | 6.7 | 48/48 |
+|  | | |  | ios_templateapp (Debug) | 32.3 | 23.5 | 6.7 | 1/1, 1 passed on retry |
+|  | | |  | ios_templateapp (Release) | 17.7 | 12.9 | 6.2 | 1/1 |
 | 2026-10-03 03:23 | [37093048002](https://github.com/maestro-runner-bench/react-native/actions/runs/37093048002) | 6904d0f | 130.9 | android_rntester (debug) | 12.3 | 11.6 | 0.0 | 27/27 |
 |  | | |  | android_rntester (release) | 17.1 | 16.3 | 0.1 | 51/51 |
 |  | | |  | android_templateapp (debug) | 5.0 | 3.0 | 0.0 | 1/1 |
@@ -906,14 +914,14 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android debug rntester | 6904d0f | 2 vs 59 | **12.0** vs 18.9 | **100%** vs 93% | **0.00** vs 1.69 | **0%** vs 8% | **0.0** vs 2.5 | **0%** vs 3% | - / alert ×4, animated-fade-in-view ×4, appearance ×4 |
-| android debug templateapp | 6904d0f | 2 vs 59 | **2.8** vs 3.3 | **100%** vs 90% | **0.00** vs 0.10 | **0%** vs 10% | **0.0** vs 0.1 | **0%** vs 3% | - / start ×6 |
-| android release rntester | 6904d0f | 2 vs 59 | **15.5** vs 28.1 | **100%** vs 93% | **0.00** vs 3.32 | **0%** vs 7% | **0.0** vs 5.0 | **0%** vs 3% | - / alert ×4, animated-fade-in-view ×4, appearance ×4 |
-| android release templateapp | 6904d0f | 2 vs 59 | **2.2** vs 2.5 | **100%** vs 92% | **0.00** vs 0.08 | **0%** vs 10% | **0.0** vs 0.1 | **0%** vs 3% | - / start ×5 |
-| ios debug rntester | 6904d0f | 2 vs 59 | **21.0** vs 85.0 | **100%** vs 15% | **0.00** vs 1.47 | **0%** vs 34% | **0.0** vs 23.3 | **0%** vs 3% | - / sectionlist-viewability ×29, scrollview-minindex-maintainvisible ×6, flatlist-viewability ×4 |
-| ios debug templateapp | 6904d0f | 2 vs 56 | 14.7 vs **10.4** | **100%** vs 88% | **0.00** vs 0.12 | 0% vs 0% | **0.0** vs 0.1 | 0% vs 0% | - / start ×7 |
-| ios release rntester | 6904d0f | 2 vs 59 | **21.9** vs 84.6 | **100%** vs 47% | **0.00** vs 0.63 | **0%** vs 36% | **0.0** vs 24.0 | 0% vs 0% | - / sectionlist-viewability ×30, scrollview-minindex-maintainvisible ×2, modal ×1 |
-| ios release templateapp | 6904d0f | 2 vs 56 | 10.8 vs **9.4** | 100% vs 100% | 0.00 vs 0.00 | 0% vs 0% | 0.0 vs 0.0 | 0% vs 0% | - / - |
+| android debug rntester | 6904d0f | 3 vs 59 | **11.8** vs 18.9 | **100%** vs 93% | **0.00** vs 1.69 | **0%** vs 8% | **0.0** vs 2.5 | **0%** vs 3% | - / alert ×4, animated-fade-in-view ×4, appearance ×4 |
+| android debug templateapp | 6904d0f | 3 vs 59 | **3.0** vs 3.3 | **100%** vs 90% | **0.00** vs 0.10 | **0%** vs 10% | **0.0** vs 0.1 | **0%** vs 3% | - / start ×6 |
+| android release rntester | 6904d0f | 3 vs 59 | **15.4** vs 28.1 | **100%** vs 93% | **0.00** vs 3.32 | **0%** vs 7% | **0.0** vs 5.0 | **0%** vs 3% | - / alert ×4, animated-fade-in-view ×4, appearance ×4 |
+| android release templateapp | 6904d0f | 3 vs 59 | **2.2** vs 2.5 | **100%** vs 92% | **0.00** vs 0.08 | **0%** vs 10% | **0.0** vs 0.1 | **0%** vs 3% | - / start ×5 |
+| ios debug rntester | 6904d0f | 3 vs 59 | **19.8** vs 85.0 | **100%** vs 15% | **0.00** vs 1.47 | **0%** vs 34% | **0.0** vs 23.3 | **0%** vs 3% | - / sectionlist-viewability ×29, scrollview-minindex-maintainvisible ×6, flatlist-viewability ×4 |
+| ios debug templateapp | 6904d0f | 3 vs 56 | 19.3 vs **10.4** | 67% vs **88%** | 0.33 vs **0.12** | 0% vs 0% | 0.3 vs **0.1** | 0% vs 0% | start ×1 / start ×7 |
+| ios release rntester | 6904d0f | 3 vs 59 | **21.5** vs 84.6 | **100%** vs 47% | **0.00** vs 0.63 | **0%** vs 36% | **0.0** vs 24.0 | 0% vs 0% | - / sectionlist-viewability ×30, scrollview-minindex-maintainvisible ×2, modal ×1 |
+| ios release templateapp | 6904d0f | 3 vs 56 | 12.9 vs **9.4** | 100% vs 100% | 0.00 vs 0.00 | 0% vs 0% | 0.0 vs 0.0 | 0% vs 0% | - / - |
 
 Ours on earlier maestro-runner builds:
 
@@ -946,6 +954,14 @@ Ours on earlier maestro-runner builds:
 
 | Started (UTC) | Run | Platform | Side | Build | Flows | Failed at least once | Passed on retry (failed attempts) | Failed at the end | Extra flow runs | Retry jobs |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 2026-10-04 00:14 | [37164340779](https://github.com/maestro-runner-bench/react-native/actions/runs/37164340779) | android release rntester | ours | 6904d0f | 51 | 0 | - | - | 0 | 0 |
+| 2026-10-04 00:14 | [37164340779](https://github.com/maestro-runner-bench/react-native/actions/runs/37164340779) | android debug rntester | ours | 6904d0f | 27 | 0 | - | - | 0 | 0 |
+| 2026-10-04 00:14 | [37164340779](https://github.com/maestro-runner-bench/react-native/actions/runs/37164340779) | android debug templateapp | ours | 6904d0f | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-04 00:14 | [37164340779](https://github.com/maestro-runner-bench/react-native/actions/runs/37164340779) | android release templateapp | ours | 6904d0f | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-04 00:14 | [37164340779](https://github.com/maestro-runner-bench/react-native/actions/runs/37164340779) | ios release templateapp | ours | 6904d0f | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-04 00:14 | [37164340779](https://github.com/maestro-runner-bench/react-native/actions/runs/37164340779) | ios debug templateapp | ours | 6904d0f | 1 | 1 | start (1) | - | 1 | 0 |
+| 2026-10-04 00:14 | [37164340779](https://github.com/maestro-runner-bench/react-native/actions/runs/37164340779) | ios debug rntester | ours | 6904d0f | 48 | 0 | - | - | 0 | 0 |
+| 2026-10-04 00:14 | [37164340779](https://github.com/maestro-runner-bench/react-native/actions/runs/37164340779) | ios release rntester | ours | 6904d0f | 48 | 0 | - | - | 0 | 0 |
 | 2026-10-03 03:23 | [37093048002](https://github.com/maestro-runner-bench/react-native/actions/runs/37093048002) | android release rntester | ours | 6904d0f | 51 | 0 | - | - | 0 | 0 |
 | 2026-10-03 03:23 | [37093048002](https://github.com/maestro-runner-bench/react-native/actions/runs/37093048002) | android debug rntester | ours | 6904d0f | 27 | 0 | - | - | 0 | 0 |
 | 2026-10-03 03:23 | [37093048002](https://github.com/maestro-runner-bench/react-native/actions/runs/37093048002) | android release templateapp | ours | 6904d0f | 1 | 0 | - | - | 0 | 0 |
