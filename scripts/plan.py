@@ -62,6 +62,32 @@ def runs_of(repo):
     return runs
 
 
+# What earlier checks saw, kept for the life of a loop instance: GitHub's run
+# list once answered with a stale page (React Native "idle, last started the
+# day before" while its run was going) and a second run started beside it.
+STATE_FILE = os.environ.get("PLAN_STATE", ".plan-state.json")
+
+
+def load_state():
+    try:
+        with open(STATE_FILE) as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
+
+
+def save_state(seen):
+    try:
+        with open(STATE_FILE, "w") as f:
+            json.dump(seen, f)
+    except OSError:
+        pass
+
+
+def run_by_id(repo, run_id):
+    return api(f"repos/{repo['fork']}/actions/runs/{run_id}")
+
+
 def run_jobs(repo, run):
     return api(f"repos/{repo['fork']}/actions/runs/{run['id']}/jobs?per_page=100").get("jobs", [])
 
@@ -86,10 +112,28 @@ def main():
     state = {}
     running = queued = 0
     anything_going = False
+    seen = load_state()
     for repo in every:
         runs = runs_of(repo)
+        # A run seen going before but missing from this list is looked up by
+        # its id rather than taken as finished.
+        listed = {r["id"] for r in runs}
+        prev = seen.get(repo["name"], {})
+        for run_id in prev.get("going", []):
+            if run_id not in listed:
+                try:
+                    runs.append(run_by_id(repo, run_id))
+                except Exception as e:  # gone or unreadable: keep it as going this check
+                    print(f"{repo['name']}: run {run_id} unreadable ({e}); counted as running", file=sys.stderr)
+                    runs.append({"id": run_id, "status": "in_progress", "event": "workflow_dispatch",
+                                 "created_at": prev.get("last", "1970-01-01T00:00:00Z")})
         going = [r for r in runs if r["status"] != "completed"]
         dispatched = [parse(r["created_at"]) for r in runs if r["event"] == "workflow_dispatch"]
+        # The last start only moves forward.
+        if prev.get("last"):
+            dispatched.append(parse(prev["last"]))
+        seen[repo["name"]] = dict(going=[r["id"] for r in going],
+                                  last=max(dispatched).strftime("%Y-%m-%dT%H:%M:%SZ") if dispatched else None)
         jobs = []
         for r in going:
             jobs += run_jobs(repo, r)
@@ -99,6 +143,7 @@ def main():
         state[repo["name"]] = dict(repo=repo, going=bool(going), jobs=jobs,
                                    last=max(dispatched, default=NEVER))
 
+    save_state(seen)
     lead = repos[0]["name"]
     cycle_start = state[lead]["last"]
     others = [r["name"] for r in repos[1:]]
