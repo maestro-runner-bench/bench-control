@@ -8,17 +8,34 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Project | Platform | Flavour | Side | Build | Runs | Median e2e (min) | Green runs | Runs with no first-attempt failure | First-attempt failures / run | Final failures / run | Runs needing a retry job | Runner |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| expo | android | - | ours | e8a87b5 | 6 | 17.9 | 3/6 | 3/6 | 3.00 | 3.00 | 0/6 | ubuntu-24.04 |
+| expo | android | - | ours | e8a87b5 | 15 | 28.2 | 3/15 | 3/15 | 4.80 | 4.80 | 0/15 | ubuntu-24.04 |
 | expo | android | - | ours | 6904d0f | 6 | 12.4 | 6/6 | 0/6 | 1.50 | 0.33 | 0/6 | ubuntu-24.04 |
-| expo | android | - | upstream | - | 58 | 14.2 | 52/58 | 27/58 | 1.16 | 0.12 | 0/58 | ubuntu-24.04 |
-| expo | ios | - | ours | e8a87b5 | 7 | 11.2 | 7/7 | 6/7 | 0.14 | 0.00 | 0/7 | macos-26 |
+| expo | android | - | upstream | - | 63 | 13.8 | 57/63 | 32/63 | 1.06 | 0.11 | 0/63 | ubuntu-24.04 |
+| expo | ios | - | ours | e8a87b5 | 15 | 11.2 | 15/15 | 11/15 | 0.27 | 0.00 | 0/15 | macos-26 |
 | expo | ios | - | ours | 6904d0f | 5 | 9.6 | 5/5 | 1/5 | 0.80 | 0.00 | 0/5 | macos-26 |
-| expo | ios | - | upstream | - | 54 | 16.4 | 43/54 | 33/54 | 0.65 | 0.04 | 0/54 | macos-26 |
+| expo | ios | - | upstream | - | 59 | 16.1 | 48/59 | 38/59 | 0.59 | 0.03 | 0/59 | macos-26 |
 
 ## Runs: maestro-runner (bench fork)
 
 | Started (UTC) | Run | Build | Run time | Job | Job time | Tests | Queue | Result |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-07 01:04 | [37555290120](https://github.com/maestro-runner-bench/expo/actions/runs/37555290120) | e8a87b5 | 62.8 | android | 34.3 | 28.5 | 0.0 | 6 failed |
+|  | | |  | ios | 15.5 | 9.7 | 0.1 | all passed, 1 passed on retry |
+| 2026-10-06 22:35 | [37541519393](https://github.com/maestro-runner-bench/expo/actions/runs/37541519393) | e8a87b5 | 60.6 | android | 34.4 | 28.4 | 0.0 | 6 failed |
+| 2026-10-06 19:49 | [37521760404](https://github.com/maestro-runner-bench/expo/actions/runs/37521760404) | e8a87b5 | 80.9 | android | 32.3 | 28.0 | 0.0 | 6 failed |
+|  | | |  | ios | 16.8 | 10.1 | 0.1 | all passed |
+| 2026-10-06 16:53 | [37499193557](https://github.com/maestro-runner-bench/expo/actions/runs/37499193557) | e8a87b5 | 83.7 | android | 30.9 | 26.9 | 0.0 | 6 failed |
+|  | | |  | ios | 20.5 | 11.2 | 0.1 | all passed |
+| 2026-10-06 13:56 | [37474769736](https://github.com/maestro-runner-bench/expo/actions/runs/37474769736) | e8a87b5 | 84.7 | android | 34.7 | 28.7 | 0.0 | 6 failed |
+|  | | |  | ios | 25.0 | 15.3 | 0.2 | all passed |
+| 2026-10-06 11:05 | [37454065487](https://github.com/maestro-runner-bench/expo/actions/runs/37454065487) | e8a87b5 | 69.5 | android | 34.1 | 28.4 | 0.0 | 6 failed |
+|  | | |  | ios | 20.9 | 14.3 | 0.1 | all passed, 1 passed on retry |
+| 2026-10-06 08:19 | [37435353982](https://github.com/maestro-runner-bench/expo/actions/runs/37435353982) | e8a87b5 | 80.5 | android | 34.1 | 28.7 | 0.0 | 6 failed |
+|  | | |  | ios | 19.2 | 11.7 | 0.2 | all passed |
+| 2026-10-06 05:49 | [37420482610](https://github.com/maestro-runner-bench/expo/actions/runs/37420482610) | e8a87b5 | 65.0 | android | 33.9 | 28.1 | 0.0 | 6 failed |
+|  | | |  | ios | 20.4 | 11.0 | 0.1 | all passed, 1 passed on retry |
+| 2026-10-06 03:15 | [37408089143](https://github.com/maestro-runner-bench/expo/actions/runs/37408089143) | e8a87b5 | 67.7 | android | 34.4 | 28.4 | 0.0 | 6 failed |
+|  | | |  | ios | 12.0 | 6.5 | 0.1 | all passed |
 | 2026-10-06 00:44 | [37395604133](https://github.com/maestro-runner-bench/expo/actions/runs/37395604133) | e8a87b5 | 70.7 | android | 32.9 | 28.1 | 0.0 | 6 failed |
 |  | | |  | ios | 18.3 | 10.4 | 0.1 | all passed |
 | 2026-10-05 22:19 | [37381760032](https://github.com/maestro-runner-bench/expo/actions/runs/37381760032) | e8a87b5 | 71.4 | android | 34.8 | 28.6 | 0.0 | 6 failed |
@@ -49,6 +66,7 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Started (UTC) | Run | Build | Run time | Job | Job time | Tests | Queue | Result |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-03 14:51 | [37131147608](https://github.com/expo/expo/actions/runs/37131147608) | maestro | 21.5 | android | 11.7 | 10.4 | 0.1 | all passed |
 | 2026-10-03 10:51 | [37117783979](https://github.com/expo/expo/actions/runs/37117783979) | maestro | 44.1 | android | 12.2 | 10.8 | 0.0 | all passed, 1 passed on retry |
 |  | | |  | ios | 23.5 | 20.0 | 0.1 | all passed, 1 passed on retry |
 | 2026-10-03 07:17 | [37105879902](https://github.com/expo/expo/actions/runs/37105879902) | maestro | 43.5 | ios | 21.1 | 18.3 | 0.1 | all passed, 4 passed on retry |
@@ -153,6 +171,15 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 | 2026-06-25 17:04 | [28187141682](https://github.com/expo/expo/actions/runs/28187141682) | maestro | 105.0 | android | 17.6 | 16.6 | 0.0 | all passed |
 |  | | |  | ios | 24.9 | 22.1 | 0.5 | all passed |
 | 2026-06-25 12:19 | [28169579155](https://github.com/expo/expo/actions/runs/28169579155) | maestro | 24.9 | android | 13.9 | 12.8 | 0.0 | all passed |
+| 2026-06-24 19:43 | [28125014523](https://github.com/expo/expo/actions/runs/28125014523) | maestro | 55.1 | android | 13.7 | 12.6 | 0.0 | all passed |
+|  | | |  | ios | 16.7 | 13.8 | 20.9 | all passed |
+| 2026-06-24 15:05 | [28108372123](https://github.com/expo/expo/actions/runs/28108372123) | maestro | 53.1 | ios | 27.5 | 23.3 | 2.2 | all passed |
+| 2026-06-24 11:19 | [28094759798](https://github.com/expo/expo/actions/runs/28094759798) | maestro | 31.1 | android | 14.8 | 13.8 | 0.0 | all passed |
+| 2026-06-24 09:41 | [28089573306](https://github.com/expo/expo/actions/runs/28089573306) | maestro | 33.1 | android | 13.2 | 12.0 | 0.1 | all passed |
+|  | | |  | ios | 18.2 | 15.9 | 0.0 | all passed |
+| 2026-06-23 19:42 | [28052257283](https://github.com/expo/expo/actions/runs/28052257283) | maestro | 28.2 | ios | 17.7 | 14.6 | 0.0 | all passed |
+| 2026-06-23 16:01 | [28039152382](https://github.com/expo/expo/actions/runs/28039152382) | maestro | 40.3 | android | 17.5 | 16.3 | 0.1 | all passed |
+|  | | |  | ios | 22.1 | 19.7 | 0.0 | all passed |
 | 2026-06-17 18:50 | [27712124519](https://github.com/expo/expo/actions/runs/27712124519) | maestro | 120.2 | android | 15.8 | 13.2 | 1.6 | all passed |
 |  | | |  | ios | 33.0 | 29.3 | 40.0 | all passed |
 | 2026-06-12 11:35 | [27413142725](https://github.com/expo/expo/actions/runs/27413142725) | maestro | 45.6 | android | 20.1 | 17.7 | 0.0 | all passed |
@@ -177,8 +204,8 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android | e8a87b5 | 6 vs 48 | 17.9 vs **14.9** | **50%** vs 29% | 3.00 vs **1.67** | 0% vs 0% | 24.0 vs **6.7** | 50% vs **12%** | test ×3, fullscreen-test ×3, picture-in-picture-test.android ×3 / fullscreen-test ×24, maestro-generated ×19, picture-in-picture-test.android ×18 |
-| ios | e8a87b5 | 7 vs 43 | **11.2** vs 15.0 | **86%** vs 51% | **0.14** vs 0.81 | 0% vs 0% | **0.1** vs 1.3 | **0%** vs 21% | test ×1 / fullscreen-test ×18, test ×9, playback-test ×8 |
+| android | e8a87b5 | 15 vs 49 | 28.2 vs **14.5** | 20% vs **31%** | 4.80 vs **1.63** | 0% vs 0% | 38.4 vs **6.6** | 80% vs **12%** | test ×12, fullscreen-test ×12, picture-in-picture-test.android ×12 / fullscreen-test ×24, maestro-generated ×19, picture-in-picture-test.android ×18 |
+| ios | e8a87b5 | 15 vs 43 | **11.2** vs 15.0 | **73%** vs 51% | **0.27** vs 0.81 | 0% vs 0% | **0.3** vs 1.3 | **0%** vs 21% | fullscreen-test ×3, test ×1 / fullscreen-test ×18, test ×9, playback-test ×8 |
 
 Ours on earlier maestro-runner builds:
 
@@ -191,6 +218,23 @@ Ours on earlier maestro-runner builds:
 
 | Started (UTC) | Run | Platform | Side | Build | Flows | Failed at least once | Passed on retry (failed attempts) | Failed at the end | Extra flow runs | Retry jobs |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 2026-10-07 01:04 | [37555290120](https://github.com/maestro-runner-bench/expo/actions/runs/37555290120) | android | ours | e8a87b5 | 6 | 6 | - | test, fullscreen-test, picture-in-picture-test.android, playback-test, player-output-test, surface-type-test.android | 48 | 0 |
+| 2026-10-07 01:04 | [37555290120](https://github.com/maestro-runner-bench/expo/actions/runs/37555290120) | ios | ours | e8a87b5 | 5 | 1 | fullscreen-test (1) | - | 1 | 0 |
+| 2026-10-06 22:35 | [37541519393](https://github.com/maestro-runner-bench/expo/actions/runs/37541519393) | android | ours | e8a87b5 | 6 | 6 | - | test, fullscreen-test, picture-in-picture-test.android, playback-test, player-output-test, surface-type-test.android | 48 | 0 |
+| 2026-10-06 19:49 | [37521760404](https://github.com/maestro-runner-bench/expo/actions/runs/37521760404) | android | ours | e8a87b5 | 6 | 6 | - | test, fullscreen-test, picture-in-picture-test.android, playback-test, player-output-test, surface-type-test.android | 48 | 0 |
+| 2026-10-06 19:49 | [37521760404](https://github.com/maestro-runner-bench/expo/actions/runs/37521760404) | ios | ours | e8a87b5 | 5 | 0 | - | - | 0 | 0 |
+| 2026-10-06 16:53 | [37499193557](https://github.com/maestro-runner-bench/expo/actions/runs/37499193557) | android | ours | e8a87b5 | 6 | 6 | - | test, fullscreen-test, picture-in-picture-test.android, playback-test, player-output-test, surface-type-test.android | 48 | 0 |
+| 2026-10-06 16:53 | [37499193557](https://github.com/maestro-runner-bench/expo/actions/runs/37499193557) | ios | ours | e8a87b5 | 5 | 0 | - | - | 0 | 0 |
+| 2026-10-06 13:56 | [37474769736](https://github.com/maestro-runner-bench/expo/actions/runs/37474769736) | android | ours | e8a87b5 | 6 | 6 | - | test, fullscreen-test, picture-in-picture-test.android, playback-test, player-output-test, surface-type-test.android | 48 | 0 |
+| 2026-10-06 13:56 | [37474769736](https://github.com/maestro-runner-bench/expo/actions/runs/37474769736) | ios | ours | e8a87b5 | 5 | 0 | - | - | 0 | 0 |
+| 2026-10-06 11:05 | [37454065487](https://github.com/maestro-runner-bench/expo/actions/runs/37454065487) | android | ours | e8a87b5 | 6 | 6 | - | test, fullscreen-test, picture-in-picture-test.android, playback-test, player-output-test, surface-type-test.android | 48 | 0 |
+| 2026-10-06 11:05 | [37454065487](https://github.com/maestro-runner-bench/expo/actions/runs/37454065487) | ios | ours | e8a87b5 | 5 | 1 | fullscreen-test (1) | - | 1 | 0 |
+| 2026-10-06 08:19 | [37435353982](https://github.com/maestro-runner-bench/expo/actions/runs/37435353982) | android | ours | e8a87b5 | 6 | 6 | - | test, fullscreen-test, picture-in-picture-test.android, playback-test, player-output-test, surface-type-test.android | 48 | 0 |
+| 2026-10-06 08:19 | [37435353982](https://github.com/maestro-runner-bench/expo/actions/runs/37435353982) | ios | ours | e8a87b5 | 5 | 0 | - | - | 0 | 0 |
+| 2026-10-06 05:49 | [37420482610](https://github.com/maestro-runner-bench/expo/actions/runs/37420482610) | android | ours | e8a87b5 | 6 | 6 | - | test, fullscreen-test, picture-in-picture-test.android, playback-test, player-output-test, surface-type-test.android | 48 | 0 |
+| 2026-10-06 05:49 | [37420482610](https://github.com/maestro-runner-bench/expo/actions/runs/37420482610) | ios | ours | e8a87b5 | 5 | 1 | fullscreen-test (1) | - | 1 | 0 |
+| 2026-10-06 03:15 | [37408089143](https://github.com/maestro-runner-bench/expo/actions/runs/37408089143) | android | ours | e8a87b5 | 6 | 6 | - | test, fullscreen-test, picture-in-picture-test.android, playback-test, player-output-test, surface-type-test.android | 48 | 0 |
+| 2026-10-06 03:15 | [37408089143](https://github.com/maestro-runner-bench/expo/actions/runs/37408089143) | ios | ours | e8a87b5 | 5 | 0 | - | - | 0 | 0 |
 | 2026-10-06 00:44 | [37395604133](https://github.com/maestro-runner-bench/expo/actions/runs/37395604133) | android | ours | e8a87b5 | 6 | 6 | - | test, fullscreen-test, picture-in-picture-test.android, playback-test, player-output-test, surface-type-test.android | 48 | 0 |
 | 2026-10-06 00:44 | [37395604133](https://github.com/maestro-runner-bench/expo/actions/runs/37395604133) | ios | ours | e8a87b5 | 5 | 0 | - | - | 0 | 0 |
 | 2026-10-05 22:19 | [37381760032](https://github.com/maestro-runner-bench/expo/actions/runs/37381760032) | android | ours | e8a87b5 | 6 | 6 | - | test, fullscreen-test, picture-in-picture-test.android, playback-test, player-output-test, surface-type-test.android | 48 | 0 |
@@ -210,6 +254,7 @@ Ours on earlier maestro-runner builds:
 | 2026-10-03 18:40 | [37145054805](https://github.com/maestro-runner-bench/expo/actions/runs/37145054805) | ios | ours | 6904d0f | 5 | 1 | fullscreen-test (1) | - | 1 | 0 |
 | 2026-10-03 14:53 | [37131272720](https://github.com/maestro-runner-bench/expo/actions/runs/37131272720) | android | ours | 6904d0f | 7 | 3 | fullscreen-test (4), picture-in-picture-test.android (1), maestro-generated (1) | - | 11 | 0 |
 | 2026-10-03 14:53 | [37131272720](https://github.com/maestro-runner-bench/expo/actions/runs/37131272720) | ios | ours | 6904d0f | 5 | 1 | fullscreen-test (1) | - | 1 | 0 |
+| 2026-10-03 14:51 | [37131147608](https://github.com/expo/expo/actions/runs/37131147608) | android | upstream | - | 7 | 0 | - | - | 0 | 0 |
 | 2026-10-03 10:51 | [37117783979](https://github.com/expo/expo/actions/runs/37117783979) | android | upstream | - | 7 | 1 | maestro-generated (2) | - | 2 | 0 |
 | 2026-10-03 10:51 | [37117783979](https://github.com/expo/expo/actions/runs/37117783979) | ios | upstream | - | 5 | 1 | fullscreen-test (2) | - | 2 | 0 |
 | 2026-10-03 10:23 | [37116236972](https://github.com/maestro-runner-bench/expo/actions/runs/37116236972) | android | ours | 6904d0f | 7 | 2 | fullscreen-test (1), picture-in-picture-test.android (1) | - | 2 | 0 |
