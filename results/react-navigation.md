@@ -8,18 +8,28 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Project | Platform | Flavour | Side | Build | Runs | Median e2e (min) | Green runs | Runs with no first-attempt failure | First-attempt failures / run | Final failures / run | Runs needing a retry job | Runner |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| react-navigation | android | - | ours | e8a87b5 | 15 | 23.8 | 15/15 | 13/15 | 0.13 | 0.00 | 0/15 | ubuntu-latest |
+| react-navigation | android | - | ours | e8a87b5 | 20 | 25.4 | 20/20 | 18/20 | 0.10 | 0.00 | 0/20 | ubuntu-latest |
 | react-navigation | android | - | ours | 6904d0f | 17 | 26.2 | 17/17 | 14/17 | 0.24 | 0.00 | 0/17 | ubuntu-latest |
-| react-navigation | android | - | upstream | - | 53 | 23.9 | 44/53 | 33/53 | 0.53 | 0.19 | 0/53 | ubuntu-latest |
-| react-navigation | ios | - | ours | e8a87b5 | 15 | 18.1 | 15/15 | 13/15 | 0.13 | 0.00 | 0/15 | macos-latest |
+| react-navigation | android | - | upstream | - | 54 | 23.9 | 45/54 | 34/54 | 0.52 | 0.19 | 0/54 | ubuntu-latest |
+| react-navigation | ios | - | ours | e8a87b5 | 20 | 18.3 | 20/20 | 18/20 | 0.10 | 0.00 | 0/20 | macos-latest |
 | react-navigation | ios | - | ours | older | 1 | 1.4 | 0/1 | - | - | - | 0/1 | macos-latest |
 | react-navigation | ios | - | ours | 6904d0f | 17 | 19.0 | 17/17 | 14/17 | 0.18 | 0.00 | 0/17 | macos-latest |
-| react-navigation | ios | - | upstream | - | 66 | 23.9 | 58/66 | 34/66 | 0.58 | 0.12 | 0/66 | macos-latest |
+| react-navigation | ios | - | upstream | - | 67 | 24.0 | 59/67 | 35/67 | 0.57 | 0.12 | 0/67 | macos-latest |
 
 ## Runs: maestro-runner (bench fork)
 
 | Started (UTC) | Run | Build | Run time | Job | Job time | Tests | Queue | Result |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-07 21:57 | [37692975274](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37692975274) | e8a87b5 | 29.1 | e2e-android | 28.4 | 25.3 | 0.0 | 39/39 |
+| 2026-10-07 21:57 | [37692972267](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37692972267) | e8a87b5 | 27.0 | e2e-ios | 25.5 | 18.9 | 0.1 | 39/39 |
+| 2026-10-07 16:36 | [37653349409](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37653349409) | e8a87b5 | 30.8 | e2e-android | 29.9 | 26.8 | 0.1 | 39/39 |
+| 2026-10-07 16:36 | [37653345106](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37653345106) | e8a87b5 | 30.5 | e2e-ios | 29.1 | 21.4 | 0.1 | 39/39 |
+| 2026-10-07 11:20 | [37613392889](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37613392889) | e8a87b5 | 29.9 | e2e-android | 29.2 | 26.2 | 0.0 | 39/39 |
+| 2026-10-07 11:20 | [37613389805](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37613389805) | e8a87b5 | 32.8 | e2e-ios | 26.0 | 19.6 | 0.2 | 39/39 |
+| 2026-10-07 05:59 | [37579049256](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37579049256) | e8a87b5 | 22.9 | e2e-android | 22.2 | 19.5 | 0.0 | 39/39 |
+| 2026-10-07 05:59 | [37579047010](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37579047010) | e8a87b5 | 18.0 | e2e-ios | 16.4 | 12.3 | 0.1 | 39/39 |
+| 2026-10-07 03:29 | [37566964182](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37566964182) | e8a87b5 | 30.1 | e2e-android | 29.5 | 26.4 | 0.0 | 39/39 |
+| 2026-10-07 03:29 | [37566962164](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37566962164) | e8a87b5 | 30.9 | e2e-ios | 29.6 | 19.7 | 0.1 | 39/39 |
 | 2026-10-07 00:54 | [37554369088](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37554369088) | e8a87b5 | 26.7 | e2e-android | 25.9 | 22.5 | 0.0 | 39/39 |
 | 2026-10-07 00:54 | [37554366542](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37554366542) | e8a87b5 | 20.4 | e2e-ios | 18.7 | 14.2 | 0.1 | 39/39 |
 | 2026-10-06 22:29 | [37540927744](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37540927744) | e8a87b5 | 25.9 | e2e-android | 25.2 | 22.1 | 0.1 | 39/39 |
@@ -90,6 +100,8 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Started (UTC) | Run | Build | Run time | Job | Job time | Tests | Queue | Result |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-07 04:08 | [37570045585](https://github.com/react-navigation/react-navigation/actions/runs/37570045585) | agent-device | 33.9 | e2e-android | 26.9 | 24.0 | 0.1 | 39/39 |
+| 2026-10-07 04:05 | [37569827168](https://github.com/react-navigation/react-navigation/actions/runs/37569827168) | agent-device | 50.9 | e2e-ios | 35.0 | 26.7 | 0.2 | 39/39 |
 | 2026-10-06 11:10 | [37454662174](https://github.com/react-navigation/react-navigation/actions/runs/37454662174) | agent-device | 37.7 | e2e-android | 27.5 | 24.5 | 0.1 | 39/39 |
 | 2026-10-06 11:10 | [37454662129](https://github.com/react-navigation/react-navigation/actions/runs/37454662129) | agent-device | 58.0 | e2e-ios | 37.1 | 28.3 | 0.1 | 39/39 |
 | 2026-10-06 04:08 | [37412295800](https://github.com/react-navigation/react-navigation/actions/runs/37412295800) | agent-device | 39.5 | e2e-android | 26.8 | 24.0 | 0.0 | 39/39 |
@@ -225,8 +237,8 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android | e8a87b5 | 15 vs 53 | **23.8** vs 23.9 | **87%** vs 70% | **0.13** vs 0.34 | 0% vs 0% | **0.1** vs 0.4 | 0% vs 0% | Tab View - Custom Tab Bar ×1, Showcase - Material Top Tabs ×1 / Tab View - Scrollable Tab Bar ×7, Bottom Tabs - Preload Flow ×5, Screen Layout ×2 |
-| ios | e8a87b5 | 15 vs 66 | **18.1** vs 23.9 | **87%** vs 59% | **0.13** vs 0.45 | 0% vs 0% | **0.1** vs 0.5 | 0% vs 0% | Auth Flow ×2 / Tab View - Scrollable Tab Bar ×4, Native Stack - Prevent Remove ×4, Screen Layout ×3 |
+| android | e8a87b5 | 20 vs 54 | 25.4 vs **23.9** | **90%** vs 70% | **0.10** vs 0.33 | 0% vs 0% | **0.1** vs 0.4 | 0% vs 0% | Tab View - Custom Tab Bar ×1, Showcase - Material Top Tabs ×1 / Tab View - Scrollable Tab Bar ×7, Bottom Tabs - Preload Flow ×5, Screen Layout ×2 |
+| ios | e8a87b5 | 20 vs 67 | **18.3** vs 24.0 | **90%** vs 60% | **0.10** vs 0.45 | 0% vs 0% | **0.1** vs 0.5 | 0% vs 0% | Auth Flow ×2 / Tab View - Scrollable Tab Bar ×4, Native Stack - Prevent Remove ×4, Screen Layout ×3 |
 
 Ours on earlier maestro-runner builds:
 
@@ -239,6 +251,18 @@ Ours on earlier maestro-runner builds:
 
 | Started (UTC) | Run | Platform | Side | Build | Flows | Failed at least once | Passed on retry (failed attempts) | Failed at the end | Extra flow runs | Retry jobs |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 2026-10-07 21:57 | [37692975274](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37692975274) | android | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-07 21:57 | [37692972267](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37692972267) | ios | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-07 16:36 | [37653349409](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37653349409) | android | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-07 16:36 | [37653345106](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37653345106) | ios | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-07 11:20 | [37613392889](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37613392889) | android | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-07 11:20 | [37613389805](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37613389805) | ios | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-07 05:59 | [37579049256](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37579049256) | android | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-07 05:59 | [37579047010](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37579047010) | ios | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-07 04:08 | [37570045585](https://github.com/react-navigation/react-navigation/actions/runs/37570045585) | android | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-07 04:05 | [37569827168](https://github.com/react-navigation/react-navigation/actions/runs/37569827168) | ios | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-07 03:29 | [37566964182](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37566964182) | android | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-07 03:29 | [37566962164](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37566962164) | ios | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
 | 2026-10-07 00:54 | [37554369088](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37554369088) | android | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
 | 2026-10-07 00:54 | [37554366542](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37554366542) | ios | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
 | 2026-10-06 22:29 | [37540927744](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37540927744) | android | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
@@ -249,8 +273,8 @@ Ours on earlier maestro-runner builds:
 | 2026-10-06 16:47 | [37498465100](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37498465100) | ios | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
 | 2026-10-06 13:50 | [37473990531](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37473990531) | android | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
 | 2026-10-06 13:50 | [37473985583](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37473985583) | ios | ours | e8a87b5 | 39 | 1 | Auth Flow (1) | - | 1 | 0 |
-| 2026-10-06 11:10 | [37454662129](https://github.com/react-navigation/react-navigation/actions/runs/37454662129) | ios | upstream | - | 39 | 0 | - | - | 0 | 0 |
 | 2026-10-06 11:10 | [37454662174](https://github.com/react-navigation/react-navigation/actions/runs/37454662174) | android | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-06 11:10 | [37454662129](https://github.com/react-navigation/react-navigation/actions/runs/37454662129) | ios | upstream | - | 39 | 0 | - | - | 0 | 0 |
 | 2026-10-06 10:59 | [37453432301](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37453432301) | android | ours | e8a87b5 | 39 | 1 | Tab View - Custom Tab Bar (1) | - | 1 | 0 |
 | 2026-10-06 10:59 | [37453428830](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37453428830) | ios | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |
 | 2026-10-06 08:13 | [37434735427](https://github.com/maestro-runner-bench/react-navigation/actions/runs/37434735427) | android | ours | e8a87b5 | 39 | 0 | - | - | 0 | 0 |

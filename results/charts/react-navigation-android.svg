@@ -8,7 +8,7 @@
 <line x1="56" x2="704" y1="115.0" y2="115.0" stroke="#e5e7eb"/><text x="50" y="119.0" text-anchor="end" fill="#6b7280">25</text>
 <line x1="56" x2="704" y1="77.5" y2="77.5" stroke="#e5e7eb"/><text x="50" y="81.5" text-anchor="end" fill="#6b7280">38</text>
 <line x1="56" x2="704" y1="40.0" y2="40.0" stroke="#e5e7eb"/><text x="50" y="44.0" text-anchor="end" fill="#6b7280">50</text>
-<polyline fill="none" stroke="#9ca3af" stroke-width="2" points="56.0,112.9 65.5,120.4 75.1,119.5 84.6,120.7 94.1,126.1 103.6,119.8 370.5,118.3 389.5,117.4 399.1,106.3 513.4,115.9 522.9,125.2 532.5,124.6 542.0,119.5 551.5,139.6 561.1,120.4 570.6,111.4 580.1,113.2 589.6,109.3 599.2,107.8 608.7,115.9 618.2,118.0 627.8,127.0 637.3,129.1 646.8,113.2 656.4,116.2 665.9,117.4 675.4,130.0 684.9,118.0 694.5,117.4"/>
+<polyline fill="none" stroke="#9ca3af" stroke-width="2" points="56.0,112.9 65.5,120.4 75.1,119.5 84.6,120.7 94.1,126.1 103.6,119.8 370.5,118.3 389.5,117.4 399.1,106.3 513.4,115.9 522.9,125.2 532.5,124.6 542.0,119.5 551.5,139.6 561.1,120.4 570.6,111.4 580.1,113.2 589.6,109.3 599.2,107.8 608.7,115.9 618.2,118.0 627.8,127.0 637.3,129.1 646.8,113.2 656.4,116.2 665.9,117.4 675.4,130.0 684.9,118.0 694.5,117.4 704.0,118.0"/>
 <circle cx="56.0" cy="112.9" r="3.5" fill="#9ca3af"><title>2026-07-31 upstream: 26 (2 runs)</title></circle>
 <circle cx="65.5" cy="120.4" r="3.5" fill="#9ca3af"><title>2026-08-01 upstream: 23 (1 runs)</title></circle>
 <circle cx="75.1" cy="119.5" r="3.5" fill="#9ca3af"><title>2026-08-02 upstream: 24 (2 runs)</title></circle>
@@ -38,20 +38,21 @@
 <circle cx="675.4" cy="130.0" r="3.5" fill="#9ca3af"><title>2026-10-04 upstream: 20 (1 runs)</title></circle>
 <circle cx="684.9" cy="118.0" r="3.5" fill="#9ca3af"><title>2026-10-05 upstream: 24 (3 runs)</title></circle>
 <circle cx="694.5" cy="117.4" r="3.5" fill="#9ca3af"><title>2026-10-06 upstream: 24 (2 runs)</title></circle>
-<polyline fill="none" stroke="#2563eb" stroke-width="2" points="656.4,116.8 665.9,110.2 675.4,110.5 684.9,117.7 694.5,110.5 704.0,122.5"/>
+<circle cx="704.0" cy="118.0" r="3.5" fill="#9ca3af"><title>2026-10-07 upstream: 24 (1 runs)</title></circle>
+<polyline fill="none" stroke="#2563eb" stroke-width="2" points="656.4,116.8 665.9,110.2 675.4,110.5 684.9,117.7 694.5,110.5 704.0,112.9"/>
 <circle cx="656.4" cy="116.8" r="3.5" fill="#2563eb"><title>2026-10-02 ours: 24 (2 runs)</title></circle>
 <circle cx="665.9" cy="110.2" r="3.5" fill="#2563eb"><title>2026-10-03 ours: 27 (3 runs)</title></circle>
 <circle cx="675.4" cy="110.5" r="3.5" fill="#2563eb"><title>2026-10-04 ours: 26 (9 runs)</title></circle>
 <circle cx="684.9" cy="117.7" r="3.5" fill="#2563eb"><title>2026-10-05 ours: 24 (8 runs)</title></circle>
 <circle cx="694.5" cy="110.5" r="3.5" fill="#2563eb"><title>2026-10-06 ours: 26 (9 runs)</title></circle>
-<circle cx="704.0" cy="122.5" r="3.5" fill="#2563eb"><title>2026-10-07 ours: 22 (1 runs)</title></circle>
+<circle cx="704.0" cy="112.9" r="3.5" fill="#2563eb"><title>2026-10-07 ours: 26 (6 runs)</title></circle>
 <text x="56" y="218" fill="#374151" font-weight="600">Runs where every flow passed first time (%)</text>
 <line x1="56" x2="704" y1="374.0" y2="374.0" stroke="#e5e7eb"/><text x="50" y="378.0" text-anchor="end" fill="#6b7280">0</text>
 <line x1="56" x2="704" y1="336.5" y2="336.5" stroke="#e5e7eb"/><text x="50" y="340.5" text-anchor="end" fill="#6b7280">25</text>
 <line x1="56" x2="704" y1="299.0" y2="299.0" stroke="#e5e7eb"/><text x="50" y="303.0" text-anchor="end" fill="#6b7280">50</text>
 <line x1="56" x2="704" y1="261.5" y2="261.5" stroke="#e5e7eb"/><text x="50" y="265.5" text-anchor="end" fill="#6b7280">75</text>
 <line x1="56" x2="704" y1="224.0" y2="224.0" stroke="#e5e7eb"/><text x="50" y="228.0" text-anchor="end" fill="#6b7280">100</text>
-<polyline fill="none" stroke="#9ca3af" stroke-width="2" points="56.0,374.0 65.5,224.0 75.1,374.0 84.6,324.5 94.1,224.0 103.6,273.5 370.5,224.0 389.5,224.0 399.1,374.0 513.4,299.0 522.9,254.0 532.5,299.0 542.0,224.0 551.5,224.0 561.1,224.0 570.6,374.0 580.1,374.0 589.6,374.0 599.2,374.0 608.7,224.0 618.2,261.5 627.8,224.0 637.3,224.0 646.8,224.0 656.4,224.0 665.9,224.0 675.4,224.0 684.9,224.0 694.5,224.0"/>
+<polyline fill="none" stroke="#9ca3af" stroke-width="2" points="56.0,374.0 65.5,224.0 75.1,374.0 84.6,324.5 94.1,224.0 103.6,273.5 370.5,224.0 389.5,224.0 399.1,374.0 513.4,299.0 522.9,254.0 532.5,299.0 542.0,224.0 551.5,224.0 561.1,224.0 570.6,374.0 580.1,374.0 589.6,374.0 599.2,374.0 608.7,224.0 618.2,261.5 627.8,224.0 637.3,224.0 646.8,224.0 656.4,224.0 665.9,224.0 675.4,224.0 684.9,224.0 694.5,224.0 704.0,224.0"/>
 <circle cx="56.0" cy="374.0" r="3.5" fill="#9ca3af"><title>2026-07-31 upstream: 0 (2 runs)</title></circle>
 <circle cx="65.5" cy="224.0" r="3.5" fill="#9ca3af"><title>2026-08-01 upstream: 100 (1 runs)</title></circle>
 <circle cx="75.1" cy="374.0" r="3.5" fill="#9ca3af"><title>2026-08-02 upstream: 0 (2 runs)</title></circle>
@@ -81,20 +82,21 @@
 <circle cx="675.4" cy="224.0" r="3.5" fill="#9ca3af"><title>2026-10-04 upstream: 100 (1 runs)</title></circle>
 <circle cx="684.9" cy="224.0" r="3.5" fill="#9ca3af"><title>2026-10-05 upstream: 100 (3 runs)</title></circle>
 <circle cx="694.5" cy="224.0" r="3.5" fill="#9ca3af"><title>2026-10-06 upstream: 100 (2 runs)</title></circle>
+<circle cx="704.0" cy="224.0" r="3.5" fill="#9ca3af"><title>2026-10-07 upstream: 100 (1 runs)</title></circle>
 <polyline fill="none" stroke="#2563eb" stroke-width="2" points="656.4,224.0 665.9,224.0 675.4,273.5 684.9,224.0 694.5,257.0 704.0,224.0"/>
 <circle cx="656.4" cy="224.0" r="3.5" fill="#2563eb"><title>2026-10-02 ours: 100 (2 runs)</title></circle>
 <circle cx="665.9" cy="224.0" r="3.5" fill="#2563eb"><title>2026-10-03 ours: 100 (3 runs)</title></circle>
 <circle cx="675.4" cy="273.5" r="3.5" fill="#2563eb"><title>2026-10-04 ours: 67 (9 runs)</title></circle>
 <circle cx="684.9" cy="224.0" r="3.5" fill="#2563eb"><title>2026-10-05 ours: 100 (8 runs)</title></circle>
 <circle cx="694.5" cy="257.0" r="3.5" fill="#2563eb"><title>2026-10-06 ours: 78 (9 runs)</title></circle>
-<circle cx="704.0" cy="224.0" r="3.5" fill="#2563eb"><title>2026-10-07 ours: 100 (1 runs)</title></circle>
+<circle cx="704.0" cy="224.0" r="3.5" fill="#2563eb"><title>2026-10-07 ours: 100 (6 runs)</title></circle>
 <text x="56" y="402" fill="#374151" font-weight="600">Flows that failed at least once, per run</text>
 <line x1="56" x2="704" y1="558.0" y2="558.0" stroke="#e5e7eb"/><text x="50" y="562.0" text-anchor="end" fill="#6b7280">0</text>
 <line x1="56" x2="704" y1="520.5" y2="520.5" stroke="#e5e7eb"/><text x="50" y="524.5" text-anchor="end" fill="#6b7280">0.5</text>
 <line x1="56" x2="704" y1="483.0" y2="483.0" stroke="#e5e7eb"/><text x="50" y="487.0" text-anchor="end" fill="#6b7280">1</text>
 <line x1="56" x2="704" y1="445.5" y2="445.5" stroke="#e5e7eb"/><text x="50" y="449.5" text-anchor="end" fill="#6b7280">1.5</text>
 <line x1="56" x2="704" y1="408.0" y2="408.0" stroke="#e5e7eb"/><text x="50" y="412.0" text-anchor="end" fill="#6b7280">2</text>
-<polyline fill="none" stroke="#9ca3af" stroke-width="2" points="56.0,483.0 65.5,558.0 75.1,483.0 84.6,483.0 94.1,558.0 103.6,533.2 370.5,558.0 389.5,558.0 399.1,483.0 513.4,520.5 522.9,543.0 532.5,520.5 542.0,558.0 551.5,558.0 561.1,558.0 570.6,483.0 580.1,483.0 589.6,408.0 599.2,483.0 608.7,558.0 618.2,539.2 627.8,558.0 637.3,558.0 646.8,558.0 656.4,558.0 665.9,558.0 675.4,558.0 684.9,558.0 694.5,558.0"/>
+<polyline fill="none" stroke="#9ca3af" stroke-width="2" points="56.0,483.0 65.5,558.0 75.1,483.0 84.6,483.0 94.1,558.0 103.6,533.2 370.5,558.0 389.5,558.0 399.1,483.0 513.4,520.5 522.9,543.0 532.5,520.5 542.0,558.0 551.5,558.0 561.1,558.0 570.6,483.0 580.1,483.0 589.6,408.0 599.2,483.0 608.7,558.0 618.2,539.2 627.8,558.0 637.3,558.0 646.8,558.0 656.4,558.0 665.9,558.0 675.4,558.0 684.9,558.0 694.5,558.0 704.0,558.0"/>
 <circle cx="56.0" cy="483.0" r="3.5" fill="#9ca3af"><title>2026-07-31 upstream: 1 (2 runs)</title></circle>
 <circle cx="65.5" cy="558.0" r="3.5" fill="#9ca3af"><title>2026-08-01 upstream: 0 (1 runs)</title></circle>
 <circle cx="75.1" cy="483.0" r="3.5" fill="#9ca3af"><title>2026-08-02 upstream: 1 (2 runs)</title></circle>
@@ -124,13 +126,14 @@
 <circle cx="675.4" cy="558.0" r="3.5" fill="#9ca3af"><title>2026-10-04 upstream: 0 (1 runs)</title></circle>
 <circle cx="684.9" cy="558.0" r="3.5" fill="#9ca3af"><title>2026-10-05 upstream: 0 (3 runs)</title></circle>
 <circle cx="694.5" cy="558.0" r="3.5" fill="#9ca3af"><title>2026-10-06 upstream: 0 (2 runs)</title></circle>
+<circle cx="704.0" cy="558.0" r="3.5" fill="#9ca3af"><title>2026-10-07 upstream: 0 (1 runs)</title></circle>
 <polyline fill="none" stroke="#2563eb" stroke-width="2" points="656.4,558.0 665.9,558.0 675.4,525.0 684.9,558.0 694.5,541.5 704.0,558.0"/>
 <circle cx="656.4" cy="558.0" r="3.5" fill="#2563eb"><title>2026-10-02 ours: 0 (2 runs)</title></circle>
 <circle cx="665.9" cy="558.0" r="3.5" fill="#2563eb"><title>2026-10-03 ours: 0 (3 runs)</title></circle>
 <circle cx="675.4" cy="525.0" r="3.5" fill="#2563eb"><title>2026-10-04 ours: 0.4 (9 runs)</title></circle>
 <circle cx="684.9" cy="558.0" r="3.5" fill="#2563eb"><title>2026-10-05 ours: 0 (8 runs)</title></circle>
 <circle cx="694.5" cy="541.5" r="3.5" fill="#2563eb"><title>2026-10-06 ours: 0.2 (9 runs)</title></circle>
-<circle cx="704.0" cy="558.0" r="3.5" fill="#2563eb"><title>2026-10-07 ours: 0 (1 runs)</title></circle>
+<circle cx="704.0" cy="558.0" r="3.5" fill="#2563eb"><title>2026-10-07 ours: 0 (6 runs)</title></circle>
 <text x="56.0" y="574" text-anchor="middle" fill="#6b7280">07-31</text>
 <text x="84.6" y="574" text-anchor="middle" fill="#6b7280">08-03</text>
 <text x="370.5" y="574" text-anchor="middle" fill="#6b7280">09-02</text>
