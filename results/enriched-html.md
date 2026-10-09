@@ -8,15 +8,33 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Project | Platform | Flavour | Side | Build | Runs | Median e2e (min) | Green runs | Runs with no first-attempt failure | First-attempt failures / run | Final failures / run | Runs needing a retry job | Runner |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| enriched-html | android | - | ours | e8a87b5 | 23 | 29.1 | 0/23 | 0/22 | 8.68 | 6.73 | 0/23 | ubuntu-latest |
+| enriched-html | android | - | ours | e8a87b5 | 32 | 29.0 | 0/32 | 0/31 | 8.74 | 6.77 | 0/32 | ubuntu-latest |
 | enriched-html | android | - | ours | 6904d0f | 18 | 29.4 | 0/18 | 0/18 | 8.67 | 7.00 | 0/18 | ubuntu-latest |
-| enriched-html | ios | - | ours | e8a87b5 | 23 | 3.4 | 0/23 | - | - | - | 0/23 | macos-26 |
+| enriched-html | ios | - | ours | e8a87b5 | 32 | 3.3 | 0/32 | - | - | - | 0/32 | macos-26 |
 | enriched-html | ios | - | ours | 6904d0f | 18 | 3.9 | 0/18 | 0/4 | 4.50 | 2.50 | 0/18 | macos-26 |
 
 ## Runs: maestro-runner (bench fork)
 
 | Started (UTC) | Run | Build | Run time | Job | Job time | Tests | Queue | Result |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-09 01:14 | [37868807878](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37868807878) | e8a87b5 | 28.7 | e2e-android | 28.6 | 28.0 | 0.0 | 44/49, 2 passed on retry |
+|  | | |  | e2e-ios | 5.7 | 2.2 | 0.1 | failure |
+| 2026-10-08 22:39 | [37854880865](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37854880865) | e8a87b5 | 22.6 | e2e-android | 22.6 | 21.9 | 0.0 | 41/49, 2 passed on retry |
+|  | | |  | e2e-ios | 4.3 | 2.0 | 0.1 | failure |
+| 2026-10-08 20:05 | [37836781339](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37836781339) | e8a87b5 | 21.9 | e2e-android | 21.8 | 21.2 | 0.0 | 42/49, 2 passed on retry |
+|  | | |  | e2e-ios | 5.7 | 3.1 | 0.1 | failure |
+| 2026-10-08 17:45 | [37818990364](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37818990364) | e8a87b5 | 31.2 | e2e-android | 31.1 | 30.3 | 0.0 | 40/49, 2 passed on retry |
+|  | | |  | e2e-ios | 7.0 | 4.6 | 0.1 | failure |
+| 2026-10-08 15:15 | [37799241701](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37799241701) | e8a87b5 | 25.8 | e2e-android | 25.7 | 24.8 | 0.0 | 44/49, 2 passed on retry |
+|  | | |  | e2e-ios | 7.3 | 5.4 | 0.1 | failure |
+| 2026-10-08 12:19 | [37776077699](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37776077699) | e8a87b5 | 30.6 | e2e-android | 30.4 | 29.7 | 0.1 | 43/49, 2 passed on retry |
+|  | | |  | e2e-ios | 8.1 | 3.3 | 0.1 | failure |
+| 2026-10-08 09:13 | [37755186980](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37755186980) | e8a87b5 | 30.7 | e2e-android | 30.6 | 29.9 | 0.0 | 42/49, 2 passed on retry |
+|  | | |  | e2e-ios | 8.3 | 5.4 | 0.1 | failure |
+| 2026-10-08 06:13 | [37736414320](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37736414320) | e8a87b5 | 32.3 | e2e-android | 32.2 | 31.5 | 0.0 | 41/49, 2 passed on retry |
+|  | | |  | e2e-ios | 6.8 | 3.6 | 0.1 | failure |
+| 2026-10-08 03:33 | [37723297635](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37723297635) | e8a87b5 | 22.8 | e2e-android | 22.7 | 21.9 | 0.0 | 42/49, 2 passed on retry |
+|  | | |  | e2e-ios | 6.0 | 3.1 | 0.1 | failure |
 | 2026-10-07 21:57 | [37693022526](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37693022526) | e8a87b5 | 31.0 | e2e-android | 30.9 | 30.2 | 0.0 | 40/49, 2 passed on retry |
 |  | | |  | e2e-ios | 6.3 | 3.0 | 0.1 | failure |
 | 2026-10-07 16:47 | [37654749259](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37654749259) | e8a87b5 | 6.9 | e2e-android | 6.7 | 5.2 | 0.0 | failure |
@@ -117,7 +135,7 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android | e8a87b5 | 22 | 29.1 | 0% | 8.73 | 0% | 0.0 | 100% | checkbox_toggle ×22, line_overlapping ×22, mention_popup_closing_on_cursor_travel ×22 / - |
+| android | e8a87b5 | 31 | 29.1 | 0% | 8.77 | 0% | 0.0 | 100% | checkbox_toggle ×31, line_overlapping ×31, mention_popup_closing_on_cursor_travel ×31 / - |
 | ios | 6904d0f | 4 | 29.5 | 0% | 4.50 | 0% | 0.0 | 100% | image_position_stability ×4, inline_code_paste_into_codeblock ×4, links_visual ×4 / - |
 
 Ours on earlier maestro-runner builds:
@@ -130,6 +148,15 @@ Ours on earlier maestro-runner builds:
 
 | Started (UTC) | Run | Platform | Side | Build | Flows | Failed at least once | Passed on retry (failed attempts) | Failed at the end | Extra flow runs | Retry jobs |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 2026-10-09 01:14 | [37868807878](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37868807878) | android | ours | e8a87b5 | 50 | 7 | - | checkbox_toggle, line_overlapping, mention_popup_closing_on_cursor_travel, paragraph_styles_lists_visual, paragraph_styles_no_crash, preserve_typing_attributes_on_selection_change, ellipsize_mode | 0 | 0 |
+| 2026-10-08 22:39 | [37854880865](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37854880865) | android | ours | e8a87b5 | 50 | 10 | - | checkbox_toggle, line_overlapping, mention_popup_closing_on_cursor_travel, paragraph_styles_lists_visual, paragraph_styles_no_crash, preserve_typing_attributes_on_selection_change, alignment_visual, custom_styles_display, ellipsize_mode, paragraph_styles_display | 0 | 0 |
+| 2026-10-08 20:05 | [37836781339](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37836781339) | android | ours | e8a87b5 | 50 | 9 | - | checkbox_toggle, line_overlapping, mention_popup_closing_on_cursor_travel, paragraph_styles_lists_visual, paragraph_styles_no_crash, preserve_typing_attributes_on_selection_change, alignment_visual, custom_styles_display, ellipsize_mode | 0 | 0 |
+| 2026-10-08 17:45 | [37818990364](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37818990364) | android | ours | e8a87b5 | 50 | 11 | - | checkbox_toggle, extending_paragraph_style_on_paste_after_cut, inline_code_paste_into_codeblock, line_overlapping, mention_popup_closing_on_cursor_travel, paragraph_styles_lists_visual, paragraph_styles_no_crash, preserve_typing_attributes_on_selection_change, custom_styles_display, ellipsize_mode, empty_list_elements_display | 0 | 0 |
+| 2026-10-08 15:15 | [37799241701](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37799241701) | android | ours | e8a87b5 | 50 | 7 | - | checkbox_toggle, line_overlapping, mention_popup_closing_on_cursor_travel, paragraph_styles_lists_visual, paragraph_styles_no_crash, preserve_typing_attributes_on_selection_change, ellipsize_mode | 0 | 0 |
+| 2026-10-08 12:19 | [37776077699](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37776077699) | android | ours | e8a87b5 | 50 | 8 | - | checkbox_toggle, inline_code_paste_into_codeblock, line_overlapping, mention_popup_closing_on_cursor_travel, paragraph_styles_lists_visual, paragraph_styles_no_crash, preserve_typing_attributes_on_selection_change, ellipsize_mode | 0 | 0 |
+| 2026-10-08 09:13 | [37755186980](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37755186980) | android | ours | e8a87b5 | 50 | 9 | - | checkbox_toggle, line_overlapping, mention_popup_closing_on_cursor_travel, paragraph_styles_lists_visual, paragraph_styles_no_crash, preserve_typing_attributes_on_selection_change, alignment_visual, custom_styles_display, ellipsize_mode | 0 | 0 |
+| 2026-10-08 06:13 | [37736414320](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37736414320) | android | ours | e8a87b5 | 50 | 10 | - | checkbox_toggle, extending_paragraph_style_on_paste_after_copy, line_overlapping, mention_popup_closing_on_cursor_travel, paragraph_styles_lists_visual, paragraph_styles_no_crash, preserve_typing_attributes_on_selection_change, custom_styles_display, ellipsize_mode, external_html_parsing | 0 | 0 |
+| 2026-10-08 03:33 | [37723297635](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37723297635) | android | ours | e8a87b5 | 50 | 9 | - | checkbox_toggle, line_overlapping, mention_popup_closing_on_cursor_travel, paragraph_styles_lists_visual, paragraph_styles_no_crash, preserve_typing_attributes_on_selection_change, custom_styles_display, ellipsize_mode, empty_list_elements_display | 0 | 0 |
 | 2026-10-07 21:57 | [37693022526](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37693022526) | android | ours | e8a87b5 | 50 | 11 | - | checkbox_toggle, extending_paragraph_style_on_paste_after_copy, extending_paragraph_style_on_paste_after_cut, inline_code_paste_into_codeblock, line_overlapping, mention_popup_closing_on_cursor_travel, paragraph_styles_lists_visual, paragraph_styles_no_crash, preserve_typing_attributes_on_selection_change, custom_styles_display, ellipsize_mode | 0 | 0 |
 | 2026-10-07 11:31 | [37614619119](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37614619119) | android | ours | e8a87b5 | 50 | 9 | - | checkbox_toggle, line_overlapping, mention_popup_closing_on_cursor_travel, paragraph_styles_lists_visual, paragraph_styles_no_crash, preserve_typing_attributes_on_selection_change, alignment_visual, custom_styles_display, ellipsize_mode | 0 | 0 |
 | 2026-10-07 06:09 | [37580028484](https://github.com/maestro-runner-bench/react-native-enriched-html/actions/runs/37580028484) | android | ours | e8a87b5 | 50 | 8 | - | checkbox_toggle, line_overlapping, mention_popup_closing_on_cursor_travel, paragraph_styles_lists_visual, paragraph_styles_no_crash, preserve_typing_attributes_on_selection_change, custom_styles_display, ellipsize_mode | 0 | 0 |

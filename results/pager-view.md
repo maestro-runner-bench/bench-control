@@ -8,10 +8,10 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Project | Platform | Flavour | Side | Build | Runs | Median e2e (min) | Green runs | Runs with no first-attempt failure | First-attempt failures / run | Final failures / run | Runs needing a retry job | Runner |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| pager-view | android | - | ours | older | 8 | 8.6 | 0/7 | - | - | - | 0/8 | ubuntu-latest |
+| pager-view | android | - | ours | older | 18 | 11.1 | 0/17 | - | - | - | 0/18 | ubuntu-latest |
 | pager-view | android | - | ours | e8a87b5 | 17 | 20.0 | 0/17 | 0/17 | 9.88 | 9.59 | 0/17 | ubuntu-latest |
 | pager-view | android | - | ours | 6904d0f | 16 | 19.8 | 0/16 | 0/16 | 9.19 | 8.88 | 0/16 | ubuntu-latest |
-| pager-view | ios | - | ours | older | 6 | - | 0/5 | - | - | - | 0/6 | macos-26 |
+| pager-view | ios | - | ours | older | 16 | - | 0/15 | - | - | - | 0/16 | macos-26 |
 | pager-view | ios | - | ours | e8a87b5 | 18 | 10.1 | 0/18 | 0/18 | 4.22 | 3.78 | 0/18 | macos-26 |
 | pager-view | ios | - | ours | 6904d0f | 17 | 8.8 | 0/17 | 0/17 | 4.06 | 4.00 | 0/17 | macos-26 |
 
@@ -19,6 +19,26 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Started (UTC) | Run | Build | Run time | Job | Job time | Tests | Queue | Result |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-09 01:24 | [37869649033](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37869649033) | - | 26.5 | e2e-android | 12.8 | 11.5 | 0.0 | failure |
+|  | | |  | e2e-ios | 26.3 | 0.0 | 0.1 | failure |
+| 2026-10-08 22:45 | [37855420277](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37855420277) | - | 28.6 | e2e-android | 13.2 | 11.9 | 0.1 | failure |
+|  | | |  | e2e-ios | 28.4 | 0.0 | 0.1 | failure |
+| 2026-10-08 20:15 | [37838082329](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37838082329) | - | 27.3 | e2e-android | 13.6 | 12.2 | 0.0 | failure |
+|  | | |  | e2e-ios | 27.2 | 0.0 | 0.1 | failure |
+| 2026-10-08 17:45 | [37818999391](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37818999391) | - | 32.6 | e2e-android | 13.4 | 12.3 | 0.0 | failure |
+|  | | |  | e2e-ios | 32.4 | 0.0 | 0.1 | failure |
+| 2026-10-08 15:25 | [37800715584](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37800715584) | - | 40.7 | e2e-android | 11.8 | 10.6 | 0.1 | failure |
+|  | | |  | e2e-ios | 40.5 | 0.0 | 0.2 | failure |
+| 2026-10-08 12:25 | [37776691837](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37776691837) | - | 28.0 | e2e-android | 12.5 | 11.4 | 0.0 | failure |
+|  | | |  | e2e-ios | 27.8 | 0.0 | 0.1 | failure |
+| 2026-10-08 09:24 | [37756387968](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37756387968) | - | 41.9 | e2e-android | 12.2 | 11.1 | 0.0 | failure |
+|  | | |  | e2e-ios | 41.7 | 0.0 | 0.1 | failure |
+| 2026-10-08 09:24 | [37756387682](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37756387682) | - | 29.1 | e2e-android | 12.4 | 11.3 | 0.0 | failure |
+|  | | |  | e2e-ios | 28.9 | 0.0 | 0.1 | failure |
+| 2026-10-08 06:23 | [37737356409](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37737356409) | - | 27.0 | e2e-android | 12.1 | 10.6 | 0.0 | failure |
+|  | | |  | e2e-ios | 26.8 | 0.0 | 0.1 | failure |
+| 2026-10-08 03:38 | [37723710025](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37723710025) | - | 26.7 | e2e-android | 9.1 | 7.9 | 0.0 | failure |
+|  | | |  | e2e-ios | 26.6 | 0.0 | 0.1 | failure |
 | 2026-10-07 22:03 | [37693610843](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37693610843) | - | 21.5 | e2e-android | 12.6 | 11.1 | 0.1 | failure |
 |  | | |  | e2e-ios | 21.4 | 0.0 | 0.1 | failure |
 | 2026-10-07 17:02 | [37655918185](https://github.com/maestro-runner-bench/react-native-pager-view/actions/runs/37655918185) | - | 45.6 | e2e-android | 13.8 | 12.2 | 0.1 | failure |
