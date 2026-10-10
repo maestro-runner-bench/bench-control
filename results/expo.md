@@ -10,10 +10,10 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | expo | android | - | ours | e8a87b5 | 29 | 25.9 | 15/29 | 5/29 | 3.48 | 2.97 | 0/29 | ubuntu-24.04 |
 | expo | android | - | ours | 6904d0f | 6 | 12.4 | 6/6 | 0/6 | 1.50 | 0.33 | 0/6 | ubuntu-24.04 |
-| expo | android | - | upstream | - | 76 | 14.2 | 64/76 | 35/76 | 1.43 | 0.57 | 0/76 | ubuntu-24.04 |
+| expo | android | - | upstream | - | 81 | 14.0 | 69/81 | 37/81 | 1.40 | 0.54 | 0/81 | ubuntu-24.04 |
 | expo | ios | - | ours | e8a87b5 | 28 | 11.1 | 28/28 | 16/28 | 0.46 | 0.00 | 0/28 | macos-26 |
 | expo | ios | - | ours | 6904d0f | 5 | 9.6 | 5/5 | 1/5 | 0.80 | 0.00 | 0/5 | macos-26 |
-| expo | ios | - | upstream | - | 68 | 17.3 | 57/68 | 39/68 | 0.68 | 0.03 | 0/68 | macos-26 |
+| expo | ios | - | upstream | - | 71 | 17.1 | 60/71 | 41/71 | 0.68 | 0.03 | 0/71 | macos-26 |
 
 ## Runs: maestro-runner (bench fork)
 
@@ -93,6 +93,14 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Started (UTC) | Run | Build | Run time | Job | Job time | Tests | Queue | Result |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-09 20:02 | [37984334444](https://github.com/expo/expo/actions/runs/37984334444) | maestro | 57.8 | android | 13.5 | 12.3 | 0.0 | all passed |
+|  | | |  | ios | 18.8 | 15.8 | 0.1 | all passed |
+| 2026-10-09 15:59 | [37955761677](https://github.com/expo/expo/actions/runs/37955761677) | maestro | 27.7 | android | 13.1 | 11.9 | 0.0 | all passed |
+| 2026-10-09 12:00 | [37927256676](https://github.com/expo/expo/actions/runs/37927256676) | maestro | 29.9 | android | 13.8 | 12.8 | 0.1 | all passed, 1 passed on retry |
+| 2026-10-09 09:29 | [37911620141](https://github.com/expo/expo/actions/runs/37911620141) | maestro | 49.1 | android | 40.1 | 39.2 | 0.0 | 1 failed, 1 passed on retry |
+|  | | |  | ios | 25.1 | 21.7 | 0.1 | all passed, 2 passed on retry |
+| 2026-10-09 07:56 | [37901971271](https://github.com/expo/expo/actions/runs/37901971271) | maestro | 59.8 | android | 15.3 | 14.2 | 0.0 | all passed, 1 passed on retry |
+|  | | |  | ios | 19.1 | 15.6 | 18.4 | all passed |
 | 2026-10-08 19:57 | [37835877176](https://github.com/expo/expo/actions/runs/37835877176) | maestro | 46.8 | android | 14.7 | 13.6 | 0.0 | all passed, 1 passed on retry |
 |  | | |  | ios | 27.3 | 22.9 | 0.1 | all passed, 4 passed on retry |
 | 2026-10-08 17:56 | [37820424696](https://github.com/expo/expo/actions/runs/37820424696) | maestro | 80.7 | android | 13.0 | 11.3 | 0.1 | all passed |
@@ -253,8 +261,8 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android | e8a87b5 | 29 vs 62 | 25.9 vs **14.7** | 17% vs **29%** | 3.48 vs **1.97** | 0% vs 0% | 24.8 vs **10.0** | 48% vs **19%** | fullscreen-test ×19, picture-in-picture-test.android ×17, test ×15 / fullscreen-test ×32, picture-in-picture-test.android ×25, maestro-generated ×22 |
-| ios | e8a87b5 | 28 vs 52 | **11.1** vs 16.4 | **57%** vs 44% | **0.46** vs 0.88 | 0% vs 0% | **0.5** vs 1.3 | **0%** vs 17% | fullscreen-test ×7, playback-test ×3, test ×3 / fullscreen-test ×26, test ×10, playback-test ×9 |
+| android | e8a87b5 | 29 vs 67 | 25.9 vs **14.5** | 17% vs **30%** | 3.48 vs **1.88** | 0% vs 0% | 24.8 vs **9.7** | 48% vs **18%** | fullscreen-test ×19, picture-in-picture-test.android ×17, test ×15 / fullscreen-test ×33, maestro-generated ×25, picture-in-picture-test.android ×25 |
+| ios | e8a87b5 | 28 vs 55 | **11.1** vs 16.1 | **57%** vs 45% | **0.46** vs 0.87 | 0% vs 0% | **0.5** vs 1.2 | **0%** vs 16% | fullscreen-test ×7, playback-test ×3, test ×3 / fullscreen-test ×27, test ×10, playback-test ×9 |
 
 Ours on earlier maestro-runner builds:
 
@@ -267,6 +275,14 @@ Ours on earlier maestro-runner builds:
 
 | Started (UTC) | Run | Platform | Side | Build | Flows | Failed at least once | Passed on retry (failed attempts) | Failed at the end | Extra flow runs | Retry jobs |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 2026-10-09 20:02 | [37984334444](https://github.com/expo/expo/actions/runs/37984334444) | android | upstream | - | 7 | 0 | - | - | 0 | 0 |
+| 2026-10-09 20:02 | [37984334444](https://github.com/expo/expo/actions/runs/37984334444) | ios | upstream | - | 5 | 0 | - | - | 0 | 0 |
+| 2026-10-09 15:59 | [37955761677](https://github.com/expo/expo/actions/runs/37955761677) | android | upstream | - | 7 | 0 | - | - | 0 | 0 |
+| 2026-10-09 12:00 | [37927256676](https://github.com/expo/expo/actions/runs/37927256676) | android | upstream | - | 7 | 1 | maestro-generated (1) | - | 1 | 0 |
+| 2026-10-09 09:29 | [37911620141](https://github.com/expo/expo/actions/runs/37911620141) | android | upstream | - | 7 | 2 | fullscreen-test (3), maestro-generated (6) | - | 20 | 0 |
+| 2026-10-09 09:29 | [37911620141](https://github.com/expo/expo/actions/runs/37911620141) | ios | upstream | - | 5 | 2 | fullscreen-test (1), maestro-generated (1) | - | 2 | 0 |
+| 2026-10-09 07:56 | [37901971271](https://github.com/expo/expo/actions/runs/37901971271) | android | upstream | - | 7 | 1 | maestro-generated (3) | - | 3 | 0 |
+| 2026-10-09 07:56 | [37901971271](https://github.com/expo/expo/actions/runs/37901971271) | ios | upstream | - | 5 | 0 | - | - | 0 | 0 |
 | 2026-10-09 01:09 | [37868370345](https://github.com/maestro-runner-bench/expo/actions/runs/37868370345) | ios | ours | e8a87b5 | 5 | 0 | - | - | 0 | 0 |
 | 2026-10-09 01:09 | [37868370345](https://github.com/maestro-runner-bench/expo/actions/runs/37868370345) | android | ours | e8a87b5 | 7 | 4 | test (3), fullscreen-test (2), picture-in-picture-test.android (1), maestro-generated (3) | - | 14 | 0 |
 | 2026-10-08 22:39 | [37854874985](https://github.com/maestro-runner-bench/expo/actions/runs/37854874985) | android | ours | e8a87b5 | 7 | 3 | fullscreen-test (2), picture-in-picture-test.android (2), maestro-generated (1) | - | 5 | 0 |

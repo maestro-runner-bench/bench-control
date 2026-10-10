@@ -10,28 +10,28 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | react-native | android | debug | ours | e8a87b5 | 27 | 11.6 | 26/27 | 25/27 | 1.85 | 1.85 | 1/27 | ubuntu-latest |
 | react-native | android | debug | ours | 6904d0f | 14 | 11.9 | 12/14 | 12/14 | 3.57 | 3.57 | 2/14 | ubuntu-latest |
-| react-native | android | debug | upstream | - | 137 | 18.6 | 125/137 | 104/109 | 1.15 | 1.15 | 12/137 | 4-core-ubuntu |
+| react-native | android | debug | upstream | - | 149 | 18.7 | 135/149 | 114/121 | 1.25 | 1.25 | 14/149 | 4-core-ubuntu |
 | react-native | android | debug (template app) | ours | e8a87b5 | 26 | 2.8 | 24/26 | 24/25 | 0.04 | 0.04 | 2/26 | ubuntu-latest |
 | react-native | android | debug (template app) | ours | 6904d0f | 14 | 2.7 | 14/14 | 14/14 | 0.00 | 0.00 | 0/14 | ubuntu-latest |
-| react-native | android | debug (template app) | upstream | - | 135 | 3.2 | 126/135 | 101/109 | 0.07 | 0.07 | 9/135 | 4-core-ubuntu |
+| react-native | android | debug (template app) | upstream | - | 147 | 3.2 | 136/147 | 111/121 | 0.08 | 0.08 | 11/147 | 4-core-ubuntu |
 | react-native | android | release | ours | e8a87b5 | 27 | 15.1 | 27/27 | 27/27 | 0.00 | 0.00 | 0/27 | ubuntu-latest |
 | react-native | android | release | ours | 6904d0f | 14 | 15.6 | 14/14 | 13/14 | 0.07 | 0.00 | 0/14 | ubuntu-latest |
-| react-native | android | release | upstream | - | 137 | 27.7 | 124/137 | 103/110 | 3.12 | 3.12 | 13/137 | 4-core-ubuntu |
+| react-native | android | release | upstream | - | 149 | 27.7 | 136/149 | 115/122 | 2.81 | 2.81 | 13/149 | 4-core-ubuntu |
 | react-native | android | release (template app) | ours | e8a87b5 | 26 | 2.2 | 24/26 | 24/25 | 0.04 | 0.04 | 2/26 | ubuntu-latest |
 | react-native | android | release (template app) | ours | 6904d0f | 14 | 2.1 | 13/14 | 13/14 | 0.07 | 0.07 | 1/14 | ubuntu-latest |
-| react-native | android | release (template app) | upstream | - | 135 | 2.5 | 127/135 | 102/108 | 0.06 | 0.06 | 8/135 | 4-core-ubuntu |
+| react-native | android | release (template app) | upstream | - | 147 | 2.5 | 138/147 | 113/120 | 0.06 | 0.06 | 9/147 | 4-core-ubuntu |
 | react-native | ios | debug | ours | e8a87b5 | 29 | 26.5 | 25/29 | 21/29 | 2.79 | 2.62 | 4/29 | macos-26 |
 | react-native | ios | debug | ours | 6904d0f | 14 | 22.4 | 14/14 | 12/14 | 0.14 | 0.00 | 0/14 | macos-26 |
-| react-native | ios | debug | upstream | - | 138 | 77.5 | 89/136 | 20/108 | 1.09 | 0.28 | 49/138 | macos-15-large, macos-26-large |
+| react-native | ios | debug | upstream | - | 150 | 77.5 | 95/148 | 22/120 | 1.10 | 0.27 | 55/150 | macos-15-large, macos-26-large |
 | react-native | ios | debug (template app) | ours | e8a87b5 | 26 | 8.3 | 26/26 | 22/26 | 0.15 | 0.00 | 0/26 | macos-26 |
 | react-native | ios | debug (template app) | ours | 6904d0f | 14 | 8.1 | 14/14 | 13/14 | 0.07 | 0.00 | 0/14 | macos-26, macos-26-intel |
-| react-native | ios | debug (template app) | upstream | - | 129 | 10.2 | 128/129 | 92/104 | 0.12 | 0.00 | 1/129 | macos-15-large, macos-26-large |
+| react-native | ios | debug (template app) | upstream | - | 141 | 10.2 | 140/141 | 104/116 | 0.10 | 0.00 | 1/141 | macos-15-large, macos-26-large |
 | react-native | ios | release | ours | e8a87b5 | 29 | 23.8 | 25/29 | 24/29 | 2.66 | 2.62 | 4/29 | macos-26 |
 | react-native | ios | release | ours | 6904d0f | 14 | 21.5 | 14/14 | 11/14 | 0.29 | 0.00 | 0/14 | macos-26 |
-| react-native | ios | release | upstream | - | 138 | 74.7 | 89/138 | 48/109 | 0.61 | 0.32 | 49/138 | macos-15-large, macos-26-large |
+| react-native | ios | release | upstream | - | 150 | 74.8 | 95/150 | 54/121 | 0.60 | 0.33 | 55/150 | macos-15-large, macos-26-large |
 | react-native | ios | release (template app) | ours | e8a87b5 | 26 | 6.3 | 26/26 | 26/26 | 0.00 | 0.00 | 0/26 | macos-26 |
 | react-native | ios | release (template app) | ours | 6904d0f | 14 | 5.8 | 14/14 | 14/14 | 0.00 | 0.00 | 0/14 | macos-26, macos-26-intel |
-| react-native | ios | release (template app) | upstream | - | 128 | 9.5 | 127/128 | 104/104 | 0.00 | 0.00 | 1/128 | macos-15-large, macos-26-large |
+| react-native | ios | release (template app) | upstream | - | 140 | 9.5 | 139/140 | 116/116 | 0.00 | 0.00 | 1/140 | macos-15-large, macos-26-large |
 
 ## Runs: maestro-runner (bench fork)
 
@@ -402,6 +402,125 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Started (UTC) | Run | Build | Run time | Job | Job time | Tests | Queue | Result |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-09 17:12 | [37964675113](https://github.com/react/react-native/actions/runs/37964675113) | maestro | 125.6 | android_rntester (debug) | 20.6 | 19.7 | 0.3 | 27/27 |
+|  | | |  | android_rntester (release) | 30.2 | 29.4 | 0.3 | 51/51 |
+|  | | |  | android_templateapp (debug) | 5.3 | 3.1 | 0.2 | 1/1 |
+|  | | |  | android_templateapp (release) | 3.5 | 2.7 | 0.2 | 1/1 |
+|  | | |  | ios_rntester (Debug) | 75.1 | 73.9 | 0.2 | 48/48 |
+|  | | |  | ios_rntester (Release) | 77.3 | 76.1 | 0.2 | 48/48, 1 passed on retry |
+|  | | |  | ios_templateapp (Debug) | 14.4 | 8.8 | 0.2 | 1/1 |
+|  | | |  | ios_templateapp (Release) | 13.6 | 9.3 | 0.2 | 1/1 |
+| 2026-10-09 14:25 | [37944014864](https://github.com/react/react-native/actions/runs/37944014864) | maestro | 250.5 | android_rntester (debug) | 20.3 | 19.2 | 0.1 | 27/27 |
+|  | | |  | android_rntester (release) | 27.5 | 26.5 | 0.2 | 51/51 |
+|  | | |  | android_templateapp (debug) | 6.5 | 4.1 | 0.1 | 0/1 |
+|  | | |  | android_templateapp (release) | 3.5 | 2.5 | 0.1 | 1/1 |
+|  | | |  | android_templateapp_retry_1 (debug) | 5.5 | 3.2 | 0.2 | 1/1 |
+|  | | |  | ios_rntester (Debug) | 78.7 | 77.4 | 0.1 | 48/48, 1 passed on retry |
+|  | | |  | ios_rntester (Release) | 101.9 | 100.2 | 0.1 | 43/44 |
+|  | | |  | ios_rntester_retry_1 (Debug) | 90.6 | 88.6 | 0.1 | 48/48, 2 passed on retry |
+|  | | |  | ios_rntester_retry_1 (Release) | 101.8 | 99.9 | 0.1 | 48/48, 1 passed on retry |
+|  | | |  | ios_templateapp (Debug) | 17.2 | 11.8 | 0.1 | 1/1 |
+|  | | |  | ios_templateapp (Release) | 13.9 | 10.9 | 0.1 | 1/1 |
+| 2026-10-09 13:23 | [37936440552](https://github.com/react/react-native/actions/runs/37936440552) | maestro | 133.6 | android_rntester (debug) | 41.8 | 40.7 | 0.1 | 2/27 |
+|  | | |  | android_rntester (release) | 29.5 | 28.2 | 0.1 | 51/51 |
+|  | | |  | android_rntester_retry_1 (debug) | 18.8 | 17.8 | 0.1 | 27/27 |
+|  | | |  | android_templateapp (debug) | 5.5 | 3.1 | 0.1 | 1/1 |
+|  | | |  | android_templateapp (release) | 3.6 | 2.6 | 0.1 | 1/1 |
+|  | | |  | ios_rntester (Debug) | 85.8 | 83.9 | 0.1 | 48/48, 1 passed on retry |
+|  | | |  | ios_rntester (Release) | 72.2 | 70.5 | 0.1 | 48/48 |
+|  | | |  | ios_templateapp (Debug) | 17.7 | 10.7 | 0.1 | 1/1 |
+|  | | |  | ios_templateapp (Release) | 13.5 | 9.1 | 0.1 | 1/1 |
+| 2026-10-09 10:09 | [37915816610](https://github.com/react/react-native/actions/runs/37915816610) | maestro | 327.0 | android_rntester (debug) | 18.8 | 17.9 | 0.2 | 27/27 |
+|  | | |  | android_rntester (release) | 30.4 | 29.4 | 0.2 | 51/51 |
+|  | | |  | android_templateapp (debug) | 5.5 | 3.2 | 0.1 | 1/1 |
+|  | | |  | android_templateapp (release) | 3.7 | 2.8 | 0.1 | 1/1 |
+|  | | |  | ios_rntester (Debug) | 86.8 | 85.6 | 0.2 | 48/48 |
+|  | | |  | ios_rntester (Release) | 190.0 | 187.8 | 0.2 | 43/44, 1 passed on retry |
+|  | | |  | ios_rntester_retry_1 (Debug) | 90.9 | 89.5 | 0.1 | 48/48, 2 passed on retry |
+|  | | |  | ios_rntester_retry_1 (Release) | 71.3 | 70.1 | 0.1 | 48/48 |
+|  | | |  | ios_templateapp (Debug) | 19.0 | 13.2 | 0.1 | 1/1 |
+|  | | |  | ios_templateapp (Release) | 13.8 | 11.2 | 0.1 | 1/1 |
+| 2026-10-09 10:06 | [37915496674](https://github.com/react/react-native/actions/runs/37915496674) | maestro | 141.0 | android_rntester (debug) | 20.6 | 19.6 | 0.1 | 27/27 |
+|  | | |  | android_rntester (release) | 28.5 | 27.4 | 0.1 | 51/51 |
+|  | | |  | android_templateapp (debug) | 5.5 | 3.1 | 0.1 | 1/1 |
+|  | | |  | android_templateapp (release) | 3.5 | 2.5 | 0.1 | 1/1 |
+|  | | |  | ios_rntester (Debug) | 99.3 | 98.1 | 0.2 | 48/48, 2 passed on retry |
+|  | | |  | ios_rntester (Release) | 73.3 | 72.2 | 0.2 | 48/48 |
+|  | | |  | ios_templateapp (Debug) | 13.7 | 9.2 | 0.2 | 1/1 |
+|  | | |  | ios_templateapp (Release) | 11.7 | 9.4 | 0.2 | 1/1 |
+| 2026-10-09 10:02 | [37915093498](https://github.com/react/react-native/actions/runs/37915093498) | maestro | 121.0 | android_rntester (debug) | 22.2 | 21.2 | 0.2 | 26/27 |
+|  | | |  | android_rntester (release) | 28.2 | 27.3 | 0.2 | 51/51 |
+|  | | |  | android_rntester_retry_1 (debug) | 5.0 | 4.0 | 0.1 | 27/27 |
+|  | | |  | android_templateapp (debug) | 6.3 | 4.0 | 0.2 | 0/1 |
+|  | | |  | android_templateapp (release) | 3.5 | 2.6 | 0.2 | 1/1 |
+|  | | |  | android_templateapp_retry_1 (debug) | 5.5 | 3.2 | 0.2 | 1/1 |
+|  | | |  | ios_rntester (Debug) | 79.5 | 78.3 | 0.2 | 48/48, 2 passed on retry |
+|  | | |  | ios_rntester (Release) | 65.5 | 64.4 | 0.2 | 48/48 |
+|  | | |  | ios_templateapp (Debug) | 14.5 | 10.0 | 0.2 | 1/1 |
+|  | | |  | ios_templateapp (Release) | 16.0 | 13.1 | 0.2 | 1/1 |
+| 2026-10-09 09:58 | [37914721937](https://github.com/react/react-native/actions/runs/37914721937) | maestro | 246.0 | android_rntester (debug) | 19.6 | 18.6 | 0.2 | 27/27 |
+|  | | |  | android_rntester (release) | 29.0 | 28.0 | 0.2 | 51/51 |
+|  | | |  | android_templateapp (debug) | 5.7 | 3.2 | 0.1 | 1/1 |
+|  | | |  | android_templateapp (release) | 3.5 | 2.6 | 0.1 | 1/1 |
+|  | | |  | ios_rntester (Debug) | 77.7 | 76.4 | 0.2 | 48/48, 2 passed on retry |
+|  | | |  | ios_rntester (Release) | 124.3 | 122.5 | 0.2 | 43/44 |
+|  | | |  | ios_rntester_retry_1 (Debug) | 78.3 | 76.6 | 0.1 | 48/48, 1 passed on retry |
+|  | | |  | ios_rntester_retry_1 (Release) | 76.7 | 75.3 | 0.2 | 48/48, 1 passed on retry |
+|  | | |  | ios_templateapp (Debug) | 16.0 | 11.2 | 0.2 | 1/1 |
+|  | | |  | ios_templateapp (Release) | 12.5 | 10.2 | 0.2 | 1/1 |
+| 2026-10-09 09:51 | [37913977365](https://github.com/react/react-native/actions/runs/37913977365) | maestro | 322.7 | android_rntester (debug) | 20.4 | 19.4 | 0.2 | 27/27 |
+|  | | |  | android_rntester (release) | 28.9 | 27.8 | 0.2 | 51/51 |
+|  | | |  | android_templateapp (debug) | 5.3 | 3.1 | 0.1 | 1/1 |
+|  | | |  | android_templateapp (release) | 3.5 | 2.5 | 0.1 | 1/1 |
+|  | | |  | ios_rntester (Debug) | 96.7 | 94.9 | 0.2 | 43/44 |
+|  | | |  | ios_rntester (Release) | 91.0 | 89.6 | 0.2 | 43/44 |
+|  | | |  | ios_rntester_retry_1 (Debug) | 105.3 | 103.2 | 0.3 | 43/44, 1 passed on retry |
+|  | | |  | ios_rntester_retry_1 (Release) | 77.5 | 75.6 | 0.3 | 48/48 |
+|  | | |  | ios_rntester_retry_2 (Debug) | 71.7 | 70.4 | 0.1 | 48/48, 1 passed on retry |
+|  | | |  | ios_rntester_retry_2 (Release) | 64.8 | 63.7 | 0.1 | 48/48 |
+|  | | |  | ios_templateapp (Debug) | 16.4 | 11.1 | 0.2 | 1/1 |
+|  | | |  | ios_templateapp (Release) | 12.1 | 9.8 | 0.2 | 1/1 |
+| 2026-10-09 09:48 | [37913592551](https://github.com/react/react-native/actions/runs/37913592551) | maestro | 336.3 | android_rntester (debug) | 21.2 | 20.2 | 0.2 | 27/27 |
+|  | | |  | android_rntester (release) | 33.0 | 32.0 | 0.2 | 51/51 |
+|  | | |  | android_templateapp (debug) | 5.5 | 3.1 | 0.2 | 1/1 |
+|  | | |  | android_templateapp (release) | 3.3 | 2.4 | 0.2 | 1/1 |
+|  | | |  | ios_rntester (Debug) | 76.3 | 75.0 | 0.2 | 48/48, 1 passed on retry |
+|  | | |  | ios_rntester (Release) | 89.5 | 88.3 | 0.2 | 43/44 |
+|  | | |  | ios_rntester_retry_1 (Debug) | 99.0 | 97.6 | 0.2 | 43/44, 1 passed on retry |
+|  | | |  | ios_rntester_retry_1 (Release) | 78.3 | 77.0 | 0.2 | 48/48 |
+|  | | |  | ios_rntester_retry_2 (Debug) | 77.3 | 76.0 | 0.1 | 48/48 |
+|  | | |  | ios_rntester_retry_2 (Release) | 104.8 | 103.3 | 0.1 | 43/44 |
+|  | | |  | ios_templateapp (Debug) | 13.9 | 9.3 | 0.2 | 1/1 |
+|  | | |  | ios_templateapp (Release) | 13.0 | 10.5 | 0.2 | 1/1 |
+| 2026-10-09 09:38 | [37912558967](https://github.com/react/react-native/actions/runs/37912558967) | maestro | 129.3 | android_rntester (debug) | 19.9 | 18.9 | 0.2 | 27/27 |
+|  | | |  | android_rntester (release) | 29.3 | 28.2 | 0.2 | 51/51 |
+|  | | |  | android_templateapp (debug) | 5.5 | 3.1 | 0.2 | 1/1 |
+|  | | |  | android_templateapp (release) | 3.4 | 2.5 | 0.2 | 1/1 |
+|  | | |  | ios_rntester (Debug) | 74.9 | 73.7 | 0.2 | 48/48, 1 passed on retry |
+|  | | |  | ios_rntester (Release) | 83.2 | 81.8 | 0.2 | 48/48 |
+|  | | |  | ios_templateapp (Debug) | 17.1 | 10.8 | 0.1 | 1/1 |
+|  | | |  | ios_templateapp (Release) | 11.6 | 8.5 | 0.1 | 1/1 |
+| 2026-10-09 09:33 | [37912047572](https://github.com/react/react-native/actions/runs/37912047572) | maestro | 122.1 | android_rntester (debug) | 22.0 | 21.0 | 0.2 | 27/27 |
+|  | | |  | android_rntester (release) | 29.9 | 28.9 | 0.2 | 51/51 |
+|  | | |  | android_templateapp (debug) | 5.8 | 3.4 | 0.2 | 1/1 |
+|  | | |  | android_templateapp (release) | 4.6 | 3.5 | 0.2 | 0/1 |
+|  | | |  | android_templateapp_retry_1 (release) | 3.6 | 2.5 | 0.1 | 1/1 |
+|  | | |  | ios_rntester (Debug) | 78.0 | 76.7 | 0.2 | 48/48, 1 passed on retry |
+|  | | |  | ios_rntester (Release) | 71.8 | 70.6 | 0.2 | 48/48 |
+|  | | |  | ios_templateapp (Debug) | 16.2 | 10.2 | 0.2 | 1/1 |
+|  | | |  | ios_templateapp (Release) | 11.3 | 8.1 | 0.2 | 1/1 |
+| 2026-10-09 00:19 | [37864204099](https://github.com/react/react-native/actions/runs/37864204099) | maestro | 368.0 | android_rntester (debug) | 19.3 | 18.3 | 0.1 | 27/27 |
+|  | | |  | android_rntester (release) | 29.0 | 28.0 | 0.1 | 51/51 |
+|  | | |  | android_templateapp (debug) | 5.4 | 3.1 | 0.1 | 1/1 |
+|  | | |  | android_templateapp (release) | 3.5 | 2.5 | 0.1 | 1/1 |
+|  | | |  | ios_rntester (Debug) | 86.9 | 85.5 | 0.1 | 43/44, 1 passed on retry |
+|  | | |  | ios_rntester (Release) | 68.3 | 67.2 | 0.1 | 48/48 |
+|  | | |  | ios_rntester_retry_1 (Debug) | 147.3 | 145.1 | 0.1 | 43/44, 1 passed on retry |
+|  | | |  | ios_rntester_retry_1 (Release) | 122.0 | 119.8 | 0.1 | 38/39 |
+|  | | |  | ios_rntester_retry_2 (Debug) | 90.3 | 89.0 | 0.1 | 48/48, 1 passed on retry |
+|  | | |  | ios_rntester_retry_2 (Release) | 76.0 | 74.9 | 0.1 | 48/48 |
+|  | | |  | ios_templateapp (Debug) | 15.6 | 9.7 | 0.1 | 1/1 |
+|  | | |  | ios_templateapp (Release) | 12.4 | 8.6 | 0.1 | 1/1 |
 | 2026-10-08 23:02 | [37857196099](https://github.com/react/react-native/actions/runs/37857196099) | maestro | 135.9 | android_rntester (debug) | 20.0 | 18.9 | 0.2 | 27/27 |
 |  | | |  | android_rntester (release) | 27.9 | 26.9 | 0.1 | 51/51 |
 |  | | |  | android_templateapp (debug) | 5.7 | 3.2 | 0.1 | 1/1 |
@@ -1698,14 +1817,14 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android debug rntester | e8a87b5 | 27 vs 110 | **11.6** vs 18.8 | 93% vs **95%** | 1.85 vs **1.14** | **4%** vs 5% | **0.8** vs 1.6 | 7% vs **2%** | alert ×2, animated-fade-in-view ×2, appearance ×2 / alert ×5, animated-fade-in-view ×5, appearance ×5 |
-| android debug templateapp | e8a87b5 | 26 vs 109 | **2.8** vs 3.3 | **96%** vs 93% | **0.04** vs 0.07 | 8% vs **7%** | 0.2 vs **0.1** | **0%** vs 2% | start ×1 / start ×8 |
-| android release rntester | e8a87b5 | 27 vs 110 | **15.1** vs 28.0 | **100%** vs 94% | **0.00** vs 3.12 | **0%** vs 6% | **0.0** vs 4.0 | **0%** vs 2% | - / alert ×7, animated-fade-in-view ×7, appearance ×7 |
-| android release templateapp | e8a87b5 | 26 vs 109 | **2.2** vs 2.5 | **96%** vs 94% | **0.04** vs 0.06 | 8% vs **6%** | 0.2 vs **0.1** | **0%** vs 2% | start ×1 / start ×6 |
-| ios debug rntester | e8a87b5 | 29 vs 108 | **26.5** vs 85.7 | **72%** vs 18% | 2.83 vs **1.42** | **14%** vs 44% | 44.9 vs **24.6** | 14% vs **13%** | alert ×4, flatlist-append-maintainvisible ×4, flatlist-delete-anchor-maintainvisible ×4 / sectionlist-viewability ×45, flatlist-append-maintainvisible ×11, scrollview-minindex-maintainvisible ×7 |
-| ios debug templateapp | e8a87b5 | 26 vs 104 | **8.4** vs 10.4 | 85% vs **88%** | 0.15 vs **0.12** | 0% vs 0% | 0.2 vs **0.1** | 0% vs 0% | start ×4 / start ×12 |
-| ios release rntester | e8a87b5 | 29 vs 109 | **23.8** vs 83.8 | **83%** vs 39% | 2.66 vs **0.69** | **14%** vs 45% | 44.7 vs **26.0** | 14% vs **11%** | flatlist-horizontal-inverted-recycle-maintainvisible ×5, flatlist-append-maintainvisible ×4, flatlist-delete-anchor-maintainvisible ×4 / sectionlist-viewability ×53, flatlist-append-maintainvisible ×11, alert ×2 |
-| ios release templateapp | e8a87b5 | 26 vs 104 | **6.3** vs 9.5 | 100% vs 100% | 0.00 vs 0.00 | 0% vs 0% | 0.0 vs 0.0 | 0% vs 0% | - / - |
+| android debug rntester | e8a87b5 | 27 vs 122 | **11.6** vs 18.9 | 93% vs **94%** | 1.85 vs **1.24** | **4%** vs 7% | **0.8** vs 1.6 | 7% vs **2%** | alert ×2, animated-fade-in-view ×2, appearance ×2 / text ×7, alert ×6, animated-fade-in-view ×6 |
+| android debug templateapp | e8a87b5 | 26 vs 121 | **2.8** vs 3.2 | **96%** vs 92% | **0.04** vs 0.08 | 8% vs 8% | 0.2 vs **0.1** | **0%** vs 2% | start ×1 / start ×10 |
+| android release rntester | e8a87b5 | 27 vs 122 | **15.1** vs 28.0 | **100%** vs 94% | **0.00** vs 2.81 | **0%** vs 6% | **0.0** vs 3.6 | **0%** vs 2% | - / alert ×7, animated-fade-in-view ×7, appearance ×7 |
+| android release templateapp | e8a87b5 | 26 vs 121 | **2.2** vs 2.5 | **96%** vs 94% | **0.04** vs 0.06 | 8% vs **7%** | 0.2 vs **0.1** | **0%** vs 2% | start ×1 / start ×7 |
+| ios debug rntester | e8a87b5 | 29 vs 120 | **26.5** vs 86.0 | **72%** vs 17% | 2.83 vs **1.47** | **14%** vs 44% | 44.9 vs **25.9** | 14% vs **12%** | alert ×4, flatlist-append-maintainvisible ×4, flatlist-delete-anchor-maintainvisible ×4 / sectionlist-viewability ×53, flatlist-append-maintainvisible ×12, scrollview-minindex-maintainvisible ×7 |
+| ios debug templateapp | e8a87b5 | 26 vs 116 | **8.4** vs 10.4 | 85% vs **90%** | 0.15 vs **0.10** | 0% vs 0% | 0.2 vs **0.1** | 0% vs 0% | start ×4 / start ×12 |
+| ios release rntester | e8a87b5 | 29 vs 121 | **23.8** vs 83.8 | **83%** vs 39% | 2.66 vs **0.68** | **14%** vs 45% | 44.7 vs **27.0** | 14% vs **11%** | flatlist-horizontal-inverted-recycle-maintainvisible ×5, flatlist-append-maintainvisible ×4, flatlist-delete-anchor-maintainvisible ×4 / sectionlist-viewability ×59, flatlist-append-maintainvisible ×11, modal ×2 |
+| ios release templateapp | e8a87b5 | 26 vs 116 | **6.3** vs 9.5 | 100% vs 100% | 0.00 vs 0.00 | 0% vs 0% | 0.0 vs 0.0 | 0% vs 0% | - / - |
 
 Ours on earlier maestro-runner builds:
 
@@ -1724,6 +1843,102 @@ Ours on earlier maestro-runner builds:
 
 | Started (UTC) | Run | Platform | Side | Build | Flows | Failed at least once | Passed on retry (failed attempts) | Failed at the end | Extra flow runs | Retry jobs |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 2026-10-09 17:12 | [37964675113](https://github.com/react/react-native/actions/runs/37964675113) | android release rntester | upstream | - | 51 | 0 | - | - | 0 | 0 |
+| 2026-10-09 17:12 | [37964675113](https://github.com/react/react-native/actions/runs/37964675113) | android debug rntester | upstream | - | 27 | 0 | - | - | 0 | 0 |
+| 2026-10-09 17:12 | [37964675113](https://github.com/react/react-native/actions/runs/37964675113) | android debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 17:12 | [37964675113](https://github.com/react/react-native/actions/runs/37964675113) | android release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 17:12 | [37964675113](https://github.com/react/react-native/actions/runs/37964675113) | ios release rntester | upstream | - | 48 | 1 | sectionlist-viewability (1) | - | 1 | 0 |
+| 2026-10-09 17:12 | [37964675113](https://github.com/react/react-native/actions/runs/37964675113) | ios debug rntester | upstream | - | 48 | 0 | - | - | 0 | 0 |
+| 2026-10-09 17:12 | [37964675113](https://github.com/react/react-native/actions/runs/37964675113) | ios release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 17:12 | [37964675113](https://github.com/react/react-native/actions/runs/37964675113) | ios debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 14:25 | [37944014864](https://github.com/react/react-native/actions/runs/37944014864) | android release rntester | upstream | - | 51 | 0 | - | - | 0 | 0 |
+| 2026-10-09 14:25 | [37944014864](https://github.com/react/react-native/actions/runs/37944014864) | android debug rntester | upstream | - | 27 | 0 | - | - | 0 | 0 |
+| 2026-10-09 14:25 | [37944014864](https://github.com/react/react-native/actions/runs/37944014864) | ios release rntester | upstream | - | 48 | 1 | sectionlist-viewability (9) | - | 52 | 1 |
+| 2026-10-09 14:25 | [37944014864](https://github.com/react/react-native/actions/runs/37944014864) | ios debug rntester | upstream | - | 48 | 3 | flatlist-append-maintainvisible (1), flatlist-variable-height-first-prepend-maintainvisible (1), sectionlist-viewability (1) | - | 51 | 1 |
+| 2026-10-09 14:25 | [37944014864](https://github.com/react/react-native/actions/runs/37944014864) | android debug templateapp | upstream | - | 1 | 1 | start (1) | - | 1 | 1 |
+| 2026-10-09 14:25 | [37944014864](https://github.com/react/react-native/actions/runs/37944014864) | android release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 14:25 | [37944014864](https://github.com/react/react-native/actions/runs/37944014864) | ios release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 14:25 | [37944014864](https://github.com/react/react-native/actions/runs/37944014864) | ios debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 13:23 | [37936440552](https://github.com/react/react-native/actions/runs/37936440552) | android release rntester | upstream | - | 51 | 0 | - | - | 0 | 0 |
+| 2026-10-09 13:23 | [37936440552](https://github.com/react/react-native/actions/runs/37936440552) | android debug rntester | upstream | - | 27 | 25 | alert (1), animated-fade-in-view (1), appearance (1), button (1), filter-animated-blur (1), flatlist-viewability (1), flatlist (1), launch-app-and-search (1), search (1), image-blur-prefetch (1), image-getsize-local-drawables (1), image-progressive-jpeg (1), image-wide-gamut (1), image (1), legacy-native-module (1), modal (1), new-arch-examples (1), pressable (1), scrollview-minindex-maintainvisible (1), scrollview-threshold-maintainvisible (1), sectionlist-viewability (1), text-width-mode (1), text (1), textinput-uncontrolled (1), touchable (1) | - | 25 | 1 |
+| 2026-10-09 13:23 | [37936440552](https://github.com/react/react-native/actions/runs/37936440552) | android release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 13:23 | [37936440552](https://github.com/react/react-native/actions/runs/37936440552) | android debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 13:23 | [37936440552](https://github.com/react/react-native/actions/runs/37936440552) | ios debug rntester | upstream | - | 48 | 1 | pressable (1) | - | 1 | 0 |
+| 2026-10-09 13:23 | [37936440552](https://github.com/react/react-native/actions/runs/37936440552) | ios release rntester | upstream | - | 48 | 0 | - | - | 0 | 0 |
+| 2026-10-09 13:23 | [37936440552](https://github.com/react/react-native/actions/runs/37936440552) | ios debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 13:23 | [37936440552](https://github.com/react/react-native/actions/runs/37936440552) | ios release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:09 | [37915816610](https://github.com/react/react-native/actions/runs/37915816610) | android release rntester | upstream | - | 51 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:09 | [37915816610](https://github.com/react/react-native/actions/runs/37915816610) | android debug rntester | upstream | - | 27 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:09 | [37915816610](https://github.com/react/react-native/actions/runs/37915816610) | android release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:09 | [37915816610](https://github.com/react/react-native/actions/runs/37915816610) | android debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:09 | [37915816610](https://github.com/react/react-native/actions/runs/37915816610) | ios debug rntester | upstream | - | 48 | 2 | sectionlist-viewability (2), text-width-mode (1) | - | 51 | 1 |
+| 2026-10-09 10:09 | [37915816610](https://github.com/react/react-native/actions/runs/37915816610) | ios release rntester | upstream | - | 48 | 1 | sectionlist-viewability (5) | - | 48 | 1 |
+| 2026-10-09 10:09 | [37915816610](https://github.com/react/react-native/actions/runs/37915816610) | ios release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:09 | [37915816610](https://github.com/react/react-native/actions/runs/37915816610) | ios debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:06 | [37915496674](https://github.com/react/react-native/actions/runs/37915496674) | android release rntester | upstream | - | 51 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:06 | [37915496674](https://github.com/react/react-native/actions/runs/37915496674) | android debug rntester | upstream | - | 27 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:06 | [37915496674](https://github.com/react/react-native/actions/runs/37915496674) | ios debug rntester | upstream | - | 48 | 2 | flatlist-maintainvisible (1), sectionlist-viewability (3) | - | 4 | 0 |
+| 2026-10-09 10:06 | [37915496674](https://github.com/react/react-native/actions/runs/37915496674) | ios release rntester | upstream | - | 48 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:06 | [37915496674](https://github.com/react/react-native/actions/runs/37915496674) | android release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:06 | [37915496674](https://github.com/react/react-native/actions/runs/37915496674) | android debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:06 | [37915496674](https://github.com/react/react-native/actions/runs/37915496674) | ios debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:06 | [37915496674](https://github.com/react/react-native/actions/runs/37915496674) | ios release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:02 | [37915093498](https://github.com/react/react-native/actions/runs/37915093498) | android debug rntester | upstream | - | 27 | 1 | text (1) | - | 1 | 1 |
+| 2026-10-09 10:02 | [37915093498](https://github.com/react/react-native/actions/runs/37915093498) | android release rntester | upstream | - | 51 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:02 | [37915093498](https://github.com/react/react-native/actions/runs/37915093498) | ios debug rntester | upstream | - | 48 | 2 | flatlist-prepend-delete-maintainvisible (1), sectionlist-viewability (1) | - | 2 | 0 |
+| 2026-10-09 10:02 | [37915093498](https://github.com/react/react-native/actions/runs/37915093498) | ios release rntester | upstream | - | 48 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:02 | [37915093498](https://github.com/react/react-native/actions/runs/37915093498) | android debug templateapp | upstream | - | 1 | 1 | start (1) | - | 1 | 1 |
+| 2026-10-09 10:02 | [37915093498](https://github.com/react/react-native/actions/runs/37915093498) | android release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:02 | [37915093498](https://github.com/react/react-native/actions/runs/37915093498) | ios release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 10:02 | [37915093498](https://github.com/react/react-native/actions/runs/37915093498) | ios debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:58 | [37914721937](https://github.com/react/react-native/actions/runs/37914721937) | android release rntester | upstream | - | 51 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:58 | [37914721937](https://github.com/react/react-native/actions/runs/37914721937) | android debug rntester | upstream | - | 27 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:58 | [37914721937](https://github.com/react/react-native/actions/runs/37914721937) | ios release rntester | upstream | - | 48 | 1 | sectionlist-viewability (6) | - | 49 | 1 |
+| 2026-10-09 09:58 | [37914721937](https://github.com/react/react-native/actions/runs/37914721937) | ios debug rntester | upstream | - | 48 | 3 | flatlist-inverted-recycle-maintainvisible (1), sectionlist-viewability (1), touchable (1) | - | 51 | 1 |
+| 2026-10-09 09:58 | [37914721937](https://github.com/react/react-native/actions/runs/37914721937) | android debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:58 | [37914721937](https://github.com/react/react-native/actions/runs/37914721937) | android release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:58 | [37914721937](https://github.com/react/react-native/actions/runs/37914721937) | ios release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:58 | [37914721937](https://github.com/react/react-native/actions/runs/37914721937) | ios debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:51 | [37913977365](https://github.com/react/react-native/actions/runs/37913977365) | android debug rntester | upstream | - | 27 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:51 | [37913977365](https://github.com/react/react-native/actions/runs/37913977365) | android release rntester | upstream | - | 51 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:51 | [37913977365](https://github.com/react/react-native/actions/runs/37913977365) | android release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:51 | [37913977365](https://github.com/react/react-native/actions/runs/37913977365) | android debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:51 | [37913977365](https://github.com/react/react-native/actions/runs/37913977365) | ios debug rntester | upstream | - | 48 | 3 | flatlist-horizontal-recycle-maintainvisible (1), sectionlist-viewability (10), text-width-mode (1) | - | 98 | 2 |
+| 2026-10-09 09:51 | [37913977365](https://github.com/react/react-native/actions/runs/37913977365) | ios release rntester | upstream | - | 48 | 1 | sectionlist-viewability (5) | - | 96 | 2 |
+| 2026-10-09 09:51 | [37913977365](https://github.com/react/react-native/actions/runs/37913977365) | ios debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:51 | [37913977365](https://github.com/react/react-native/actions/runs/37913977365) | ios release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:48 | [37913592551](https://github.com/react/react-native/actions/runs/37913592551) | android release rntester | upstream | - | 51 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:48 | [37913592551](https://github.com/react/react-native/actions/runs/37913592551) | android debug rntester | upstream | - | 27 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:48 | [37913592551](https://github.com/react/react-native/actions/runs/37913592551) | ios release rntester | upstream | - | 48 | 1 | - | sectionlist-viewability | 96 | 2 |
+| 2026-10-09 09:48 | [37913592551](https://github.com/react/react-native/actions/runs/37913592551) | ios debug rntester | upstream | - | 48 | 3 | flatlist-horizontal-inverted-maintainvisible (1), flatlist-horizontal-inverted-recycle-maintainvisible (1), sectionlist-viewability (5) | - | 98 | 2 |
+| 2026-10-09 09:48 | [37913592551](https://github.com/react/react-native/actions/runs/37913592551) | android release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:48 | [37913592551](https://github.com/react/react-native/actions/runs/37913592551) | android debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:48 | [37913592551](https://github.com/react/react-native/actions/runs/37913592551) | ios debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:48 | [37913592551](https://github.com/react/react-native/actions/runs/37913592551) | ios release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:38 | [37912558967](https://github.com/react/react-native/actions/runs/37912558967) | android debug rntester | upstream | - | 27 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:38 | [37912558967](https://github.com/react/react-native/actions/runs/37912558967) | android release rntester | upstream | - | 51 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:38 | [37912558967](https://github.com/react/react-native/actions/runs/37912558967) | android debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:38 | [37912558967](https://github.com/react/react-native/actions/runs/37912558967) | android release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:38 | [37912558967](https://github.com/react/react-native/actions/runs/37912558967) | ios release rntester | upstream | - | 48 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:38 | [37912558967](https://github.com/react/react-native/actions/runs/37912558967) | ios debug rntester | upstream | - | 48 | 1 | flatlist-horizontal-inverted-maintainvisible (1) | - | 1 | 0 |
+| 2026-10-09 09:38 | [37912558967](https://github.com/react/react-native/actions/runs/37912558967) | ios debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:38 | [37912558967](https://github.com/react/react-native/actions/runs/37912558967) | ios release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:33 | [37912047572](https://github.com/react/react-native/actions/runs/37912047572) | android release rntester | upstream | - | 51 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:33 | [37912047572](https://github.com/react/react-native/actions/runs/37912047572) | android debug rntester | upstream | - | 27 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:33 | [37912047572](https://github.com/react/react-native/actions/runs/37912047572) | android debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:33 | [37912047572](https://github.com/react/react-native/actions/runs/37912047572) | android release templateapp | upstream | - | 1 | 1 | start (1) | - | 1 | 1 |
+| 2026-10-09 09:33 | [37912047572](https://github.com/react/react-native/actions/runs/37912047572) | ios debug rntester | upstream | - | 48 | 1 | new-arch-examples (1) | - | 1 | 0 |
+| 2026-10-09 09:33 | [37912047572](https://github.com/react/react-native/actions/runs/37912047572) | ios release rntester | upstream | - | 48 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:33 | [37912047572](https://github.com/react/react-native/actions/runs/37912047572) | ios release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 09:33 | [37912047572](https://github.com/react/react-native/actions/runs/37912047572) | ios debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 00:19 | [37864204099](https://github.com/react/react-native/actions/runs/37864204099) | android debug rntester | upstream | - | 27 | 0 | - | - | 0 | 0 |
+| 2026-10-09 00:19 | [37864204099](https://github.com/react/react-native/actions/runs/37864204099) | android release rntester | upstream | - | 51 | 0 | - | - | 0 | 0 |
+| 2026-10-09 00:19 | [37864204099](https://github.com/react/react-native/actions/runs/37864204099) | android debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 00:19 | [37864204099](https://github.com/react/react-native/actions/runs/37864204099) | android release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 00:19 | [37864204099](https://github.com/react/react-native/actions/runs/37864204099) | ios release rntester | upstream | - | 48 | 1 | modal (1) | - | 87 | 2 |
+| 2026-10-09 00:19 | [37864204099](https://github.com/react/react-native/actions/runs/37864204099) | ios debug rntester | upstream | - | 48 | 2 | alert (2), sectionlist-viewability (14) | - | 102 | 2 |
+| 2026-10-09 00:19 | [37864204099](https://github.com/react/react-native/actions/runs/37864204099) | ios debug templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
+| 2026-10-09 00:19 | [37864204099](https://github.com/react/react-native/actions/runs/37864204099) | ios release templateapp | upstream | - | 1 | 0 | - | - | 0 | 0 |
 | 2026-10-08 23:41 | [37860849470](https://github.com/maestro-runner-bench/react-native/actions/runs/37860849470) | android release rntester | ours | e8a87b5 | 51 | 0 | - | - | 0 | 0 |
 | 2026-10-08 23:41 | [37860849470](https://github.com/maestro-runner-bench/react-native/actions/runs/37860849470) | android debug rntester | ours | e8a87b5 | 27 | 25 | alert (1), animated-fade-in-view (1), appearance (1), button (1), filter-animated-blur (1), flatlist-viewability (1), flatlist (1), launch-app-and-search (1), search (1), image-blur-prefetch (1), image-getsize-local-drawables (1), image-progressive-jpeg (1), image-wide-gamut (1), image (1), legacy-native-module (1), modal (1), new-arch-examples (1), pressable (1), scrollview-minindex-maintainvisible (1), scrollview-threshold-maintainvisible (1), sectionlist-viewability (1), text-width-mode (1) | text, textinput-uncontrolled, touchable | 22 | 1 |
 | 2026-10-08 23:41 | [37860849470](https://github.com/maestro-runner-bench/react-native/actions/runs/37860849470) | android release templateapp | ours | e8a87b5 | 1 | 0 | - | - | 0 | 0 |
