@@ -23,8 +23,8 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android | e8a87b5 | 29 vs 72 | 25.9 vs **14.2** | 17% vs **29%** | 3.48 vs **1.83** | 0% vs 0% | 24.8 vs **9.1** | 48% vs **17%** | fullscreen-test ×19, picture-in-picture-test.android ×17, test ×15 / fullscreen-test ×34, maestro-generated ×29, picture-in-picture-test.android ×26 |
-| ios | e8a87b5 | 28 vs 60 | **11.1** vs 16.4 | **57%** vs 43% | **0.46** vs 0.95 | 0% vs 0% | **0.5** vs 1.3 | **0%** vs 15% | fullscreen-test ×7, playback-test ×3, test ×3 / fullscreen-test ×30, test ×11, playback-test ×11 |
+| android | e8a87b5 | 29 vs 73 | 25.9 vs **14.2** | 17% vs **30%** | 3.48 vs **1.81** | 0% vs 0% | 24.8 vs **9.0** | 48% vs **16%** | fullscreen-test ×19, picture-in-picture-test.android ×17, test ×15 / fullscreen-test ×34, maestro-generated ×29, picture-in-picture-test.android ×26 |
+| ios | e8a87b5 | 28 vs 61 | **11.1** vs 16.8 | **57%** vs 43% | **0.46** vs 0.95 | 0% vs 0% | **0.5** vs 1.3 | **0%** vs 15% | fullscreen-test ×7, playback-test ×3, test ×3 / fullscreen-test ×31, test ×11, playback-test ×11 |
 
 Ours on earlier maestro-runner builds:
 
@@ -55,14 +55,14 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android debug rntester | e8a87b5 | 27 vs 139 | **11.6** vs 18.9 | 93% vs 93% | 1.85 vs **1.45** | **4%** vs 8% | **0.8** vs 1.8 | 7% vs **1%** | alert ×2, animated-fade-in-view ×2, appearance ×2 / image-progressive-jpeg ×9, text ×9, alert ×8 |
-| android debug templateapp | e8a87b5 | 26 vs 138 | **2.8** vs 3.2 | **96%** vs 93% | **0.04** vs 0.07 | 8% vs **7%** | 0.2 vs **0.1** | **0%** vs 1% | start ×1 / start ×10 |
-| android release rntester | e8a87b5 | 27 vs 139 | **15.1** vs 27.9 | **100%** vs 95% | **0.00** vs 2.47 | **0%** vs 5% | **0.0** vs 3.2 | **0%** vs 1% | - / alert ×7, animated-fade-in-view ×7, appearance ×7 |
-| android release templateapp | e8a87b5 | 26 vs 138 | **2.2** vs 2.5 | **96%** vs 93% | **0.04** vs 0.07 | 8% vs **7%** | 0.2 vs **0.1** | **0%** vs 1% | start ×1 / start ×9 |
-| ios debug rntester | e8a87b5 | 29 vs 137 | **26.5** vs 86.9 | **72%** vs 18% | 2.83 vs **1.47** | **14%** vs 44% | 44.9 vs **26.3** | 14% vs **12%** | alert ×4, flatlist-append-maintainvisible ×4, flatlist-delete-anchor-maintainvisible ×4 / sectionlist-viewability ×64, flatlist-append-maintainvisible ×12, scrollview-threshold-maintainvisible ×7 |
-| ios debug templateapp | e8a87b5 | 26 vs 131 | **8.4** vs 10.4 | 85% vs **89%** | 0.15 vs **0.11** | 0% vs 0% | 0.2 vs **0.1** | 0% vs 0% | start ×4 / start ×14 |
-| ios release rntester | e8a87b5 | 29 vs 138 | **23.8** vs 84.3 | **83%** vs 38% | 2.66 vs **0.67** | **14%** vs 45% | 44.7 vs **27.4** | 14% vs **9%** | flatlist-horizontal-inverted-recycle-maintainvisible ×5, flatlist-append-maintainvisible ×4, flatlist-delete-anchor-maintainvisible ×4 / sectionlist-viewability ×68, flatlist-append-maintainvisible ×11, alert ×3 |
-| ios release templateapp | e8a87b5 | 26 vs 131 | **6.3** vs 9.5 | 100% vs 100% | 0.00 vs 0.00 | 0% vs 0% | 0.0 vs 0.0 | 0% vs 0% | - / - |
+| android debug rntester | e8a87b5 | 27 vs 157 | **11.6** vs 18.9 | 93% vs **94%** | 1.85 vs **1.29** | **4%** vs 7% | **0.8** vs 1.6 | 7% vs **1%** | alert ×2, animated-fade-in-view ×2, appearance ×2 / image-progressive-jpeg ×9, text ×9, alert ×8 |
+| android debug templateapp | e8a87b5 | 26 vs 156 | **2.8** vs 3.2 | **96%** vs 93% | **0.04** vs 0.07 | 8% vs **7%** | 0.2 vs **0.1** | **0%** vs 1% | start ×1 / start ×11 |
+| android release rntester | e8a87b5 | 27 vs 157 | **15.1** vs 27.9 | **100%** vs 95% | **0.00** vs 2.19 | **0%** vs 5% | **0.0** vs 2.8 | **0%** vs 1% | - / image-progressive-jpeg ×8, alert ×7, animated-fade-in-view ×7 |
+| android release templateapp | e8a87b5 | 26 vs 156 | **2.2** vs 2.5 | **96%** vs 94% | **0.04** vs 0.06 | 8% vs **7%** | 0.2 vs **0.1** | **0%** vs 1% | start ×1 / start ×10 |
+| ios debug rntester | e8a87b5 | 29 vs 154 | **26.5** vs 87.3 | **72%** vs 18% | 2.83 vs **1.48** | **14%** vs 46% | 44.9 vs **27.2** | 14% vs **12%** | alert ×4, flatlist-append-maintainvisible ×4, flatlist-delete-anchor-maintainvisible ×4 / sectionlist-viewability ×72, flatlist-append-maintainvisible ×12, scrollview-threshold-maintainvisible ×8 |
+| ios debug templateapp | e8a87b5 | 26 vs 149 | **8.4** vs 10.4 | 85% vs **89%** | 0.15 vs **0.11** | **0%** vs 1% | 0.2 vs **0.1** | 0% vs 0% | start ×4 / start ×16 |
+| ios release rntester | e8a87b5 | 29 vs 155 | **23.8** vs 85.6 | **83%** vs 39% | 2.66 vs **0.66** | **14%** vs 47% | 44.7 vs **28.6** | 14% vs **10%** | flatlist-horizontal-inverted-recycle-maintainvisible ×5, flatlist-append-maintainvisible ×4, flatlist-delete-anchor-maintainvisible ×4 / sectionlist-viewability ×77, flatlist-append-maintainvisible ×11, alert ×4 |
+| ios release templateapp | e8a87b5 | 26 vs 149 | **6.3** vs 9.5 | 100% vs 100% | 0.00 vs 0.00 | **0%** vs 1% | 0.0 vs 0.0 | 0% vs 0% | - / - |
 
 Ours on earlier maestro-runner builds:
 
@@ -83,8 +83,8 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android | e8a87b5 | 29 vs 65 | 26.2 vs **24.0** | **90%** vs 74% | **0.10** vs 0.29 | 0% vs 0% | **0.1** vs 0.3 | 0% vs 0% | Tab View - Coverflow ×1, Tab View - Custom Tab Bar ×1, Showcase - Material Top Tabs ×1 / Tab View - Scrollable Tab Bar ×7, Bottom Tabs - Preload Flow ×5, Screen Layout ×2 |
-| ios | e8a87b5 | 29 vs 77 | **18.2** vs 24.4 | **93%** vs 57% | **0.07** vs 0.49 | 0% vs 0% | **0.1** vs 0.5 | 0% vs 0% | Auth Flow ×2 / Screen Layout ×5, Tab View - Scrollable Tab Bar ×5, Stack - Prevent Remove ×4 |
+| android | e8a87b5 | 29 vs 70 | 26.2 vs **24.0** | **90%** vs 76% | **0.10** vs 0.27 | 0% vs 0% | **0.1** vs 0.3 | 0% vs 0% | Tab View - Coverflow ×1, Tab View - Custom Tab Bar ×1, Showcase - Material Top Tabs ×1 / Tab View - Scrollable Tab Bar ×7, Bottom Tabs - Preload Flow ×5, Screen Layout ×2 |
+| ios | e8a87b5 | 29 vs 83 | **18.2** vs 24.6 | **93%** vs 60% | **0.07** vs 0.46 | 0% vs 0% | **0.1** vs 0.5 | 0% vs 0% | Auth Flow ×2 / Screen Layout ×5, Tab View - Scrollable Tab Bar ×5, Stack - Prevent Remove ×4 |
 
 Ours on earlier maestro-runner builds:
 

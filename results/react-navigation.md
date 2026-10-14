@@ -10,11 +10,11 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | react-navigation | android | - | ours | e8a87b5 | 29 | 26.2 | 29/29 | 26/29 | 0.10 | 0.00 | 0/29 | ubuntu-latest |
 | react-navigation | android | - | ours | 6904d0f | 17 | 26.2 | 17/17 | 14/17 | 0.24 | 0.00 | 0/17 | ubuntu-latest |
-| react-navigation | android | - | upstream | - | 65 | 24.0 | 56/65 | 44/65 | 0.45 | 0.15 | 0/65 | ubuntu-latest |
+| react-navigation | android | - | upstream | - | 70 | 24.0 | 61/70 | 49/70 | 0.41 | 0.14 | 0/70 | ubuntu-latest |
 | react-navigation | ios | - | ours | e8a87b5 | 29 | 18.2 | 29/29 | 27/29 | 0.07 | 0.00 | 0/29 | macos-latest |
 | react-navigation | ios | - | ours | older | 1 | 1.4 | 0/1 | - | - | - | 0/1 | macos-latest |
 | react-navigation | ios | - | ours | 6904d0f | 17 | 19.0 | 17/17 | 14/17 | 0.18 | 0.00 | 0/17 | macos-latest |
-| react-navigation | ios | - | upstream | - | 77 | 24.4 | 69/77 | 39/77 | 0.60 | 0.10 | 0/77 | macos-latest |
+| react-navigation | ios | - | upstream | - | 83 | 24.6 | 75/83 | 45/83 | 0.55 | 0.10 | 0/83 | macos-latest |
 
 ## Runs: maestro-runner (bench fork)
 
@@ -118,6 +118,17 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Started (UTC) | Run | Build | Run time | Job | Job time | Tests | Queue | Result |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-13 22:19 | [38476953999](https://github.com/react-navigation/react-navigation/actions/runs/38476953999) | agent-device | 58.7 | e2e-ios | 36.6 | 27.5 | 0.1 | 39/39 |
+| 2026-10-13 23:14 | [38476953949](https://github.com/react-navigation/react-navigation/actions/runs/38476953949) | agent-device | 38.7 | e2e-android | 26.8 | 24.2 | 0.1 | 39/39 |
+| 2026-10-13 17:42 | [38440843056](https://github.com/react-navigation/react-navigation/actions/runs/38440843056) | agent-device | 32.5 | e2e-android | 20.1 | 17.6 | 0.0 | 39/39 |
+| 2026-10-13 19:17 | [38440843082](https://github.com/react-navigation/react-navigation/actions/runs/38440843082) | agent-device | 36.5 | e2e-ios | 36.2 | 27.4 | 0.3 | 39/39 |
+| 2026-10-13 16:28 | [38430795627](https://github.com/react-navigation/react-navigation/actions/runs/38430795627) | agent-device | 35.5 | e2e-android | 27.4 | 24.7 | 0.0 | 39/39 |
+| 2026-10-13 16:28 | [38430795632](https://github.com/react-navigation/react-navigation/actions/runs/38430795632) | agent-device | 56.8 | e2e-ios | 37.3 | 29.2 | 0.1 | 39/39 |
+| 2026-10-13 13:27 | [38405109921](https://github.com/react-navigation/react-navigation/actions/runs/38405109921) | agent-device | 29.0 | e2e-android | 27.7 | 24.6 | 0.1 | 39/39 |
+| 2026-10-13 13:27 | [38405110226](https://github.com/react-navigation/react-navigation/actions/runs/38405110226) | agent-device | 35.2 | e2e-ios | 32.0 | 24.6 | 0.1 | 39/39 |
+| 2026-10-13 12:04 | [38394595687](https://github.com/react-navigation/react-navigation/actions/runs/38394595687) | agent-device | 28.1 | e2e-android | 27.4 | 24.5 | 0.1 | 39/39 |
+| 2026-10-13 12:04 | [38394595840](https://github.com/react-navigation/react-navigation/actions/runs/38394595840) | agent-device | 41.0 | e2e-ios | 39.3 | 30.1 | 0.1 | 39/39 |
+| 2026-10-13 04:09 | [38345104668](https://github.com/react-navigation/react-navigation/actions/runs/38345104668) | agent-device | 52.3 | e2e-ios | 34.0 | 25.8 | 0.1 | 39/39 |
 | 2026-10-12 13:42 | [38257564467](https://github.com/react-navigation/react-navigation/actions/runs/38257564467) | agent-device | 35.4 | e2e-android | 26.8 | 24.0 | 0.1 | 39/39 |
 | 2026-10-12 13:42 | [38257564456](https://github.com/react-navigation/react-navigation/actions/runs/38257564456) | agent-device | 52.9 | e2e-ios | 38.8 | 29.1 | 0.2 | 39/39, 1 passed on retry |
 | 2026-10-12 12:27 | [38249170591](https://github.com/react-navigation/react-navigation/actions/runs/38249170591) | agent-device | 27.6 | e2e-android | 26.9 | 24.2 | 0.1 | 39/39 |
@@ -276,8 +287,8 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android | e8a87b5 | 29 vs 65 | 26.2 vs **24.0** | **90%** vs 74% | **0.10** vs 0.29 | 0% vs 0% | **0.1** vs 0.3 | 0% vs 0% | Tab View - Coverflow ×1, Tab View - Custom Tab Bar ×1, Showcase - Material Top Tabs ×1 / Tab View - Scrollable Tab Bar ×7, Bottom Tabs - Preload Flow ×5, Screen Layout ×2 |
-| ios | e8a87b5 | 29 vs 77 | **18.2** vs 24.4 | **93%** vs 57% | **0.07** vs 0.49 | 0% vs 0% | **0.1** vs 0.5 | 0% vs 0% | Auth Flow ×2 / Screen Layout ×5, Tab View - Scrollable Tab Bar ×5, Stack - Prevent Remove ×4 |
+| android | e8a87b5 | 29 vs 70 | 26.2 vs **24.0** | **90%** vs 76% | **0.10** vs 0.27 | 0% vs 0% | **0.1** vs 0.3 | 0% vs 0% | Tab View - Coverflow ×1, Tab View - Custom Tab Bar ×1, Showcase - Material Top Tabs ×1 / Tab View - Scrollable Tab Bar ×7, Bottom Tabs - Preload Flow ×5, Screen Layout ×2 |
+| ios | e8a87b5 | 29 vs 83 | **18.2** vs 24.6 | **93%** vs 60% | **0.07** vs 0.46 | 0% vs 0% | **0.1** vs 0.5 | 0% vs 0% | Auth Flow ×2 / Screen Layout ×5, Tab View - Scrollable Tab Bar ×5, Stack - Prevent Remove ×4 |
 
 Ours on earlier maestro-runner builds:
 
@@ -290,10 +301,21 @@ Ours on earlier maestro-runner builds:
 
 | Started (UTC) | Run | Platform | Side | Build | Flows | Failed at least once | Passed on retry (failed attempts) | Failed at the end | Extra flow runs | Retry jobs |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 2026-10-12 13:42 | [38257564456](https://github.com/react-navigation/react-navigation/actions/runs/38257564456) | ios | upstream | - | 39 | 1 | Auth Flow (1) | - | 1 | 0 |
+| 2026-10-13 22:19 | [38476953999](https://github.com/react-navigation/react-navigation/actions/runs/38476953999) | ios | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-13 22:19 | [38476953949](https://github.com/react-navigation/react-navigation/actions/runs/38476953949) | android | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-13 17:42 | [38440843082](https://github.com/react-navigation/react-navigation/actions/runs/38440843082) | ios | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-13 17:42 | [38440843056](https://github.com/react-navigation/react-navigation/actions/runs/38440843056) | android | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-13 16:28 | [38430795632](https://github.com/react-navigation/react-navigation/actions/runs/38430795632) | ios | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-13 16:28 | [38430795627](https://github.com/react-navigation/react-navigation/actions/runs/38430795627) | android | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-13 13:27 | [38405110226](https://github.com/react-navigation/react-navigation/actions/runs/38405110226) | ios | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-13 13:27 | [38405109921](https://github.com/react-navigation/react-navigation/actions/runs/38405109921) | android | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-13 12:04 | [38394595840](https://github.com/react-navigation/react-navigation/actions/runs/38394595840) | ios | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-13 12:04 | [38394595687](https://github.com/react-navigation/react-navigation/actions/runs/38394595687) | android | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-13 04:09 | [38345104668](https://github.com/react-navigation/react-navigation/actions/runs/38345104668) | ios | upstream | - | 39 | 0 | - | - | 0 | 0 |
 | 2026-10-12 13:42 | [38257564467](https://github.com/react-navigation/react-navigation/actions/runs/38257564467) | android | upstream | - | 39 | 0 | - | - | 0 | 0 |
-| 2026-10-12 12:27 | [38249170501](https://github.com/react-navigation/react-navigation/actions/runs/38249170501) | ios | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-12 13:42 | [38257564456](https://github.com/react-navigation/react-navigation/actions/runs/38257564456) | ios | upstream | - | 39 | 1 | Auth Flow (1) | - | 1 | 0 |
 | 2026-10-12 12:27 | [38249170591](https://github.com/react-navigation/react-navigation/actions/runs/38249170591) | android | upstream | - | 39 | 0 | - | - | 0 | 0 |
+| 2026-10-12 12:27 | [38249170501](https://github.com/react-navigation/react-navigation/actions/runs/38249170501) | ios | upstream | - | 39 | 0 | - | - | 0 | 0 |
 | 2026-10-12 11:40 | [38244202456](https://github.com/react-navigation/react-navigation/actions/runs/38244202456) | android | upstream | - | 39 | 1 | Loaders (1) | - | 1 | 0 |
 | 2026-10-12 04:16 | [38203109664](https://github.com/react-navigation/react-navigation/actions/runs/38203109664) | android | upstream | - | 39 | 0 | - | - | 0 | 0 |
 | 2026-10-12 04:13 | [38202908060](https://github.com/react-navigation/react-navigation/actions/runs/38202908060) | ios | upstream | - | 39 | 2 | Screen Layout (1), Tab View - Auto Width Tab Bar (1) | - | 2 | 0 |
