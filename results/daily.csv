@@ -311,3 +311,13 @@ day,project,platform,flavor,side,runs,test_min,first_time_pct,failed_once
 2026-10-15,react-native,ios,release,upstream,16,186.3,19,0.81
 2026-10-15,react-navigation,android,,upstream,2,24.8,100,0.0
 2026-10-15,react-navigation,ios,,upstream,2,25.1,0,2.0
+2026-10-16,expo,android,,upstream,4,11.2,75,0.25
+2026-10-16,expo,ios,,upstream,3,19.3,33,0.67
+2026-10-16,react-native,android,debug,upstream,10,19.0,100,0.0
+2026-10-16,react-native,android,release,upstream,10,27.5,100,0.0
+2026-10-16,react-native,ios,debug,upstream,8,98.1,0,1.75
+2026-10-16,react-native,ios,release,upstream,9,95.3,22,0.78
+2026-10-16,react-navigation,android,,upstream,1,24.5,100,0.0
+2026-10-16,react-navigation,ios,,upstream,1,31.9,0,1.0
+2026-10-17,expo,android,,upstream,1,9.9,100,0.0
+2026-10-17,expo,ios,,upstream,1,19.8,0,1.0
