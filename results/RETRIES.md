@@ -25,8 +25,8 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android | e8a87b5 | 29 vs 106 | 25.9 vs **12.8** | 17% vs **40%** | 3.48 vs **1.48** | 0% vs 0% | 24.8 vs **6.6** | 48% vs **11%** | fullscreen-test ×19, picture-in-picture-test.android ×17, test ×15 / fullscreen-test ×40, maestro-generated ×37, picture-in-picture-test.android ×31 |
-| ios | e8a87b5 | 28 vs 98 | **11.1** vs 15.9 | **57%** vs 40% | **0.46** vs 1.00 | 0% vs 0% | **0.5** vs 1.3 | **0%** vs 14% | fullscreen-test ×7, playback-test ×3, test ×3 / fullscreen-test ×44, playback-test ×22, maestro-generated ×18 |
+| android | e8a87b5 | 29 vs 107 | 25.9 vs **12.8** | 17% vs **40%** | 3.48 vs **1.47** | 0% vs 0% | 24.8 vs **6.6** | 48% vs **11%** | fullscreen-test ×19, picture-in-picture-test.android ×17, test ×15 / fullscreen-test ×40, maestro-generated ×37, picture-in-picture-test.android ×31 |
+| ios | e8a87b5 | 28 vs 99 | **11.1** vs 15.8 | **57%** vs 40% | **0.46** vs 0.99 | 0% vs 0% | **0.5** vs 1.3 | **0%** vs 14% | fullscreen-test ×7, playback-test ×3, test ×3 / fullscreen-test ×44, playback-test ×22, maestro-generated ×18 |
 
 Ours on earlier maestro-runner builds:
 
@@ -85,8 +85,8 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android | e8a87b5 | 29 vs 85 | 26.2 vs **24.1** | **90%** vs 78% | **0.10** vs 0.25 | 0% vs 0% | **0.1** vs 0.3 | 0% vs 0% | Tab View - Coverflow ×1, Tab View - Custom Tab Bar ×1, Showcase - Material Top Tabs ×1 / Tab View - Scrollable Tab Bar ×7, Bottom Tabs - Preload Flow ×5, Loaders ×2 |
-| ios | e8a87b5 | 29 vs 97 | **18.2** vs 24.8 | **93%** vs 56% | **0.07** vs 0.52 | 0% vs 0% | **0.1** vs 0.6 | 0% vs 0% | Auth Flow ×2 / Screen Layout ×8, Tab View - Scrollable Tab Bar ×8, Stack - Prevent Remove ×5 |
+| android | e8a87b5 | 29 vs 86 | 26.2 vs **24.1** | **90%** vs 78% | **0.10** vs 0.24 | 0% vs 0% | **0.1** vs 0.3 | 0% vs 0% | Tab View - Coverflow ×1, Tab View - Custom Tab Bar ×1, Showcase - Material Top Tabs ×1 / Tab View - Scrollable Tab Bar ×7, Bottom Tabs - Preload Flow ×5, Loaders ×2 |
+| ios | e8a87b5 | 29 vs 98 | **18.2** vs 24.8 | **93%** vs 56% | **0.07** vs 0.51 | 0% vs 0% | **0.1** vs 0.6 | 0% vs 0% | Auth Flow ×2 / Screen Layout ×8, Tab View - Scrollable Tab Bar ×8, Stack - Prevent Remove ×5 |
 
 Ours on earlier maestro-runner builds:
 
