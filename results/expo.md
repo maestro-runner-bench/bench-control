@@ -10,10 +10,10 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | expo | android | - | ours | e8a87b5 | 29 | 25.9 | 15/29 | 5/29 | 3.48 | 2.97 | 0/29 | ubuntu-24.04 |
 | expo | android | - | ours | 6904d0f | 6 | 12.4 | 6/6 | 0/6 | 1.50 | 0.33 | 0/6 | ubuntu-24.04 |
-| expo | android | - | upstream | - | 121 | 12.6 | 110/122 | 62/122 | 1.15 | 0.37 | 0/121 | blacksmith-4vcpu-ubuntu-2404, ubuntu-24.04 |
+| expo | android | - | upstream | - | 125 | 12.5 | 114/126 | 65/126 | 1.17 | 0.41 | 0/125 | blacksmith-4vcpu-ubuntu-2404, ubuntu-24.04 |
 | expo | ios | - | ours | e8a87b5 | 28 | 11.1 | 28/28 | 16/28 | 0.46 | 0.00 | 0/28 | macos-26 |
 | expo | ios | - | ours | 6904d0f | 5 | 9.6 | 5/5 | 1/5 | 0.80 | 0.00 | 0/5 | macos-26 |
-| expo | ios | - | upstream | - | 116 | 16.0 | 99/117 | 58/117 | 0.84 | 0.06 | 0/116 | blacksmith-6vcpu-macos-26, macos-26 |
+| expo | ios | - | upstream | - | 119 | 15.9 | 102/120 | 61/120 | 0.82 | 0.06 | 0/119 | blacksmith-6vcpu-macos-26, macos-26 |
 
 ## Runs: maestro-runner (bench fork)
 
@@ -93,6 +93,13 @@ Times in minutes. *Run* is the whole workflow run (builds included); *job* is on
 
 | Started (UTC) | Run | Build | Run time | Job | Job time | Tests | Queue | Result |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-26 18:46 | [40380777387](https://github.com/expo/expo/actions/runs/40380777387) | maestro | 50.0 | android | 21.5 | 20.8 | 0.1 | 7 failed |
+| 2026-10-26 14:04 | [40336305895](https://github.com/expo/expo/actions/runs/40336305895) | maestro | 13.4 | android | 8.1 | 7.6 | 0.1 | all passed |
+|  | | |  | ios | 5.1 | 3.9 | 0.4 | all passed |
+| 2026-10-26 13:04 | [40327539827](https://github.com/expo/expo/actions/runs/40327539827) | maestro | 13.3 | android | 9.4 | 8.8 | 0.2 | all passed |
+|  | | |  | ios | 4.7 | 3.5 | 0.4 | all passed |
+| 2026-10-26 12:37 | [40323978333](https://github.com/expo/expo/actions/runs/40323978333) | maestro | 16.0 | android | 6.2 | 5.8 | 0.1 | all passed |
+|  | | |  | ios | 4.8 | 3.6 | 0.4 | all passed |
 | 2026-10-25 16:23 | [40211417225](https://github.com/expo/expo/actions/runs/40211417225) | maestro | 14.0 | android | 7.9 | 7.2 | 0.1 | all passed |
 |  | | |  | ios | 4.8 | 3.8 | 0.5 | all passed |
 | 2026-10-24 19:48 | [40126943932](https://github.com/expo/expo/actions/runs/40126943932) | maestro | 12.8 | android | 6.5 | 6.1 | 0.1 | all passed |
@@ -348,8 +355,8 @@ Each cell: **ours vs upstream**; the better one in bold. Ours is the newest maes
 
 | Job | Build | Runs | Test time / run (min) | Every flow passed first time | Flows that failed at least once / run | Runs needing a retry job | Extra flow runs / run | Runs ending with a failed flow | Most often failing (ours / upstream) |
 |---|---|---|---|---|---|---|---|---|---|
-| android | e8a87b5 | 29 vs 107 | 25.9 vs **12.8** | 17% vs **40%** | 3.48 vs **1.47** | 0% vs 0% | 24.8 vs **6.6** | 48% vs **11%** | fullscreen-test ×19, picture-in-picture-test.android ×17, test ×15 / fullscreen-test ×40, maestro-generated ×37, picture-in-picture-test.android ×31 |
-| ios | e8a87b5 | 28 vs 99 | **11.1** vs 15.8 | **57%** vs 40% | **0.46** vs 0.99 | 0% vs 0% | **0.5** vs 1.3 | **0%** vs 14% | fullscreen-test ×7, playback-test ×3, test ×3 / fullscreen-test ×44, playback-test ×22, maestro-generated ×18 |
+| android | e8a87b5 | 29 vs 111 | 25.9 vs **12.7** | 17% vs **41%** | 3.48 vs **1.49** | 0% vs 0% | 24.8 vs **6.5** | 48% vs **11%** | fullscreen-test ×19, picture-in-picture-test.android ×17, test ×15 / fullscreen-test ×41, maestro-generated ×38, picture-in-picture-test.android ×32 |
+| ios | e8a87b5 | 28 vs 102 | **11.1** vs 15.8 | **57%** vs 42% | **0.46** vs 0.96 | 0% vs 0% | **0.5** vs 1.2 | **0%** vs 14% | fullscreen-test ×7, playback-test ×3, test ×3 / fullscreen-test ×44, playback-test ×22, maestro-generated ×18 |
 
 Ours on earlier maestro-runner builds:
 
@@ -362,6 +369,13 @@ Ours on earlier maestro-runner builds:
 
 | Started (UTC) | Run | Platform | Side | Build | Flows | Failed at least once | Passed on retry (failed attempts) | Failed at the end | Extra flow runs | Retry jobs |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 2026-10-26 18:46 | [40380777387](https://github.com/expo/expo/actions/runs/40380777387) | android | upstream | - | 8 | 8 | test (3), rnhostview-in-clickable.android (3), fullscreen-test (3), picture-in-picture-test.android (3), playback-test (3), player-output-test (3), surface-type-test.android (3), maestro-generated (1) | - | 22 | 0 |
+| 2026-10-26 14:04 | [40336305895](https://github.com/expo/expo/actions/runs/40336305895) | android | upstream | - | 7 | 0 | - | - | 0 | 0 |
+| 2026-10-26 14:04 | [40336305895](https://github.com/expo/expo/actions/runs/40336305895) | ios | upstream | - | 5 | 0 | - | - | 0 | 0 |
+| 2026-10-26 13:04 | [40327539827](https://github.com/expo/expo/actions/runs/40327539827) | android | upstream | - | 7 | 0 | - | - | 0 | 0 |
+| 2026-10-26 13:04 | [40327539827](https://github.com/expo/expo/actions/runs/40327539827) | ios | upstream | - | 5 | 0 | - | - | 0 | 0 |
+| 2026-10-26 12:37 | [40323978333](https://github.com/expo/expo/actions/runs/40323978333) | ios | upstream | - | 5 | 0 | - | - | 0 | 0 |
+| 2026-10-26 12:37 | [40323978333](https://github.com/expo/expo/actions/runs/40323978333) | android | upstream | - | 7 | 0 | - | - | 0 | 0 |
 | 2026-10-25 16:23 | [40211417225](https://github.com/expo/expo/actions/runs/40211417225) | android | upstream | - | 7 | 0 | - | - | 0 | 0 |
 | 2026-10-25 16:23 | [40211417225](https://github.com/expo/expo/actions/runs/40211417225) | ios | upstream | - | 5 | 0 | - | - | 0 | 0 |
 | 2026-10-24 19:48 | [40126943932](https://github.com/expo/expo/actions/runs/40126943932) | ios | upstream | - | 5 | 1 | maestro-generated (1) | - | 1 | 0 |
